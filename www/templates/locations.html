@@ -1,0 +1,13 @@
+<ion-view view-title="Locations">
+  <ion-content>
+    <ion-list show-reorder="shouldShowReorder">
+      <ion-item ng-repeat="location in locations" class="item item-icon-right" href="#/app/locations/{{location.id}}">
+
+        <h2>{{location.attributes.NAME}}</h2>
+        <p>{{location.attributes.CITY}}</p>
+         <i class="icon ion-chevron-right"></i>
+      </ion-item>
+    </ion-list>
+    <
+  </ion-content>
+</ion-view>
