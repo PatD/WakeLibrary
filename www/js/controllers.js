@@ -56,16 +56,23 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('LocationsCtrl', function($scope, $http) {
-  /* $scope.locations = [
-    { title: 'Apex', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
-  */
+// A simple controller that fetches a list of data from a service
+.controller('PetIndexCtrl', function($scope, $http, PetService) {
+  // "Pets" is a service returning mock data (services.js)
+  $scope.pets = PetService.all();
+})
+
+
+// A simple controller that shows a tapped item's data
+.controller('PetDetailCtrl', function($scope, $http, $stateParams, PetService) {
+  // "Pets" is a service returning mock data (services.js)
+  $scope.pet = PetService.get($stateParams.petId);
+})
+
+
+
+
+.controller('LocationsCtrl', function($scope, $http, $stateParams) {
   $scope.locations= [];
   $http.get('http://maps.wakegov.com/arcgis/rest/services/WCPL/Libraries/FeatureServer/0/query?where=+&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&relationParam=&outFields=*&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&outSR=&gdbVersion=&returnDistinctValues=false&returnIdsOnly=false&returnCountOnly=false&orderByFields=NAME&groupByFieldsForStatistics=CITY&outStatistics=&returnZ=false&returnM=false&f=pjson').success(function(data, status, headers, config) {
 
@@ -73,7 +80,7 @@ angular.module('starter.controllers', [])
     $scope.locations = data.features;
         console.log(data.features[0].attributes.NAME);
         console.log(data);
-        console.log("Success " + status)
+        console.log("Success " + status);
     }).
     error(function(data, status, headers, config) {
       // log error
@@ -81,5 +88,6 @@ angular.module('starter.controllers', [])
     });
 })
 
-.controller('LocationCtrl', function($scope) {
+.controller('LocationCtrl', function($scope, $http, $stateParams) {
+
 });

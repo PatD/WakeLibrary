@@ -1,13 +1,30 @@
-<ion-view view-title="Locations">
+<ion-view view-title="Wake Library Locations">
   <ion-content>
     <ion-list show-reorder="shouldShowReorder">
-      <ion-item ng-repeat="location in locations" class="item item-icon-right" href="#/app/locations/{{location.id}}">
-
+      <ion-item ng-repeat="location in locations" class="item item-icon-right" href="#/app/locations/{{location.attributes.OBJECTID}}">
         <h2>{{location.attributes.NAME}}</h2>
         <p>{{location.attributes.CITY}}</p>
          <i class="icon ion-chevron-right"></i>
       </ion-item>
     </ion-list>
-    <
+
+    <!-- About this data -->
+    <div class="list card">
+      <div class="item">
+        <h2>About this Location Data</h2>
+        <p>Wake County Libraries</p>
+      </div>
+
+      <div class="item item-body">
+      <img class="full-image" src="/img/wake-library-logo.jpg">
+        <p>The Wake County Library locations are provided through the Wake County Open Data Portal.  It provides maps, location data feeds, and much more.</p>
+      </div>
+
+      <a class="item item-icon-left calm" href="http://data.wake.opendata.arcgis.com/">
+      <i class="icon ion-android-exit"></i>
+      Vist Wake Open Data</a>
+    </div>
+
+  <!-- End About this data -->
   </ion-content>
 </ion-view>

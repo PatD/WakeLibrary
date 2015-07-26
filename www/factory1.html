@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title> - jsFiddle demo</title>
+
+  <script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.js'></script>
+
+
+
+</head>
+<body>
+  <div ng-app="myApp" ng-controller="emplyCtrl">
+
+<ul>
+  <li ng-repeat="location in locations">
+    {{ location.attributes.NAME }}
+  </li>
+</ul>
+
+</div>
+
+
+
+<script type='text/javascript'>//<![CDATA[
+// Global Variables
+var WakeLibraryJSONfeed = "http://maps.wakegov.com/arcgis/rest/services/WCPL/Libraries/FeatureServer/0/query?where=+&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&relationParam=&outFields=*&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&outSR=&gdbVersion=&returnDistinctValues=false&returnIdsOnly=false&returnCountOnly=false&orderByFields=NAME&groupByFieldsForStatistics=CITY&outStatistics=&returnZ=false&returnM=false&f=pjson";
+
+var demoApp = angular.module("myApp", []);
+
+
+
+demoApp.factory('locationsFactory', ['$http', function($http){
+
+    return {
+
+        getLocation: function(){
+        	var locations = [];
+            return $http.get(WakeLibraryJSONfeed);
+
+        }
+    }
+}]);
+
+demoApp.controller("emplyCtrl", function($scope, locationsFactory){
+    locationsFactory.getLocation().then(function(response){
+        $scope.locations = response.data.features;
+    });
+});
+//]]>
+
+</script>
+http://www.bogotobogo.com/AngularJS/AngularJS_Factory_Services.php
+http://stackoverflow.com/questions/26216769/calling-json-file-from-angular-factory-is-not-working
+
+
+</body>
+
+
+</html>

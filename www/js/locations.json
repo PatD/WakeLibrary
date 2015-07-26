@@ -1,0 +1,377 @@
+{
+ "objectIdFieldName": "OBJECTID",
+ "globalIdFieldName": "",
+ "geometryType": "esriGeometryPoint",
+ "spatialReference": {
+  "wkid": 102719,
+  "latestWkid": 2264
+ },
+ "fields": [
+  {
+   "name": "OBJECTID",
+   "alias": "OBJECTID",
+   "type": "esriFieldTypeOID"
+  },
+  {
+   "name": "BLDGDESC",
+   "alias": "BLDGDESC",
+   "type": "esriFieldTypeString",
+   "length": 60
+  },
+  {
+   "name": "FAC_ADDRESS",
+   "alias": "FAC_ADDRESS",
+   "type": "esriFieldTypeString",
+   "length": 50
+  },
+  {
+   "name": "CITY",
+   "alias": "CITY",
+   "type": "esriFieldTypeString",
+   "length": 50
+  },
+  {
+   "name": "NAME",
+   "alias": "NAME",
+   "type": "esriFieldTypeString",
+   "length": 50
+  },
+  {
+   "name": "BA_ID",
+   "alias": "BA_ID",
+   "type": "esriFieldTypeSmallInteger"
+  },
+  {
+   "name": "CODE",
+   "alias": "CODE",
+   "type": "esriFieldTypeString",
+   "length": 12
+  },
+  {
+   "name": "LABEL",
+   "alias": "LABEL",
+   "type": "esriFieldTypeString",
+   "length": 50
+  },
+  {
+   "name": "LABEL2",
+   "alias": "LABEL2",
+   "type": "esriFieldTypeString",
+   "length": 50
+  },
+  {
+   "name": "LABEL3",
+   "alias": "LABEL3",
+   "type": "esriFieldTypeString",
+   "length": 50
+  }
+ ],
+ "features": [
+  {
+   "geometry": {
+    "x": 2101360.3761061877,
+    "y": 742570.10491132736
+   },
+   "attributes": {
+    "OBJECTID": 10,
+    "BLDGDESC": "Cameron Village Regional Library",
+    "FAC_ADDRESS": "1930 Clark Avenue             ",
+    "CITY": "Raleigh",
+    "NAME": "Cameron Village Regional Library",
+    "BA_ID": 2,
+    "CODE": "CAM",
+    "LABEL": "Cameron Village",
+    "LABEL2": "CAM",
+    "LABEL3": "Regional"
+   }
+  },
+  {
+   "geometry": {
+    "x": 2064686.4673360288,
+    "y": 740444.55790135264
+   },
+   "attributes": {
+    "OBJECTID": 7,
+    "BLDGDESC": "Cary Public Library",
+    "FAC_ADDRESS": "310 S Academy Street          \r\n",
+    "CITY": "Cary",
+    "NAME": "Cary Community Library",
+    "BA_ID": 3,
+    "CODE": "CRY",
+    "LABEL": "Cary Library",
+    "LABEL2": "Cary",
+    "LABEL3": "Cary"
+   }
+  },
+  {
+   "geometry": {
+    "x": 2085412.236059323,
+    "y": 767128.94986219704
+   },
+   "attributes": {
+    "OBJECTID": 3,
+    "BLDGDESC": "Duraleigh Road Library",
+    "FAC_ADDRESS": "5800 Duraleigh Road           ",
+    "CITY": "Raleigh",
+    "NAME": "Duraleigh Road Community Library",
+    "BA_ID": 4,
+    "CODE": "DUR",
+    "LABEL": "Duraleigh Road Library",
+    "LABEL2": "DUR",
+    "LABEL3": "Duraleigh Rd"
+   }
+  },
+  {
+   "geometry": {
+    "x": 2152069.9779454023,
+    "y": 747514.82325193286
+   },
+   "attributes": {
+    "OBJECTID": 6,
+    "BLDGDESC": "East Regional Library",
+    "FAC_ADDRESS": "946 Steeple Square Road       ",
+    "CITY": "Knightdale",
+    "NAME": "East Regional Library",
+    "BA_ID": 5,
+    "CODE": "ERL",
+    "LABEL": "East Regional Library",
+    "LABEL2": "East Regional",
+    "LABEL3": "East Regional"
+   }
+  },
+  {
+   "geometry": {
+    "x": 2051882.3907801062,
+    "y": 725677.1589756012
+   },
+   "attributes": {
+    "OBJECTID": 11,
+    "BLDGDESC": "Eva H. Perry Library",
+    "FAC_ADDRESS": "2100 Shepherds Vineyard Way   ",
+    "CITY": "Apex",
+    "NAME": "Eva Perry Regional Library",
+    "BA_ID": 6,
+    "CODE": "EVA",
+    "LABEL": "Eva Perry Regional Library",
+    "LABEL2": "Eva Perry Regional",
+    "LABEL3": "Eva Perry Regional"
+   }
+  },
+  {
+   "geometry": {
+    "x": 2060092.5626917481,
+    "y": 667161.62356109917
+   },
+   "attributes": {
+    "OBJECTID": 13,
+    "BLDGDESC": "Fuquay-Varina Library",
+    "FAC_ADDRESS": "133 S Fuquay Avenue           ",
+    "CITY": "Fuquay-Varina",
+    "NAME": "Fuquay-Varina Community Library",
+    "BA_ID": 8,
+    "CODE": "FUQ",
+    "LABEL": "Fuquay-Varina Library",
+    "LABEL2": "Fuquay-Varina",
+    "LABEL3": "Fuquay-Varina"
+   }
+  },
+  {
+   "geometry": {
+    "x": 2120949.7731164247,
+    "y": 760648.83824016154
+   },
+   "attributes": {
+    "OBJECTID": 5,
+    "BLDGDESC": "Green Road Library",
+    "FAC_ADDRESS": "4101 Green Road               ",
+    "CITY": "Raleigh",
+    "NAME": "Green Road Community Library",
+    "BA_ID": 9,
+    "CODE": "GRE",
+    "LABEL": "Green Road Library",
+    "LABEL2": "GRE",
+    "LABEL3": "Green Road"
+   }
+  },
+  {
+   "geometry": {
+    "x": 2048508.567288965,
+    "y": 691579.60451184213
+   },
+   "attributes": {
+    "OBJECTID": 15,
+    "BLDGDESC": "Holly Springs Library and Cultural Center",
+    "FAC_ADDRESS": "300 Ballentine St",
+    "CITY": "Holly Springs",
+    "NAME": "Holly Springs Community Library",
+    "BA_ID": 10,
+    "CODE": "HSP",
+    "LABEL": "Holly Springs Library",
+    "LABEL2": "Holly Springs",
+    "LABEL3": "Holly Springs"
+   }
+  },
+  {
+   "geometry": {
+    "x": 2084404.8822023869,
+    "y": 777102.33508749306
+   },
+   "attributes": {
+    "OBJECTID": 16,
+    "BLDGDESC": "Leesville Community Library",
+    "FAC_ADDRESS": "5105 Country Trl",
+    "CITY": "Raleigh",
+    "NAME": "Leesville Community Library",
+    "BA_ID": 11,
+    "CODE": "LEE",
+    "LABEL": "Leesville Library",
+    "LABEL2": "LEE",
+    "LABEL3": "Leesville"
+   }
+  },
+  {
+   "geometry": {
+    "x": 2110072.5097462982,
+    "y": 775818.64971029758
+   },
+   "attributes": {
+    "OBJECTID": 17,
+    "BLDGDESC": "North Regional Library",
+    "FAC_ADDRESS": "7009 Harps Mill Rd",
+    "CITY": "Raleigh",
+    "NAME": "North Regional Library",
+    "BA_ID": 12,
+    "CODE": "NOR",
+    "LABEL": "North Regional Library",
+    "LABEL2": "NOR",
+    "LABEL3": "North Regional"
+   }
+  },
+  {
+   "geometry": {
+    "x": 2113220.2790932208,
+    "y": 739113.24833211303
+   },
+   "attributes": {
+    "OBJECTID": 8,
+    "BLDGDESC": "Richard B. Harrison Library",
+    "FAC_ADDRESS": " 1313 New Bern Avenue     \r\n",
+    "CITY": "Raleigh",
+    "NAME": "Richard B. Harrison Community Library",
+    "BA_ID": 14,
+    "CODE": "RBH",
+    "LABEL": "RBH",
+    "LABEL2": "RBH",
+    "LABEL3": "RBH"
+   }
+  },
+  {
+   "geometry": {
+    "x": 2112469.1479565203,
+    "y": 712103.06667496264
+   },
+   "attributes": {
+    "OBJECTID": 12,
+    "BLDGDESC": "South East Regional Library",
+    "FAC_ADDRESS": "908 Seventh Avenue            ",
+    "CITY": "Garner",
+    "NAME": "Southeast Regional Library",
+    "BA_ID": 15,
+    "CODE": "SER",
+    "LABEL": "Southeast Regional Library",
+    "LABEL2": "SER",
+    "LABEL3": "Southeast Regional"
+   }
+  },
+  {
+   "geometry": {
+    "x": 2114202.4343581349,
+    "y": 729907.10739552975
+   },
+   "attributes": {
+    "OBJECTID": 9,
+    "BLDGDESC": "Southgate Branch Library",
+    "FAC_ADDRESS": "1601 Cross Link Road          ",
+    "CITY": "Raleigh",
+    "NAME": "Southgate Community Library",
+    "BA_ID": 16,
+    "CODE": "SGA",
+    "LABEL": "Southgate Library",
+    "LABEL2": "SGA",
+    "LABEL3": "Southgate"
+   }
+  },
+  {
+   "geometry": {
+    "x": 2144915.7000507414,
+    "y": 808314.49153256416
+   },
+   "attributes": {
+    "OBJECTID": 1,
+    "BLDGDESC": "Wake Forest Branch Library",
+    "FAC_ADDRESS": "400 E Holding Ave             ",
+    "CITY": "Wake Forest",
+    "NAME": "Wake Forest Community Library",
+    "BA_ID": 17,
+    "CODE": "WAK",
+    "LABEL": "Wake Forest Library",
+    "LABEL2": "Wake Forest",
+    "LABEL3": "Wake Forest"
+   }
+  },
+  {
+   "geometry": {
+    "x": 2188017.0013388842,
+    "y": 738903.04468391836
+   },
+   "attributes": {
+    "OBJECTID": 4,
+    "BLDGDESC": "Wendell Branch Library",
+    "FAC_ADDRESS": "207 S Hollybrook Road         ",
+    "CITY": "Wendell",
+    "NAME": "Wendell Community Library",
+    "BA_ID": 18,
+    "CODE": "WEN",
+    "LABEL": "Wendell Library",
+    "LABEL2": "Wendell",
+    "LABEL3": "Wendell"
+   }
+  },
+  {
+   "geometry": {
+    "x": 2040176.0796011984,
+    "y": 751531.27125567198
+   },
+   "attributes": {
+    "OBJECTID": 14,
+    "BLDGDESC": "West Regional Library",
+    "FAC_ADDRESS": "4000 Louis Stephens Dr",
+    "CITY": "Cary",
+    "NAME": "West Regional Library",
+    "BA_ID": 19,
+    "CODE": "WRL",
+    "LABEL": "West Regional Library",
+    "LABEL2": "West Regional",
+    "LABEL3": "West Regional"
+   }
+  },
+  {
+   "geometry": {
+    "x": 2201603.3749835342,
+    "y": 760055.55158361793
+   },
+   "attributes": {
+    "OBJECTID": 2,
+    "BLDGDESC": "Zebulon Branch Library",
+    "FAC_ADDRESS": "1000 Dogwood Drive            ",
+    "CITY": "Zebulon",
+    "NAME": "Zebulon Community Library",
+    "BA_ID": 20,
+    "CODE": "ZEB",
+    "LABEL": "Zebulon Library",
+    "LABEL2": "Zebulon",
+    "LABEL3": "Zebulon"
+   }
+  }
+ ]
+}
