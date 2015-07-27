@@ -41,7 +41,6 @@ angular.module('starter.controllers', [])
   };
 })
 
-/*
 .controller('PlaylistsCtrl', function($scope) {
   $scope.playlists = [
     { title: 'Reggae', id: 1 },
@@ -55,8 +54,8 @@ angular.module('starter.controllers', [])
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
 })
-*/
-/*
+
+
 
 // A simple controller that fetches a list of data from a service
 .controller('PetIndexCtrl', function($scope, $http, PetService) {
@@ -71,7 +70,7 @@ angular.module('starter.controllers', [])
   $scope.pet = PetService.get($stateParams.petId);
 })
 
-*/
+
 
 /*
 .controller('LocationsCtrl', function($scope, $http, $stateParams) {
@@ -91,36 +90,13 @@ angular.module('starter.controllers', [])
 */
 
 
-/*
 
 // This is the single location controller
+/*
 .controller('LocationCtrl', function($scope, $http, $stateParams, locationsFactory) {
 
 })
-
-
-.controller('LocationsCtrl', function($scope, $http, locationFactory) {
-
-  $scope.locations = {
-    // name: ''
-  }
-
-  $scope.LocationsCtrl = function() {
-
-    locationFactory.list($scope.location.name, function(locations) {
-      $scope.locations = locations;
-    });
-
-  };
-})
-
-.controller('LocationCtrl', function($scope, $http, $stateParams, locationFactory) {
-  locationFactory.find($stateParams.locationId, function(location) {
-    $scope.movie = movie;
-  });
-});
 */
-
 
 // Ths is the single locaion Controller, using the Locaitons Factory
 .controller("LocationCtrl", function($scope, $stateParams, locationsFactory){

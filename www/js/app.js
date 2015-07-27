@@ -49,7 +49,7 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
         }
       }
     })
-    
+/*
     .state('app.pets', {
       url: '/pets',
       views: {
@@ -68,7 +68,7 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
         }
       }
     })
-
+*/
 
 
 
