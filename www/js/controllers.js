@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope,  $ionicModal, $timeout) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -56,76 +56,13 @@ angular.module('starter.controllers', [])
 .controller('PlaylistCtrl', function($scope, $stateParams) {
 })
 */
-/*
-
-// A simple controller that fetches a list of data from a service
-.controller('PetIndexCtrl', function($scope, $http, PetService) {
-  // "Pets" is a service returning mock data (services.js)
-  $scope.pets = PetService.all();
-})
-
-
-// A simple controller that shows a tapped item's data
-.controller('PetDetailCtrl', function($scope, $http, $stateParams, PetService) {
-  // "Pets" is a service returning mock data (services.js)
-  $scope.pet = PetService.get($stateParams.petId);
-})
-
-*/
 
 /*
-.controller('LocationsCtrl', function($scope, $http, $stateParams) {
-  $scope.locations= [];
-  $http.get('http://maps.wakegov.com/arcgis/rest/services/WCPL/Libraries/FeatureServer/0/query?where=+&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&relationParam=&outFields=*&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&outSR=&gdbVersion=&returnDistinctValues=false&returnIdsOnly=false&returnCountOnly=false&orderByFields=NAME&groupByFieldsForStatistics=CITY&outStatistics=&returnZ=false&returnM=false&f=pjson').success(function(data, status, headers, config) {
-
-    console.log("success!");
-    $scope.locations = data.features;
-        console.log(data.features[0].attributes.NAME);
-        console.log(data);
-        console.log("Success " + status);
-    }).
-    error(function(data, status, headers, config) {
-      console.log("Error" + status)
-    });
-})
-*/
-
-
-/*
-
-// This is the single location controller
-.controller('LocationCtrl', function($scope, $http, $stateParams, locationsFactory) {
-
-})
-
-
-.controller('LocationsCtrl', function($scope, $http, locationFactory) {
-
-  $scope.locations = {
-    // name: ''
-  }
-
-  $scope.LocationsCtrl = function() {
-
-    locationFactory.list($scope.location.name, function(locations) {
-      $scope.locations = locations;
-    });
-
-  };
-})
-
-.controller('LocationCtrl', function($scope, $http, $stateParams, locationFactory) {
-  locationFactory.find($stateParams.locationId, function(location) {
-    $scope.movie = movie;
-  });
-});
-*/
-
-
 // Ths is the single locaion Controller, using the Locaitons Factory
 .controller("LocationCtrl", function($scope, $stateParams, locationsFactory){
     locationsFactory.getLocation().then(function(response){
         $scope.locations = response.data.features;
+      //  console.log(JSON.stringify($scope.locations));
     });
 })
 
@@ -133,5 +70,24 @@ angular.module('starter.controllers', [])
 .controller("LocationsCtrl", function($scope, locationsFactory){
     locationsFactory.getLocation().then(function(response){
         $scope.locations = response.data.features;
+    //    console.log(JSON.stringify($scope.locations));
+
     });
+});
+
+*/
+
+.controller('LocationsCtrl', function ($scope, $http, $stateParams){
+      $http.get(LocationsUrl).success(function(data) {
+            $scope.locations = data.features;
+            //console.log(JSON.stringify($scope.locations));
+          });
+    })
+.controller('LocationCtrl', function ($scope, $http, $stateParams){
+
+  $http.get(LocationsUrl).success(function(data) {
+        $scope.data = $stateParams.locationId;
+        console.log(JSON.stringify($scope.data));
+      });
+
 });
