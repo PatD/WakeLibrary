@@ -1,0 +1,145 @@
+<html ng-app="starter">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" />
+  <title>Ionic Framework Example</title>
+  <link href="//code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet"/>
+  <script src="//code.ionicframework.com/nightly/js/ionic.bundle.js"></script>
+    <script>
+  var nameApp = angular.module('starter', ['ionic']);
+
+nameApp.config(function($stateProvider, $urlRouterProvider) {
+
+  $stateProvider
+    .state('list', {
+      url: '/',
+      templateUrl: 'list.html',
+      controller: 'ListCtrl'
+    })
+    .state('view', {
+      url: '/library/:OBJECTID',
+      templateUrl: 'view.html',
+      controller: 'ViewCtrl'
+    });
+
+  $urlRouterProvider.otherwise("/");
+
+});
+
+nameApp.factory('LibraryLocations', function($http) {
+  var cachedData;
+
+  function getData(locationname, callback) {
+    var LocationsUrl = 'http://maps.wakegov.com/arcgis/rest/services/WCPL/Libraries/FeatureServer/0/query?where=+&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&relationParam=&outFields=*&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&outSR=&gdbVersion=&returnDistinctValues=false&returnIdsOnly=false&returnCountOnly=false&orderByFields=NAME&groupByFieldsForStatistics=CITY&outStatistics=&returnZ=false&returnM=false&f=pjson';
+
+    $http.get(LocationsUrl).success(function(data) {
+
+      cachedData = data.features;
+      callback(data.features);
+      // Factory has successfully queried data
+      console.log(JSON.stringify(cachedData));
+
+    });
+  }
+
+  return {
+    list: getData,
+    find: function(name, callback) {
+      console.log(name);
+      var movie = cachedData.filter(function(entry) {
+        return entry.id == name;
+        console.log(entry.id);
+      })[0];
+      callback(movie);
+    }
+  };
+
+});
+
+nameApp.controller('ListCtrl', function($scope, $http, LibraryLocations) {
+
+  $scope.movie = {
+    name: 'Batman'
+  }
+
+  $scope.searchMovieDB = function() {
+
+    LibraryLocations.list($scope.movie.name, function(movies) {
+      $scope.movies = movies;
+    });
+
+  };
+
+  $scope.searchMovieDB();
+
+});
+
+nameApp.controller('ViewCtrl', function($scope, $http, $stateParams, LibraryLocations) {
+  LibraryLocations.find($stateParams.movieid, function(movie) {
+    $scope.movie = movie;
+  });
+});
+  </script>
+</head>
+
+<body>
+
+  <!-- The nav bar that will be updated as we navigate -->
+  <ion-nav-bar class="bar-positive">
+    <ion-nav-back-button class="button-clear">
+      <i class="ion-arrow-left-c"></i> Back
+    </ion-nav-back-button>
+  </ion-nav-bar>
+
+  <ion-nav-view></ion-nav-view>
+
+  <script id="list.html" type="text/ng-template">
+    <ion-view view-title="Library Locations">
+      <ion-content>
+        <label class="item item-input">
+          <i class="icon ion-search placeholder-icon"></i>
+          <input type="search" placeholder="Search" ng-model="movie.name" ng-change="searchMovieDB()">
+        </label>
+        <ion-list>
+          <div class="list">
+
+            <a ng-repeat="movie in movies" href="#/library/{{movie.attributes.OBJECTID}}" class="item item-thumbnail-left">
+              <img ng-src="http://dev.virtualearth.net/REST/V1/Imagery/Map/Road/42.6564%2C-73.7638/13?mapSize=200,200&format=png&key=Ag5uuxO0xffGEd9QQ5vIaOp_f1KlwIycTPD4dLaYGHdfwkr5QP-lTIXwZE-_2oos" onerror="this.src = 'https://www.ginesisnatural.com/images/no_image.jpg';">
+              <h2>{{movie.attributes.NAME}}</h2>
+              <h4>{{movie.attributes.CITY}}</h4>
+            </a>
+
+          </div>
+        </ion-list>
+      </ion-content>
+    </ion-view>
+  </script>
+
+  <script id="view.html" type="text/ng-template">
+    <ion-view view-title="Movie details">
+      <ion-content>
+        <div class="list card">
+
+          <div class="item item-avatar">
+            <img src="http://files.softicons.com/download/object-icons/movies-icons-by-pinchodesigns/png/32x32/Movie.png">
+            <h2>{{movie.attributes.NAME}}</h2>
+            <p>{{movie.release_date}}</p>
+          </div>
+
+          <div class="item item-image">
+            <img ng-src="https://image.tmdb.org/t/p/w92{{movie.poster_path}}" width="200px" />
+          </div>
+
+          <a class="item" href="#">
+              Average Vote: <strong>{{movie.vote_average}}</strong> (Votes: {{movie.vote_count}})
+            </a>
+
+        </div>
+      </ion-content>
+    </ion-view>
+  </script>
+
+</body>
+
+</html>

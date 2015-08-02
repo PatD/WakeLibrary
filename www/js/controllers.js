@@ -77,6 +77,8 @@ angular.module('starter.controllers', [])
 
 */
 
+
+/* Version 2 - Listing is right, view is receiving correctly from stateparams
 .controller('LocationsCtrl', function ($scope, $http, $stateParams){
       $http.get(LocationsUrl).success(function(data) {
             $scope.locations = data.features;
@@ -86,8 +88,32 @@ angular.module('starter.controllers', [])
 .controller('LocationCtrl', function ($scope, $http, $stateParams){
 
   $http.get(LocationsUrl).success(function(data) {
-        $scope.data = $stateParams.locationId;
-        console.log(JSON.stringify($scope.data));
+        $scope.NAME = $stateParams.NAME;
+
+        $scope.location = $stateParams.locationId;
+
+        console.log(JSON.stringify($scope.location));
+        console.log(JSON.stringify($stateParams.locationId));
+        console.log(JSON.stringify(location));
+        console.log(JSON.stringify($scope.NAME));
       });
 
+});
+*/
+
+/* List view. Loads from Factory */
+.controller('LocationsCtrl', function($scope, $http, LibraryLocations) {
+    LibraryLocations.list($scope.locations, function(data) {
+      $scope.locations = data;
+      $scope.locationId = data.locationId;
+  //    console.log(JSON.stringify(data));
+
+    });
+
+})
+.controller('LocationCtrl', function($scope, $http, $stateParams, LibraryLocations) {
+  LibraryLocations.find($stateParams.locationId, function(data) {
+    $scope.location = location;
+    console.log(JSON.stringify(data));
+  });
 });

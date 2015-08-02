@@ -1,7 +1,7 @@
 
-/*
-angular.module('starter.services', [])
 
+angular.module('starter.services', [])
+/*
 // Factory that loads location data
 
 .factory('locationsFactory', ['$http', function($http){
@@ -28,3 +28,39 @@ angular.module('starter.services', [])
     }
 }])
 */
+.factory('LibraryLocations', function($http) {
+  var cachedData;
+
+  function getData(locationname, callback) {
+
+    $http.get(LocationsUrl).success(function(data) {
+
+//      console.log(JSON.stringify(data));
+  //    console.log(JSON.stringify(data.features));
+    //  console.log(JSON.stringify(locationname));
+
+
+      cachedData = data.features.attributes;
+      callback(data.features);
+//      console.log(data.features)
+
+    });
+  }
+
+  return {
+
+    list: getData,
+    find: function(locationname, callback) {
+
+      console.log(locationname);
+/*
+      var locationname = cachedData.filter(function(entry) {
+        return entry.location == name;
+      })[0];
+      */
+      callback(locationname);
+
+  }
+  };
+
+});

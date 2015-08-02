@@ -1,12 +1,8 @@
-<!--
-  This template loads for the 'tab.pet-detail' state (app.js)
-  'pet' is a $scope variable created in the PetCtrl controller (controllers.js)
-  The PetCtrl pulls data from the Pets service (service.js)
-  The Pets service returns an array of pet data
--->
-<ion-view title="{{pet.title}}">
-  <ion-content padding="true">
-    <p>{{ pet.description }}</p>
-    <p><a class="button button-small icon ion-arrow-left-b" href="#/app/pets"> All Pets</a></p>
-  </ion-content>
-</ion-view>
+
+<h1> {{ country.attributes.NAME }} </h1>
+<ul>
+	<li>Flag: <img ng-src="{{country.flagURL}}" width="100"></li>
+	<li>Population: {{country.population | number }} </li>
+	<li>Capital: {{country.capital}}</li>
+	<li>GDP: {{country.gdp | currency }}</li>
+</ul>
