@@ -18,7 +18,7 @@ nameApp.config(function($stateProvider, $urlRouterProvider) {
       controller: 'ListCtrl'
     })
     .state('view', {
-      url: '/library/:OBJECTID',
+      url: '/library/:locationId',
       templateUrl: 'view.html',
       controller: 'ViewCtrl'
     });
@@ -46,12 +46,11 @@ nameApp.factory('LibraryLocations', function($http) {
   return {
     list: getData,
     find: function(name, callback) {
-      console.log(name);
-      var movie = cachedData.filter(function(entry) {
-        return entry.id == name;
-        console.log(entry.id);
+      console.log("name" + name);
+      var location = cachedData.filter(function(entry) {
+        return entry.attributes.OBJECTID == name;
       })[0];
-      callback(movie);
+      callback(location);
     }
   };
 
@@ -76,8 +75,8 @@ nameApp.controller('ListCtrl', function($scope, $http, LibraryLocations) {
 });
 
 nameApp.controller('ViewCtrl', function($scope, $http, $stateParams, LibraryLocations) {
-  LibraryLocations.find($stateParams.movieid, function(movie) {
-    $scope.movie = movie;
+  LibraryLocations.find($stateParams.locationId, function(location) {
+    $scope.location = location;
   });
 });
   </script>
@@ -117,23 +116,13 @@ nameApp.controller('ViewCtrl', function($scope, $http, $stateParams, LibraryLoca
   </script>
 
   <script id="view.html" type="text/ng-template">
-    <ion-view view-title="Movie details">
+    <ion-view view-title="Location details">
       <ion-content>
         <div class="list card">
 
-          <div class="item item-avatar">
-            <img src="http://files.softicons.com/download/object-icons/movies-icons-by-pinchodesigns/png/32x32/Movie.png">
-            <h2>{{movie.attributes.NAME}}</h2>
-            <p>{{movie.release_date}}</p>
+          <div class="item">
+            <h2>{{location.attributes.NAME}}</h2>
           </div>
-
-          <div class="item item-image">
-            <img ng-src="https://image.tmdb.org/t/p/w92{{movie.poster_path}}" width="200px" />
-          </div>
-
-          <a class="item" href="#">
-              Average Vote: <strong>{{movie.vote_average}}</strong> (Votes: {{movie.vote_count}})
-            </a>
 
         </div>
       </ion-content>
