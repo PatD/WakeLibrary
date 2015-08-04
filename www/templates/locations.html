@@ -2,12 +2,12 @@
   <ion-content>
     <label class="item item-input">
       <i class="icon ion-search placeholder-icon"></i>
-      <input type="search" placeholder="Search" ng-model="location.name" ng-change="searchMovieDB()">
+      <input type="search" placeholder="Search" ng-model="location.name" ng-change="searchLocations()">
     </label>
     <ion-list>
       <div class="list">
 
-        <a ng-repeat="location in locations" href="#/library/{{location.attributes.OBJECTID}}" class="item item-thumbnail-left">
+        <a ng-repeat="location in locations" href="#/app/locations/{{location.attributes.OBJECTID}}" class="item item-thumbnail-left">
           <img ng-src="http://dev.virtualearth.net/REST/V1/Imagery/Map/Road/42.6564%2C-73.7638/13?mapSize=200,200&format=png&key=Ag5uuxO0xffGEd9QQ5vIaOp_f1KlwIycTPD4dLaYGHdfwkr5QP-lTIXwZE-_2oos" onerror="this.src = 'https://www.ginesisnatural.com/images/no_image.jpg';">
           <h2>{{location.attributes.NAME}}</h2>
           <h4>{{location.attributes.CITY}}</h4>
@@ -32,6 +32,6 @@
       <i class="icon ion-android-exit"></i>
       Vist Wake Open Data</a>
     </div>
-    
+
   </ion-content>
 </ion-view>

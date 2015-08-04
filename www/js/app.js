@@ -76,51 +76,67 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
 });
 */
 
+
+// Our app is called WakeLibraryApp
 var WakeLibraryApp = angular.module('starter', ['ionic']);
 
+// Run some Ionic/Cordovaish stuff
+WakeLibraryApp.run(function($ionicPlatform) {
+  $ionicPlatform.ready(function() {
+    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+    // for form inputs)
+    if (window.cordova && window.cordova.plugins.Keyboard) {
+      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+      cordova.plugins.Keyboard.disableScroll(true);
+
+    }
+    if (window.StatusBar) {
+      // org.apache.cordova.statusbar required
+      StatusBar.styleDefault();
+    }
+  });
+});
+
+
+
+
+// App view Config
 WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
 
   $stateProvider
-    .state('list', {
-      url: '/',
-      templateUrl: 'templates/Locations.html',
-      controller: 'ListCtrl'
+    .state('app', {
+      url: '/app',
+      abstract: true,
+      templateUrl: 'templates/menu.html',
+      controller: 'AppCtrl'
     })
-    .state('view', {
-      url: '/library/:locationId',
-      templateUrl: 'templates/location.html',
-      controller: 'ViewCtrl'
+    .state('app.search', {
+      url: '/search',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/search.html'
+        }
+      }
+    })
+    .state('app.locations', {
+      url: '/locations',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/locations.html',
+          controller: 'LocationsCtrl'
+        }
+      }
+    })
+    .state('app.location', {
+      url: '/locations/:locationId',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/location.html',
+          controller: 'LocationCtrl'
+        }
+      }
     });
 
-  $urlRouterProvider.otherwise("/");
-
-});
-
-WakeLibraryApp.factory('LibraryLocations', function($http) {
-  var cachedData;
-
-  function getData(locationname, callback) {
-    var LocationsUrl = 'http://maps.wakegov.com/arcgis/rest/services/WCPL/Libraries/FeatureServer/0/query?where=+&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&relationParam=&outFields=*&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&outSR=&gdbVersion=&returnDistinctValues=false&returnIdsOnly=false&returnCountOnly=false&orderByFields=NAME&groupByFieldsForStatistics=CITY&outStatistics=&returnZ=false&returnM=false&f=pjson';
-
-    $http.get(LocationsUrl).success(function(data) {
-
-      cachedData = data.features;
-      callback(data.features);
-      // Factory has successfully queried data
-      console.log(JSON.stringify(cachedData));
-
-    });
-  }
-
-  return {
-    list: getData,
-    find: function(name, callback) {
-      console.log("name" + name);
-      var location = cachedData.filter(function(entry) {
-        return entry.attributes.OBJECTID == name;
-      })[0];
-      callback(location);
-    }
-  };
+  $urlRouterProvider.otherwise("/app/locations");
 
 });
