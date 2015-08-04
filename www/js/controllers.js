@@ -1,3 +1,27 @@
+WakeLibraryApp.controller('ListCtrl', function($scope, $http, LibraryLocations) {
+
+  $scope.location = {
+    name: 'Raleigh'
+  }
+
+  $scope.searchMovieDB = function() {
+
+    LibraryLocations.list($scope.location.name, function(locations) {
+      $scope.locations = locations;
+    });
+
+  };
+
+  $scope.searchMovieDB();
+
+});
+
+WakeLibraryApp.controller('ViewCtrl', function($scope, $http, $stateParams, LibraryLocations) {
+  LibraryLocations.find($stateParams.locationId, function(location) {
+    $scope.location = location;
+  });
+});
+/*
 angular.module('starter.controllers', [])
 
 .controller('AppCtrl', function($scope,  $ionicModal, $timeout) {
@@ -99,9 +123,7 @@ angular.module('starter.controllers', [])
       });
 
 });
-*/
 
-/* List view. Loads from Factory */
 .controller('LocationsCtrl', function($scope, $http, LibraryLocations) {
     LibraryLocations.list($scope.locations, function(data) {
       $scope.locations = data;
@@ -117,3 +139,4 @@ angular.module('starter.controllers', [])
     console.log(JSON.stringify(data));
   });
 });
+*/

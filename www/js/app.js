@@ -4,6 +4,8 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
+
+/*
 var LocationsUrl = 'http://maps.wakegov.com/arcgis/rest/services/WCPL/Libraries/FeatureServer/0/query?where=+&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&relationParam=&outFields=*&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&outSR=&gdbVersion=&returnDistinctValues=false&returnIdsOnly=false&returnCountOnly=false&orderByFields=NAME&groupByFieldsForStatistics=CITY&outStatistics=&returnZ=false&returnM=false&f=pjson';
 
 angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
@@ -51,29 +53,6 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
         }
       }
     })
-/*
-    .state('app.pets', {
-      url: '/pets',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/playlists.html',
-          controller: 'PetIndexCtrl'
-        }
-      }
-    })
-    .state('app.pet', {
-      url: '/pet/:petId',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/playlist.html',
-          controller: 'PetDetailCtrl'
-        }
-      }
-    })
-*/
-
-
-
     .state('app.locations', {
       url: '/locations',
       views: {
@@ -94,4 +73,54 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
     });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/locations');
+});
+*/
+
+var WakeLibraryApp = angular.module('starter', ['ionic']);
+
+WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
+
+  $stateProvider
+    .state('list', {
+      url: '/',
+      templateUrl: 'templates/Locations.html',
+      controller: 'ListCtrl'
+    })
+    .state('view', {
+      url: '/library/:locationId',
+      templateUrl: 'templates/location.html',
+      controller: 'ViewCtrl'
+    });
+
+  $urlRouterProvider.otherwise("/");
+
+});
+
+WakeLibraryApp.factory('LibraryLocations', function($http) {
+  var cachedData;
+
+  function getData(locationname, callback) {
+    var LocationsUrl = 'http://maps.wakegov.com/arcgis/rest/services/WCPL/Libraries/FeatureServer/0/query?where=+&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&relationParam=&outFields=*&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&outSR=&gdbVersion=&returnDistinctValues=false&returnIdsOnly=false&returnCountOnly=false&orderByFields=NAME&groupByFieldsForStatistics=CITY&outStatistics=&returnZ=false&returnM=false&f=pjson';
+
+    $http.get(LocationsUrl).success(function(data) {
+
+      cachedData = data.features;
+      callback(data.features);
+      // Factory has successfully queried data
+      console.log(JSON.stringify(cachedData));
+
+    });
+  }
+
+  return {
+    list: getData,
+    find: function(name, callback) {
+      console.log("name" + name);
+      var location = cachedData.filter(function(entry) {
+        return entry.attributes.OBJECTID == name;
+      })[0];
+      callback(location);
+    }
+  };
+
 });

@@ -1,8 +1,12 @@
-<ion-view title="Location Details">
-  <ion-content padding="true">
-    <p>test</p>
-    <p>{{ location.attributes.NAME }}</p>
-    <p>{{ locations.attributes.NAME }}</p>
+<ion-view view-title="{{location.attributes.NAME}}">
+  <ion-content>
+    <div class="list card">
+
+      <div class="item">
+        <h2>{{location.attributes.NAME}}</h2>
+      </div>
+
+    </div>
     <p><a class="button button-small icon ion-arrow-left-b" href="#/app/locations"> All Locations</a></p>
   </ion-content>
 </ion-view>

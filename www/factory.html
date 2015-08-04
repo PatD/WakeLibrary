@@ -7,9 +7,10 @@
   <link href="//code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet"/>
   <script src="//code.ionicframework.com/nightly/js/ionic.bundle.js"></script>
     <script>
-  var nameApp = angular.module('starter', ['ionic']);
 
-nameApp.config(function($stateProvider, $urlRouterProvider) {
+var WakeLibraryApp = angular.module('starter', ['ionic']);
+
+WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
 
   $stateProvider
     .state('list', {
@@ -27,7 +28,7 @@ nameApp.config(function($stateProvider, $urlRouterProvider) {
 
 });
 
-nameApp.factory('LibraryLocations', function($http) {
+WakeLibraryApp.factory('LibraryLocations', function($http) {
   var cachedData;
 
   function getData(locationname, callback) {
@@ -56,7 +57,7 @@ nameApp.factory('LibraryLocations', function($http) {
 
 });
 
-nameApp.controller('ListCtrl', function($scope, $http, LibraryLocations) {
+WakeLibraryApp.controller('ListCtrl', function($scope, $http, LibraryLocations) {
 
   $scope.location = {
     name: 'Raleigh'
@@ -74,7 +75,7 @@ nameApp.controller('ListCtrl', function($scope, $http, LibraryLocations) {
 
 });
 
-nameApp.controller('ViewCtrl', function($scope, $http, $stateParams, LibraryLocations) {
+WakeLibraryApp.controller('ViewCtrl', function($scope, $http, $stateParams, LibraryLocations) {
   LibraryLocations.find($stateParams.locationId, function(location) {
     $scope.location = location;
   });

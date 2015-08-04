@@ -1,7 +1,35 @@
+WakeLibraryApp.factory('LibraryLocations', function($http) {
+  var cachedData;
 
+  function getData(locationname, callback) {
+    var LocationsUrl = 'http://maps.wakegov.com/arcgis/rest/services/WCPL/Libraries/FeatureServer/0/query?where=+&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&relationParam=&outFields=*&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&outSR=&gdbVersion=&returnDistinctValues=false&returnIdsOnly=false&returnCountOnly=false&orderByFields=NAME&groupByFieldsForStatistics=CITY&outStatistics=&returnZ=false&returnM=false&f=pjson';
 
-angular.module('starter.services', [])
+    $http.get(LocationsUrl).success(function(data) {
+
+      cachedData = data.features;
+      callback(data.features);
+      // Factory has successfully queried data
+      console.log(JSON.stringify(cachedData));
+
+    });
+  }
+
+  return {
+    list: getData,
+    find: function(name, callback) {
+      console.log("name" + name);
+      var location = cachedData.filter(function(entry) {
+        return entry.attributes.OBJECTID == name;
+      })[0];
+      callback(location);
+    }
+  };
+
+});
+
 /*
+angular.module('starter.services', [])
+
 // Factory that loads location data
 
 .factory('locationsFactory', ['$http', function($http){
@@ -27,7 +55,7 @@ angular.module('starter.services', [])
         }
     }
 }])
-*/
+
 .factory('LibraryLocations', function($http) {
   var cachedData;
 
@@ -53,14 +81,15 @@ angular.module('starter.services', [])
     find: function(locationname, callback) {
 
       console.log(locationname);
-/*
+
       var locationname = cachedData.filter(function(entry) {
         return entry.location == name;
       })[0];
-      */
+
       callback(locationname);
 
   }
   };
 
 });
+*/
