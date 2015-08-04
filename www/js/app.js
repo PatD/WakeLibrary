@@ -135,7 +135,19 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
           controller: 'LocationCtrl'
         }
       }
-    });
+    })
+    .state('app.twitter', {
+      url: '/twitter',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/twitter.html',
+          controller: 'TwitterCtrl'
+        }
+      }
+    })
+
+
+    ;
 
   $urlRouterProvider.otherwise("/app/locations");
 
