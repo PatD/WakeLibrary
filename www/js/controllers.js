@@ -75,6 +75,31 @@ WakeLibraryApp.controller('TwitterCtrl', function($scope, $stateParams) {
   !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
 })
 
+// Events Calendar Controller
+WakeLibraryApp.controller('EventsCtrl', function($scope, $stateParams, DataSource) {
+
+      SOURCE_FILE = "http://www.trumba.com/calendars/WCPL.rss?filterview=Teen+Events&HTML=0&previousweeks=0&weeks=6";
+
+      $scope.IMAGE_LOCATION = "http://rabidgadfly.com/assets/angular/xmlload/";
+
+      xmlTransform = function(data) {
+          console.log("transform data");
+          var x2js = new X2JS();
+          var json = x2js.xml_str2json( data );
+          return json.guitars.guitar;
+      };
+
+      setData = function(data) {
+          $scope.dataSet = data;
+          console.log($scope.dataSet.length);
+          console.log($scope.dataSet);
+      };
+
+      DataSource.get(SOURCE_FILE,setData,xmlTransform);
+
+
+})
+
 
 /*
 angular.module('starter.controllers', [])

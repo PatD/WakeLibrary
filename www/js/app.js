@@ -99,7 +99,6 @@ WakeLibraryApp.run(function($ionicPlatform) {
 
 
 
-
 // App view Config
 WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
 
@@ -145,6 +144,18 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     })
+
+    .state('app.events', {
+      url: '/events',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/events.html',
+          controller: 'EventsCtrl'
+        }
+      }
+    })
+
+
 
 
     ;
