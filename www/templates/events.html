@@ -1,5 +1,9 @@
 <ion-view view-title="Wake County Library Events">
   <ion-content>
     <h1>Events</h1>
+
+    <li ng-repeat="country in countries">
+  		<a href="#/{{country.attributes.OBJECTID}}">{{country.attributes.NAME}}</a>
+  	</li>
   </ion-content>
 </ion-view>

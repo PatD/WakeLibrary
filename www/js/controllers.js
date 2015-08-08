@@ -75,6 +75,8 @@ WakeLibraryApp.controller('TwitterCtrl', function($scope, $stateParams) {
   !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
 })
 
+
+
 // Events Calendar Controller
 WakeLibraryApp.controller('EventsCtrl', function($scope, $stateParams, DataSource) {
 
@@ -84,9 +86,14 @@ WakeLibraryApp.controller('EventsCtrl', function($scope, $stateParams, DataSourc
 
       xmlTransform = function(data) {
           console.log("transform data");
+          console.log(data);
+
+          console.log(JSON.stringify(data));
           var x2js = new X2JS();
           var json = x2js.xml_str2json( data );
-          return json.guitars.guitar;
+          // return json.guitars.guitar;
+          return json.rss.channel.item;
+          console.log(json.rss.channel.item);
       };
 
       setData = function(data) {
