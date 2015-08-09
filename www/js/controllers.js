@@ -75,6 +75,19 @@ WakeLibraryApp.controller('TwitterCtrl', function($scope, $stateParams) {
   !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
 })
 
+// Events tabs controllers
+/*
+WakeLibraryApp.controller('EventsTabsCtrl', [ '$scope', '$state', function($scope, $state) {
+      //  $scope.navTitle = 'Tab Page';
+
+        $scope.leftButtons = [{
+            type: 'button-icon icon ion-navicon',
+            tap: function(e) {
+                $scope.toggleMenu();
+            }
+        }]
+      }]);
+*/
 
 
 // Events Calendar Controller

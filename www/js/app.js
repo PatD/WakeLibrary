@@ -153,8 +153,16 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
           controller: 'EventsCtrl'
         }
       }
-    })
-
+    })/*
+    .state('app.events-tabs', {
+      url: '/events-tabs',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/events-tabs.html',
+          controller: 'EventsTabsCtrl'
+        }
+      }
+    }) */
 
 
 

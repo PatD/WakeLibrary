@@ -1,10 +1,56 @@
-<ion-view view-title="{{location.attributes.NAME}}">
+<ion-view view-title="Wake County Library Locations">
   <ion-content>
     <div class="list card">
 
-      <div class="item">
-        <h2>{{location.attributes.NAME}}</h2>
+      <div class="item item-divider">
+        {{location.attributes.NAME}}
       </div>
+      <div class="item item-image">
+        <img ng-src="http://www.wakegov.com/libraries/locations/PublishingImages/{{location.attributes.CODE}}.png" />
+      </div>
+         <a href="#" class="item item-icon-left">
+          <i class="icon ion-android-map"></i>
+        {{location.attributes.FAC_ADDRESS}}<br/>{{location.attributes.CITY}} NC
+        </a>
+<!--
+        <a href="#" class="item item-icon-left">
+          <i class="icon ion-ios-telephone"></i>
+          Enter phone number
+        </a>
+
+        <a href="#" class="item item-icon-left">
+          <i class="icon ion-wifi"></i>
+          Enter wireless password
+        </a>
+
+        <a href="#" class="item item-icon-left">
+          <i class="icon ion-card"></i>
+          Enter card information
+        </a>
+-->
+
+<style>
+.demo-iframe-holder {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  top: 0;
+  -webkit-overflow-scrolling: touch;
+  overflow-y: scroll;
+}
+
+.demo-iframe-holder iframe {
+  height: 100%;
+  width: 100%;
+}
+</style>
+
+    <div class='item'>
+      <span>http://www.wakegov.com/libraries/locations/{{ location.attributes.CODE }}/Pages/default.aspx?IsDLG=1</span>
+       <iframe data-tap-disabled="true" style="height:25em;background:red;"></iframe>
+    </div>
+
 
     </div>
     <p><a class="button button-small icon ion-arrow-left-b" href="#/app/locations"> All Locations</a></p>
