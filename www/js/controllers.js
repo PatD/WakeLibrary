@@ -76,6 +76,12 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
       console.log("Location page");
 /*
+      var field = document.getElementById("LocationsIframe");
+      var fieldvalue = field.getAttribute("ng-name");
+      console.log("tag is:" + field);
+      console.log("attribute is:" + fieldvalue)
+
+
       fixIframeThingInLocation();
 
       function fixIframeThingInLocation() {
@@ -151,6 +157,14 @@ WakeLibraryApp.controller('EventsCtrl', function($scope, $stateParams, DataSourc
 
 })
 
+
+WakeLibraryApp.controller('EventCtrl', function($scope, $stateParams, DataSource) {
+  DataSource.find($stateParams.eventId, function(data) {
+    $scope.dataSet = data;
+    console.log(data);
+    console.log("Event page");
+  })
+})
 
 /*
 angular.module('starter.controllers', [])

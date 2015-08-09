@@ -121,7 +121,7 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
       url: '/locations-all',
       views: {
         'menuContent': {
-          templateUrl: 'templates/locations-all.html',
+          templateUrl: 'templates/locations/locations-all.html',
           controller: 'LocationsAllCtrl'
         }
       }
@@ -130,7 +130,7 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
       url: '/locations',
       views: {
         'menuContent': {
-          templateUrl: 'templates/locations.html',
+          templateUrl: 'templates/locations/locations.html',
           controller: 'LocationsCtrl'
         }
       }
@@ -139,7 +139,7 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
       url: '/locations/:locationId',
       views: {
         'menuContent': {
-          templateUrl: 'templates/location.html',
+          templateUrl: 'templates/locations/location.html',
           controller: 'LocationCtrl'
         }
       }
@@ -158,11 +158,23 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
       url: '/events',
       views: {
         'menuContent': {
-          templateUrl: 'templates/events.html',
+          templateUrl: 'templates/events/events.html',
           controller: 'EventsCtrl'
         }
       }
-    })/*
+    })
+    .state('app.event', {
+      url: '/events/:eventId',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/events/event-details.html',
+          controller: 'EventCtrl'
+        }
+      }
+    })
+
+
+    /*
     .state('app.events-tabs', {
       url: '/events-tabs',
       views: {

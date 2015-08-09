@@ -25,17 +25,21 @@
         </div>
       </div>
 
-      <!-- large image -->
+      <!-- Hours iframe -->
+      <div class="item">
+      </div>
+
+
+      <!-- large map image -->
       <div class="item item-image">
-
-
-
-
-        <img ng-src="http://maps.googleapis.com/maps/api/staticmap?center={{location.attributes.FAC_ADDRESS}}+{{location.attributes.CITY}}+NC&zoom=15&scale=1&size=440x300&maptype=roadmap&key=AIzaSyC4lGFKI7caErQ3MacquCOUjU4fJJjpzHM&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xff0000%7Clabel:L%7C{{location.attributes.FAC_ADDRESS}}+{{location.attributes.CITY}}+NC">
+        <a href="https://www.google.com/maps/place/{{location.attributes.NAME}}+{{location.attributes.FAC_ADDRESS}}/{{location.geometry.x}},{{location.geometry.y}},17z/">
+          <img ng-src="http://maps.googleapis.com/maps/api/staticmap?center={{location.attributes.FAC_ADDRESS}}+{{location.attributes.CITY}}+NC&zoom=15&scale=1&size=440x300&maptype=roadmap&key=AIzaSyC4lGFKI7caErQ3MacquCOUjU4fJJjpzHM&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xff0000%7Clabel:L%7C{{location.attributes.FAC_ADDRESS}}+{{location.attributes.CITY}}+NC">
+        </a>
       </div>
 
       <div class="item item-divider">
       </div>
+
       </div><!-- ends card -->
 
       <div class="padding">
