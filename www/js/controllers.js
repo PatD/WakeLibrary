@@ -40,6 +40,14 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 });
 
 
+
+// Controller that shows all locations on a map
+  WakeLibraryApp.controller('LocationsAllCtrl', function($scope, $http, LibraryLocations) {
+
+  });
+
+
+
 // Controller that lists all the Library location
   WakeLibraryApp.controller('LocationsCtrl', function($scope, $http, LibraryLocations) {
 
@@ -65,6 +73,29 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
   WakeLibraryApp.controller('LocationCtrl', function($scope, $http, $stateParams, LibraryLocations) {
     LibraryLocations.find($stateParams.locationId, function(location) {
       $scope.location = location;
+
+      console.log("Location page");
+/*
+      fixIframeThingInLocation();
+
+      function fixIframeThingInLocation() {
+        // body...
+
+        // The iframe is...
+        var _locationIframe = document.getElementById("locationiframe");
+
+        console.log(_locationIframe)
+
+        // Thie iframe's data-iframeURL value is...
+        var _locationIframeTrueSource = _locationIframe.getAttribute("ng-data");
+
+        console.log(_locationIframeTrueSource)
+
+        // So now we set the src of the iframe to...
+        document.getElementById(_locationIframe).setAttribute("src", _locationIframeTrueSource);
+      }
+*/
+
     });
   });
 

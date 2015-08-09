@@ -117,6 +117,15 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     })
+    .state('app.locations-all', {
+      url: '/locations-all',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/locations-all.html',
+          controller: 'LocationsAllCtrl'
+        }
+      }
+    })
     .state('app.locations', {
       url: '/locations',
       views: {

@@ -1,0 +1,246 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns='http://www.opengis.net/kml/2.2'>
+	<Document>
+		<name>Wake County Public Libraries</name>
+		<description><![CDATA[Locations and directions for Wake County Public Libraries. For more information, visit www.wakegov.com/libraries]]></description>
+		<Folder>
+			<name>Untitled layer</name>
+			<Placemark>
+				<name>Athens Drive Community Library</name>
+				<description><![CDATA[1420 Athens Drive<br>Raleigh, NC 27606<br>919-233-4000<br>View location information (http://www.wakegov.com/libraries/locations/adr).]]></description>
+				<styleUrl>#icon-158</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<Point>
+					<coordinates>-78.709263,35.767443,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Cameron Village Regional Library</name>
+				<description><![CDATA[1930 Clark Ave.<br>Raleigh, NC 27605<br>919-856-6710<br>View location information (http://www.wakegov.com/libraries/locations/cam).]]></description>
+				<styleUrl>#icon-158</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<Point>
+					<coordinates>-78.658038,35.78956,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Cary Community Library</name>
+				<description><![CDATA[310 S Academy St.<br>Cary, NC 27511<br>919-460-3350<br>View location information (http://www.wakegov.com/libraries/locations/cry).]]></description>
+				<styleUrl>#icon-158</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<Point>
+					<coordinates>-78.781639,35.784186,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Duraleigh Road Community Library</name>
+				<description><![CDATA[5800 Duraleigh Rd. Raleigh, NC 27612<br>919-881-1344<br>View location information (http://www.wakegov.com/libraries/locations/dur).]]></description>
+				<styleUrl>#icon-158</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<Point>
+					<coordinates>-78.711773,35.857474,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>East Regional Library</name>
+				<description><![CDATA[946 Steeple Square<br>Knightdale, NC 27545<br>919-217-5301<br>View location information (http://www.wakegov.com/libraries/locations/erl).]]></description>
+				<styleUrl>#icon-158</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<Point>
+					<coordinates>-78.487047,35.802883,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Express Library Fayetteville Street</name>
+				<description><![CDATA[336 Fayetteville Street<br>Raleigh, NC 27601<br>919-856-6690<br>View location information (http://www.wakegov.com/libraries/locations/elf).]]></description>
+				<styleUrl>#icon-158</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<Point>
+					<coordinates>-78.639498,35.775706,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Eva Perry Regional Library</name>
+				<description><![CDATA[2100 Shepherds Vineyard Dr<br>Apex, NC 27502<br>919-387-2100<br>View location information (http://www.wakegov.com/libraries/locations/eva).]]></description>
+				<styleUrl>#icon-158</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<Point>
+					<coordinates>-78.823761,35.742742,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Fuquay-Varina Community Library</name>
+				<description><![CDATA[133 S Fuquay Ave.<br>Fuquay-Varina, NC 27526<br>919-557-2788<br>View location information (http://www.wakegov.com/libraries/locations/fuq).]]></description>
+				<styleUrl>#icon-158</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<Point>
+					<coordinates>-78.798261,35.583805,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Green Road Community Library</name>
+				<description><![CDATA[4101 Green Rd Raleigh, NC 27604<br>919-790-3200<br>View location information (http://www.wakegov.com/libraries/locations/gre).]]></description>
+				<styleUrl>#icon-158</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<Point>
+					<coordinates>-78.591846,35.83929,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Holly Springs Community Library</name>
+				<description><![CDATA[300 W. Ballentine St.<br>Holly Springs, NC 27540<br>919-577-1660<br>View location information (http://www.wakegov.com/libraries/locations/hsp).]]></description>
+				<styleUrl>#icon-158</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<Point>
+					<coordinates>-78.836281,35.649938,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Leesville Community Library</name>
+				<description><![CDATA[5105 Country Trail<br>Raleigh, NC 27613<br>View location information (http://www.wakegov.com/libraries/locations/lee).]]></description>
+				<styleUrl>#icon-158</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<Point>
+					<coordinates>-78.715121,35.885408,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>North Regional Library</name>
+				<description><![CDATA[7009 Harps Mill Rd.<br>Raleigh, NC 27615<br>919-870-4000<br>View location information (http://http://www.wakegov.com/libraries/locations/nor).]]></description>
+				<styleUrl>#icon-158</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<Point>
+					<coordinates>-78.628142,35.88087,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Olivia Raney Local History Library</name>
+				<description><![CDATA[4016 Carya Dr.<br>Raleigh, NC 27610<br>919-250-1196<br>View location information (http://www.wakegov.com/libraries/locations/orl).]]></description>
+				<styleUrl>#icon-158</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<Point>
+					<coordinates>-78.569659,35.768653,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Richard B. Harrison Community Library</name>
+				<description><![CDATA[1313 New Bern Ave.<br>Raleigh, NC 27610<br>919-856-5720<br>View location information (http://www.wakegov.com/libraries/locations/rbh).]]></description>
+				<styleUrl>#icon-158</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<Point>
+					<coordinates>-78.618239,35.780282,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Southeast Regional Library</name>
+				<description><![CDATA[908 7th Ave.<br>Garner, NC 27529<br>919-662-2250<br>View location information (http://www.wakegov.com/libraries/locations/ser).]]></description>
+				<styleUrl>#icon-158</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<Point>
+					<coordinates>-78.62105,35.705977000000004,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Southgate Community Library</name>
+				<description><![CDATA[1601-14 Cross Link Road<br>Raleigh, NC 27610<br>919-856-6598<br>View location information (http://www.wakegov.com/libraries/locations/sga).]]></description>
+				<styleUrl>#icon-158</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<Point>
+					<coordinates>-78.614591,35.75468,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Wake Forest Community Library</name>
+				<description><![CDATA[400 E Holding Ave.<br>Wake Forest, NC 27587<br>919-554-8498<br>View location information (http://www.wakegov.com/libraries/locations/wak).]]></description>
+				<styleUrl>#icon-158</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<Point>
+					<coordinates>-78.510243,35.969931,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Wendell Community Library</name>
+				<description><![CDATA[207 S Hollybrook Rd.<br>Wendell, NC 27591<br>919-365-2600<br>View location information (http://www.wakegov.com/libraries/locations/wen).]]></description>
+				<styleUrl>#icon-158</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<Point>
+					<coordinates>-78.366294,35.778811,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>West Regional Library</name>
+				<description><![CDATA[4000 Louis Stephens Dr.<br>Cary, NC 27519<br>919-463-8500<br>View location information (http://www.wakegov.com/libraries/locations/wrl).]]></description>
+				<styleUrl>#icon-158</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<Point>
+					<coordinates>-78.86467,35.814638,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Zebulon Community Library</name>
+				<description><![CDATA[1000 Dogwood Dr.<br>Zebulon, NC 27597<br>919-404-3610<br>View location information (http://www.wakegov.com/libraries/locations/zeb)]]></description>
+				<styleUrl>#icon-158</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<Point>
+					<coordinates>-78.319817,35.836402,0.0</coordinates>
+				</Point>
+			</Placemark>
+		</Folder>
+		<Style id='icon-158-normal'>
+			<IconStyle>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/158-yellow.png</href>
+				</Icon>
+				<hotSpot x='16' y='31' xunits='pixels' yunits='insetPixels'>
+				</hotSpot>
+			</IconStyle>
+			<LabelStyle>
+				<scale>0.0</scale>
+			</LabelStyle>
+		</Style>
+		<Style id='icon-158-highlight'>
+			<IconStyle>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/158-yellow.png</href>
+				</Icon>
+				<hotSpot x='16' y='31' xunits='pixels' yunits='insetPixels'>
+				</hotSpot>
+			</IconStyle>
+			<LabelStyle>
+				<scale>1.1</scale>
+			</LabelStyle>
+		</Style>
+		<StyleMap id='icon-158'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#icon-158-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#icon-158-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+	</Document>
+</kml>
