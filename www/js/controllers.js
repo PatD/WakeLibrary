@@ -39,33 +39,38 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
   };
 });
 
+// Controller that loads the home screen
+WakeLibraryApp.controller('HomeCtrl', function($scope, $stateParams) {
+
+});
+
 
 
 // Controller that shows all locations on a map
-  WakeLibraryApp.controller('LocationsAllCtrl', function($scope, $http, LibraryLocations) {
-
-  });
+WakeLibraryApp.controller('LocationsAllCtrl', function($scope, $http, LibraryLocations) {
+  console.log("Google Maps!");
+});
 
 
 
 // Controller that lists all the Library location
-  WakeLibraryApp.controller('LocationsCtrl', function($scope, $http, LibraryLocations) {
+WakeLibraryApp.controller('LocationsCtrl', function($scope, $http, LibraryLocations) {
 
-    $scope.location = {
-      name: ''
-    }
+  $scope.location = {
+    name: ''
+  }
 
-    $scope.searchLocations = function() {
+  $scope.searchLocations = function() {
 
-      LibraryLocations.list($scope.location.name, function(locations) {
-        $scope.locations = locations;
-      });
+    LibraryLocations.list($scope.location.name, function(locations) {
+      $scope.locations = locations;
+    });
 
-    };
+  };
 
-    $scope.searchLocations();
+  $scope.searchLocations();
 
-  });
+});
 
 
 
@@ -73,34 +78,6 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
   WakeLibraryApp.controller('LocationCtrl', function($scope, $http, $stateParams, LibraryLocations) {
     LibraryLocations.find($stateParams.locationId, function(location) {
       $scope.location = location;
-
-      console.log("Location page");
-/*
-      var field = document.getElementById("LocationsIframe");
-      var fieldvalue = field.getAttribute("ng-name");
-      console.log("tag is:" + field);
-      console.log("attribute is:" + fieldvalue)
-
-
-      fixIframeThingInLocation();
-
-      function fixIframeThingInLocation() {
-        // body...
-
-        // The iframe is...
-        var _locationIframe = document.getElementById("locationiframe");
-
-        console.log(_locationIframe)
-
-        // Thie iframe's data-iframeURL value is...
-        var _locationIframeTrueSource = _locationIframe.getAttribute("ng-data");
-
-        console.log(_locationIframeTrueSource)
-
-        // So now we set the src of the iframe to...
-        document.getElementById(_locationIframe).setAttribute("src", _locationIframeTrueSource);
-      }
-*/
 
     });
   });
@@ -110,21 +87,8 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 WakeLibraryApp.controller('TwitterCtrl', function($scope, $stateParams) {
   // Twitter widget JS
   !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-})
+});
 
-// Events tabs controllers
-/*
-WakeLibraryApp.controller('EventsTabsCtrl', [ '$scope', '$state', function($scope, $state) {
-      //  $scope.navTitle = 'Tab Page';
-
-        $scope.leftButtons = [{
-            type: 'button-icon icon ion-navicon',
-            tap: function(e) {
-                $scope.toggleMenu();
-            }
-        }]
-      }]);
-*/
 
 
 // Events Calendar Controller
@@ -132,22 +96,23 @@ WakeLibraryApp.controller('EventsCtrl', function($scope, $stateParams, DataSourc
 
       SOURCE_FILE = "http://www.trumba.com/calendars/WCPL.rss?filterview=Teen+Events&HTML=0&previousweeks=0&weeks=6";
 
-      $scope.IMAGE_LOCATION = "http://rabidgadfly.com/assets/angular/xmlload/";
+    //  $scope.IMAGE_LOCATION = "http://rabidgadfly.com/assets/angular/xmlload/";
 
       xmlTransform = function(data) {
           console.log("transform data");
-          console.log(data);
+      //    console.log(data);
 
-          console.log(JSON.stringify(data));
+  //        console.log(JSON.stringify(data));
           var x2js = new X2JS();
           var json = x2js.xml_str2json( data );
           // return json.guitars.guitar;
           return json.rss.channel.item;
-          console.log(json.rss.channel.item);
+  //        console.log(json.rss.channel.item);
       };
 
       setData = function(data) {
           $scope.dataSet = data;
+          $scope.eventId = data.guid;
           console.log($scope.dataSet.length);
           console.log($scope.dataSet);
       };
@@ -159,12 +124,18 @@ WakeLibraryApp.controller('EventsCtrl', function($scope, $stateParams, DataSourc
 
 
 WakeLibraryApp.controller('EventCtrl', function($scope, $stateParams, DataSource) {
+  /*
   DataSource.find($stateParams.eventId, function(data) {
     $scope.dataSet = data;
-    console.log(data);
-    console.log("Event page");
+    $scope.eventId = data.$$hashKey;
+
+
+  //  $scope.eventId = data.guid.__text;
+  //  console.log(data);
+  //  console.log("Event page");
   })
-})
+  */
+});
 
 /*
 angular.module('starter.controllers', [])
