@@ -77,6 +77,8 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
 */
 
 
+
+
 // Our app is called WakeLibraryApp
 var WakeLibraryApp = angular.module('starter', ['ionic']);
 

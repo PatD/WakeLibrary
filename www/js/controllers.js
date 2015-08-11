@@ -124,8 +124,10 @@ WakeLibraryApp.controller('EventsCtrl', function($scope, $stateParams, DataSourc
 
 
 WakeLibraryApp.controller('EventCtrl', function($scope, $stateParams, DataSource) {
-  /*
-  DataSource.find($stateParams.eventId, function(data) {
+console.log($stateParams.eventId);
+
+
+DataSource.find($stateParams.eventId, function(data) {
     $scope.dataSet = data;
     $scope.eventId = data.$$hashKey;
 
@@ -134,7 +136,7 @@ WakeLibraryApp.controller('EventCtrl', function($scope, $stateParams, DataSource
   //  console.log(data);
   //  console.log("Event page");
   })
-  */
+
 });
 
 /*
