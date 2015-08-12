@@ -28,8 +28,21 @@ WakeLibraryApp.factory('LibraryLocations', function($http) {
 });
 
 
+WakeLibraryApp.factory('EventsFactory',function($http){
+    var events = [];
 
+    events.getEvents = function(){
+      return $http.get("http://www.trumba.com/calendars/WCPL.rss?filterview=Teen+Events&HTML=0&previousweeks=0&weeks=6");
+    }
+  //  console.log(events);
+      return events;
+  });
+
+
+/*
 WakeLibraryApp.factory('DataSource', ['$http',function($http){
+      var _libraryEventsCache;
+      var eventsdata;
       return {
           get: function(file,callback,transform){
                $http.get(
@@ -37,13 +50,16 @@ WakeLibraryApp.factory('DataSource', ['$http',function($http){
                    {transformResponse:transform}
                ).
                success(function(data, status) {
-          //         console.log("Request succeeded");
-          //         console.log(data);
+                // console.log("Request succeeded");
+                //  console.log(data);
+                _libraryEventsCache = data;
                    callback(data);
+                   console.log(_libraryEventsCache)
                }).
-               error(function(data, status) {
+               error(function(eventdata, status) {
                    console.log("Request failed " + status);
                });
           }
       };
   }]);
+*/

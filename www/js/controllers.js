@@ -91,6 +91,28 @@ WakeLibraryApp.controller('TwitterCtrl', function($scope, $stateParams) {
 
 
 
+WakeLibraryApp.controller('EventsCtrl',function($scope,EventsFactory){
+
+          $scope.events = [];
+          loadEvents();
+
+          function loadEvents(){
+            EventsFactory.getEvents().success(function(data){
+                event = x2js.xml_str2json(data);
+              /*  console.log(courses.books.course);
+                $scope.events = courses.books.course;
+
+
+            */
+            $scope.events = event.rss.channel;
+//console.log(event)
+
+console.log($scope.events);
+
+            });
+            }
+        });
+/*
 // Events Calendar Controller
 WakeLibraryApp.controller('EventsCtrl', function($scope, $stateParams, DataSource) {
 
@@ -99,22 +121,25 @@ WakeLibraryApp.controller('EventsCtrl', function($scope, $stateParams, DataSourc
     //  $scope.IMAGE_LOCATION = "http://rabidgadfly.com/assets/angular/xmlload/";
 
       xmlTransform = function(data) {
-          console.log("transform data");
-      //    console.log(data);
+        //  console.log("transform data");
+//         console.log(data);
 
   //        console.log(JSON.stringify(data));
           var x2js = new X2JS();
           var json = x2js.xml_str2json( data );
           // return json.guitars.guitar;
           return json.rss.channel.item;
-  //        console.log(json.rss.channel.item);
+          console.log(json.rss.channel.item);
       };
 
       setData = function(data) {
           $scope.dataSet = data;
           $scope.eventId = data.guid;
-          console.log($scope.dataSet.length);
-          console.log($scope.dataSet);
+
+         console.log($scope.dataSet.length);
+         console.log($scope.dataSet.$$hashKey);
+
+      //    console.log($scope.dataSet);
       };
 
       DataSource.get(SOURCE_FILE,setData,xmlTransform);
@@ -124,9 +149,15 @@ WakeLibraryApp.controller('EventsCtrl', function($scope, $stateParams, DataSourc
 
 
 WakeLibraryApp.controller('EventCtrl', function($scope, $stateParams, DataSource) {
-console.log($stateParams.eventId);
+  console.log($stateParams.eventId);
+  console.log($stateParams);
+  console.log($scope.dataSet = DataSource);
 
+   $stateParams.eventId =  $scope.eventId;
+});
+*/
 
+/*
 DataSource.find($stateParams.eventId, function(data) {
     $scope.dataSet = data;
     $scope.eventId = data.$$hashKey;
@@ -136,8 +167,8 @@ DataSource.find($stateParams.eventId, function(data) {
   //  console.log(data);
   //  console.log("Event page");
   })
+*/
 
-});
 
 /*
 angular.module('starter.controllers', [])

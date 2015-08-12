@@ -4,9 +4,9 @@
       <ion-list>
     <div class="list">
 
-      		<a ng-repeat="data in dataSet" class="item" href="#/app/events/{{data.$$hashKey}}">
-            <h2>{{data.title}}</h2>
-            <h4>{{data.$$hashKey}}</h4>
+      		<a ng-repeat="event in events" class="item" href="#/app/events/{{data.$$hashKey}}">
+            <h2>{{event.title}}</h2>
+            <h4>{{$$hashKey}}</h4>
           </a>
 
       </div>
