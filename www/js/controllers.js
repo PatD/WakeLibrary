@@ -104,11 +104,12 @@ WakeLibraryApp.controller('EventsCtrl',function($scope,EventsFactory){
 
 
             */
-            $scope.events = event.rss.channel;
+            $scope.events = event.rss.channel.item;
+
 //console.log(event)
 
 console.log($scope.events);
-
+console.log(JSON.stringify($scope.events));
             });
             }
         });
