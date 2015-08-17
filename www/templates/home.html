@@ -1,6 +1,60 @@
-<ion-view view-title="Home">
+<ion-view view-title="Wake County Libraries">
   <ion-content>
-    <h1>Home</h1>
-    <p>Content is here</p>
+
+<div class="padding">
+    <a class="button icon-left ion-ios-home-outline button-block button-calm" ui-sref="app.booksearch">Find a Book</a>
+
+    <a class="button icon-left ion-ios-book-outline button-block button-calm" ui-sref="app.events">Wake Library Events</a>
+
+    <a class="button icon-left ion-ios-location-outline button-block button-calm" ui-sref="app.locations">Library Locations</a>
+</div>
+
+
+
+
+
+
+  <div class="list card">
+    <div class="item item-divider">
+    Wake Library Services
+    </div>
+
+    <!-- RSS view of quesitons with link to site? -->
+    <!-- http://www.wakegov.com/libraries/services/Pages/usinglibrary.aspx -->
+    <a href="https://catalog.wakegov.com/MyAccount/Home" class="item item-icon-left">
+      <i class="icon ion-ios-browsers-outline"></i>
+      Sign into your account
+    </a>
+
+    <a href="http://askwcpl.wakegov.com/mobile.php" class="item item-icon-left">
+      <i class="icon ion-ios-help-outline"></i>
+      AskWCPL
+    </a>
+
+    <!-- link to view -->
+    <a href="#" class="item item-icon-left">
+      <i class="icon ion-android-chat"></i>
+      Text a question
+    </a>
+
+    <!-- this'll have to be a view -->
+    <a href="http://www.wakegov.com/libraries/services/about/Pages/contact.aspx" class="item item-icon-left">
+      <i class="icon ion-android-call"></i>
+      Library Contacts
+    </a>
+
+    <a ui-sref="app.twitter" class="item item-icon-left">
+      <i class="icon ion-social-twitter-outline"></i>
+      Wake County Library on Twitter
+    </a>
+
+    <!-- This'll need to be a view -->
+    <a href="#" class="item item-icon-left">
+      <i class="icon ion-social-facebook-outline"></i>
+      Wake County Library on Facebook
+    </a>
+  </div>
+
+
   </ion-content>
 </ion-view>

@@ -5,79 +5,6 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 
-/*
-var LocationsUrl = 'http://maps.wakegov.com/arcgis/rest/services/WCPL/Libraries/FeatureServer/0/query?where=+&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&relationParam=&outFields=*&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&outSR=&gdbVersion=&returnDistinctValues=false&returnIdsOnly=false&returnCountOnly=false&orderByFields=NAME&groupByFieldsForStatistics=CITY&outStatistics=&returnZ=false&returnM=false&f=pjson';
-
-angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
-
-.run(function($ionicPlatform) {
-  $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
-    if (window.cordova && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-      cordova.plugins.Keyboard.disableScroll(true);
-
-    }
-    if (window.StatusBar) {
-      // org.apache.cordova.statusbar required
-      StatusBar.styleDefault();
-    }
-  });
-})
-
-.config(function($stateProvider, $urlRouterProvider) {
-  $stateProvider
-
-  .state('app', {
-    url: '/app',
-    abstract: true,
-    templateUrl: 'templates/menu.html',
-    controller: 'AppCtrl'
-  })
-
-  .state('app.search', {
-    url: '/search',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/search.html'
-      }
-    }
-  })
-
-  .state('app.browse', {
-      url: '/browse',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/browse.html'
-        }
-      }
-    })
-    .state('app.locations', {
-      url: '/locations',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/locations.html',
-          controller: 'LocationsCtrl'
-        }
-      }
-    })
-  .state('app.location', {
-      url: '/locations/:locationId',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/location.html',
-          controller: 'LocationCtrl'
-        }
-      }
-    });
-  // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/locations');
-});
-*/
-
-
-
 
 // Our app is called WakeLibraryApp
 var WakeLibraryApp = angular.module('starter', ['ionic']);
@@ -121,11 +48,12 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     })
-    .state('app.search', {
+    .state('app.booksearch', {
       url: '/search',
       views: {
         'menuContent': {
-          templateUrl: 'templates/search.html'
+          templateUrl: 'templates/booksearch/search.html',
+          controller: 'BookSearchCtrl'
         }
       }
     })
@@ -176,7 +104,7 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
       }
     })
     .state('app.event', {
-      url: '/events/:eventId',
+      url: '/event/:eventId',
       views: {
         'menuContent': {
           templateUrl: 'templates/events/event-details.html',
@@ -186,21 +114,10 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
     })
 
 
-    /*
-    .state('app.events-tabs', {
-      url: '/events-tabs',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/events-tabs.html',
-          controller: 'EventsTabsCtrl'
-        }
-      }
-    }) */
-
-
 
     ;
 
-  $urlRouterProvider.otherwise("/app/locations");
+//When we are lost, we go home
+  $urlRouterProvider.otherwise("/app/home");
 
 });

@@ -31,11 +31,21 @@ WakeLibraryApp.factory('LibraryLocations', function($http) {
 WakeLibraryApp.factory('EventsFactory',function($http){
     var events = [];
 
+    var currentEventId;
+
+
     events.getEvents = function(){
       return $http.get("http://www.trumba.com/calendars/WCPL.rss?filterview=Teen+Events&HTML=0&previousweeks=0&weeks=6");
+
     }
+
+    function setEventID(eventId){
+      currentEventId = eventId;
+    }
+
   //  console.log(events);
       return events;
+      return currentEventId;
   });
 
 
