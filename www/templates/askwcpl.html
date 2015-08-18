@@ -1,0 +1,21 @@
+<ion-view view-title="Ask WCPL">
+  <ion-content>
+
+
+    <ion-list>
+      <ul class="list padding">
+
+        <li ng-repeat="answer in answers" class="item item-icon-left">
+<i class="icon ion-ios-information-outline"></i>
+          <h4 ng-bind-html="answer.question" ng-click="showDetails = ! showDetails"></h4>
+          <div class="answerdetails item-text-wrap" ng-show="showDetails">
+            <p ng-hide ng-bind-html="answer.answer"></p>
+          </div>
+        </li>
+      </ul>
+    </ion-list>
+    <style>
+      .u{display:none;}
+    </style>
+  </ion-content>
+</ion-view>

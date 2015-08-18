@@ -7,7 +7,7 @@
 
 
 // Our app is called WakeLibraryApp
-var WakeLibraryApp = angular.module('starter', ['ionic']);
+var WakeLibraryApp = angular.module('starter', ['ionic', 'ngSanitize']);
 
 // Run some Ionic/Cordovaish stuff
 WakeLibraryApp.run(function($ionicPlatform) {
@@ -45,6 +45,15 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
         'menuContent': {
           templateUrl: 'templates/home.html',
           controller: 'HomeCtrl'
+        }
+      }
+    })
+    .state('app.askwcpl', {
+      url: '/askwcpl',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/askwcpl.html',
+          controller: 'AskwcplCtrl'
         }
       }
     })
@@ -93,7 +102,23 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     })
-
+    .state('app.facebook', {
+      url: '/facebook',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/facebook.html',
+          controller: 'FacebookCtrl'
+        }
+      }
+    })
+    .state('app.text', {
+      url: '/text',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/text.html'
+        }
+      }
+    })
     .state('app.events', {
       url: '/events',
       views: {

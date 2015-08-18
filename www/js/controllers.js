@@ -48,10 +48,35 @@ WakeLibraryApp.controller('HomeCtrl', function($scope, $stateParams) {
 
 
 
+
+
+// Controller that loads the home screen
+WakeLibraryApp.controller('AskwcplCtrl', function($scope, $stateParams, AskWCPLfactory) {
+
+  $scope.answer = {
+    name: ''
+  }
+
+  $scope.searchAnswers = function() {
+
+
+    AskWCPLfactory.list($scope.answer.name, function(answers) {
+      $scope.answers = answers;
+
+
+    });
+  };
+
+  $scope.searchAnswers();
+
+});
+
+
+
 // Google book search
 WakeLibraryApp.controller('BookSearchCtrl', function($scope, $stateParams) {
   (function() {
-    
+
     var cx = '001729500003019595200:fp9zpyuqyes';
     var gcse = document.createElement('script');
     gcse.type = 'text/javascript';
@@ -62,6 +87,14 @@ WakeLibraryApp.controller('BookSearchCtrl', function($scope, $stateParams) {
     s.parentNode.insertBefore(gcse, s);
   })();
 });
+
+
+
+
+
+
+
+
 
 // Controller that shows all locations on a map. Should replace this with angular google maps
 WakeLibraryApp.controller('LocationsAllCtrl', function($scope, $http, LibraryLocations) {
@@ -107,7 +140,17 @@ WakeLibraryApp.controller('TwitterCtrl', function($scope, $stateParams) {
 });
 
 
-
+// Facebook Controller
+WakeLibraryApp.controller('FacebookCtrl', function($scope, $stateParams) {
+  // Facebook widget JS
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=281211761941863";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+});
 
 
 // Event Controller

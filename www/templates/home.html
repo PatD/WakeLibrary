@@ -7,6 +7,7 @@
     <a class="button icon-left ion-ios-book-outline button-block button-calm" ui-sref="app.events">Wake Library Events</a>
 
     <a class="button icon-left ion-ios-location-outline button-block button-calm" ui-sref="app.locations">Library Locations</a>
+
 </div>
 
 
@@ -21,18 +22,22 @@
 
     <!-- RSS view of quesitons with link to site? -->
     <!-- http://www.wakegov.com/libraries/services/Pages/usinglibrary.aspx -->
+    <a ui-sref="app.askwcpl" class="item item-icon-left">
+      <i class="icon ion-ios-help-outline"></i>
+      AskWCPL (FAQs)
+    </a>
+
+
+
+
     <a href="https://catalog.wakegov.com/MyAccount/Home" class="item item-icon-left">
       <i class="icon ion-ios-browsers-outline"></i>
       Sign into your account
     </a>
 
-    <a href="http://askwcpl.wakegov.com/mobile.php" class="item item-icon-left">
-      <i class="icon ion-ios-help-outline"></i>
-      AskWCPL
-    </a>
 
     <!-- link to view -->
-    <a href="#" class="item item-icon-left">
+    <a ui-sref="app.text" class="item item-icon-left">
       <i class="icon ion-android-chat"></i>
       Text a question
     </a>
@@ -49,7 +54,7 @@
     </a>
 
     <!-- This'll need to be a view -->
-    <a href="#" class="item item-icon-left">
+    <a ui-sref="app.facebook" class="item item-icon-left">
       <i class="icon ion-social-facebook-outline"></i>
       Wake County Library on Facebook
     </a>

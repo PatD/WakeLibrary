@@ -1,3 +1,41 @@
+// Ask WCPL
+WakeLibraryApp.factory('AskWCPLfactory', function($http) {
+  var _AnswerCachedData;
+
+  function getData(answername, callback) {
+    var AnswersUrl = 'http://askwcpl.wakegov.com/api_answers.php?iid=294&type=popular&limit=30&showans=1&showdet=0&format=json';
+
+  
+
+    $http.get(AnswersUrl).success(function(data) {
+
+      _AnswerCachedData = data.answers;
+      callback(data.answers);
+      // Factory has successfully queried data
+      // console.log(JSON.stringify(_AnswerCachedData));
+
+    });
+  }
+
+  return {
+    list: getData,
+    find: function(name, callback) {
+      // console.log("name" + name);
+      var answer = _AnswerCachedData.filter(function(entry) {
+        return entry.answers.id == name;
+      })[0];
+      callback(answer);
+    }
+  };
+
+});
+
+
+
+
+
+
+// Locations
 WakeLibraryApp.factory('LibraryLocations', function($http) {
   var _LocationcachedData;
 
