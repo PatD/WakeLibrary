@@ -153,6 +153,14 @@ WakeLibraryApp.controller('FacebookCtrl', function($scope, $stateParams) {
 });
 
 
+
+// Events Landing Page Controller
+WakeLibraryApp.controller('EventsLandingCtrl', function($scope, EventsFactory, $stateParams) {
+
+});
+
+
+
 // Event Controller
 WakeLibraryApp.controller('EventCtrl', function($scope, EventsFactory, $stateParams) {
 

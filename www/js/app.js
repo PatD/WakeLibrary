@@ -119,8 +119,17 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     })
-    .state('app.events', {
-      url: '/events',
+    .state('app.eventsLanding', {
+      url: '/eventsLanding',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/events/events-landing.html',
+          controller: 'EventsLandingCtrl'
+        }
+      }
+    })
+    .state('app.eventsLanding.events', {
+      url: '/eventsLanding/events',
       views: {
         'menuContent': {
           templateUrl: 'templates/events/events.html',
@@ -128,6 +137,7 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     })
+    /*
     .state('app.event', {
       url: '/event/:eventId',
       views: {
@@ -137,7 +147,7 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     })
-
+    */
 
 
     ;

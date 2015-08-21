@@ -10,15 +10,14 @@
       <input type="search" placeholder="Search Popular Questions" ng-model="query" autocorrect="off">
     </label>
 
-    <ion-list>
-      <ul class="list padding">
-        <li ng-repeat="answer in answers | filter:query" class="item item-text-wrap" ng-click="showDetails = ! showDetails">
-          <h3 ng-bind-html="answer.question" ></h3>
+    <ion-list class="list padding">
+
+        <ion-item ng-repeat="answer in answers | filter:query" class="item item-text-wrap" ng-click="showDetails = ! showDetails">
+          <h2 ng-bind-html="answer.question"></h2>
           <div class="card padding answerdetails " ng-show="showDetails">
             <span ng-hide ng-bind-html="answer.answer"><span>
           </div>
-        </li>
-      </ul>
+        </ion-item>
     </ion-list>
 
     <p class="padding"><a class="button button-block button-positive icon-left ion-ios-help-outline" href="http://askwcpl.wakegov.com/mobile.php">All Questions on WakeGov.com</a></p>
