@@ -4,22 +4,20 @@
       <i class="icon ion-search placeholder-icon"></i>
       <input type="search" placeholder="Find a Library" ng-model="query" autocorrect="off">
     </label>
-    <ion-list>
-      <div class="list">
+    <ion-list class="list">
 
 
 
-        <a ng-repeat="location in locations | filter:query" href="#/app/locations/{{location.attributes.OBJECTID}}" class="item item-thumbnail-left">
+        <ion-item ng-repeat="location in locations | filter:query" href="#/app/locations/{{location.attributes.OBJECTID}}" class="item item-thumbnail-left">
 
           <img ng-src="http://maps.googleapis.com/maps/api/staticmap?center={{location.attributes.FAC_ADDRESS}},+{{location.attributes.CITY}},+NC&zoom=13&scale=2&size=160x160&maptype=terrain&key=AIzaSyC4lGFKI7caErQ3MacquCOUjU4fJJjpzHM&format=png&visual_refresh=true">
           <h2>{{location.attributes.NAME}}</h2>
           <h4>{{location.attributes.CITY}}</h4>
-        </a>
-        <a class="item" href="#/app/locations-all">
+        </ion-item>
+        <ion-item class="item" href="#/app/locations-all">
           <h2>All Wake County Libraries</h2>
           <h4>View on Google Maps</h4>
-        </a>
-      </div>
+        </ion-item>
     </ion-list>
 
     <!-- About this data -->

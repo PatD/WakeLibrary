@@ -1,0 +1,47 @@
+<ion-view view-title="Wake County Adult Library Events">
+  <ion-content>
+
+    <select ng-model="locationFilter">
+      <option value="">[Select your library]</option>
+      <option value="Athens Drive Community Library">Athens Drive Community Library</option>
+      <option value="Cameron Village Regional Library">Cameron Village Regional Library</option>
+      <option value="Cary Community Library">Cary Community Library</option>
+      <option value="Duraleigh Road Community Library">Duraleigh Road Community Library</option>
+      <option value="East Regional Library">East Regional Library</option>
+      <option value="Eva Perry Regional Library">Eva Perry Regional Library</option>
+      <option value="Express Library - Fayetteville Street">Express Library - Fayetteville Street</option>
+      <option value="Fuquay-Varina Community Library">Fuquay-Varina Community Library</option>
+      <option value="Green Road Community Library">Green Road Community Library</option>
+      <option value="Holly Springs Community Library">Holly Springs Community Library</option>
+      <option value="Leesville Community Library">Leesville Community Library</option>
+      <option value="North Regional Library">North Regional Library</option>
+      <option value="Olivia Raney Local History Library">Olivia Raney Local History Library</option>
+      <option value="Richard B. Harrison Community Library">Richard B. Harrison Community Library</option>
+      <option value="Southeast Regional Library">Southeast Regional Library</option>
+      <option value="Southgate Community Library">Southgate Community Library</option>
+      <option value="Wake Forest Community Library">Wake Forest Community Library</option>
+      <option value="Wendell Community Library">Wendell Community Library</option>
+      <option value="West Regional Library">West Regional Library</option>
+      <option value="Zebulon Community Library">Zebulon Community Library</option>
+    </select>
+
+    <!-- input ng-model="query" -->
+
+      <ion-list class="list">
+
+      		<ion-item class="item image-left" ng-repeat="event in events | filter:locationFilter" class="item item-text-wrap" ng-click="showDetails = ! showDetails">
+
+            <h2>{{event.title}}</h2>
+            <h4>{{event.location.__text}}</h4>
+            <h4>{{event.formatteddatetime.__text}}</h4>
+            <div class="card padding answerdetails " ng-show="showDetails">
+
+              <span class="item-text-wrap" ng-bind-html="event.description"></span>
+
+
+            </div>
+          </ion-item>
+
+    </ion-list>
+  </ion-content>
+</ion-view>

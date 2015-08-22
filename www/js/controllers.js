@@ -42,85 +42,82 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
 
 // Controller that loads the home screen
-WakeLibraryApp.controller('HomeCtrl', function($scope, $stateParams) {
-
-});
+  WakeLibraryApp.controller('HomeCtrl', function($scope, $stateParams) {
+    console.log("Welcome home");
+  });
 
 
 
 
 
 // Controller that loads the home screen
-WakeLibraryApp.controller('AskwcplCtrl', function($scope, $stateParams, AskWCPLfactory) {
+  WakeLibraryApp.controller('AskwcplCtrl', function($scope, $stateParams, AskWCPLfactory) {
 
-  $scope.answer = {
-    name: ''
-  }
+    $scope.answer = {
+      name: ''
+    }
 
-  $scope.searchAnswers = function() {
-
-
-    AskWCPLfactory.list($scope.answer.name, function(answers) {
-      $scope.answers = answers;
+    $scope.searchAnswers = function() {
 
 
-    });
-  };
+      AskWCPLfactory.list($scope.answer.name, function(answers) {
+        $scope.answers = answers;
 
-  $scope.searchAnswers();
 
-});
+      });
+    };
+
+    $scope.searchAnswers();
+
+  });
+
 
 
 
 // Google book search
-WakeLibraryApp.controller('BookSearchCtrl', function($scope, $stateParams) {
-  (function() {
+  WakeLibraryApp.controller('BookSearchCtrl', function($scope, $stateParams) {
+    (function() {
 
-    var cx = '001729500003019595200:fp9zpyuqyes';
-    var gcse = document.createElement('script');
-    gcse.type = 'text/javascript';
-    gcse.async = true;
-    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-        '//cse.google.com/cse.js?cx=' + cx;
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(gcse, s);
-  })();
-});
-
-
-
-
-
-
+      var cx = '001729500003019595200:fp9zpyuqyes';
+      var gcse = document.createElement('script');
+      gcse.type = 'text/javascript';
+      gcse.async = true;
+      gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+          '//cse.google.com/cse.js?cx=' + cx;
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(gcse, s);
+    })();
+  });
 
 
 
 // Controller that shows all locations on a map. Should replace this with angular google maps
-WakeLibraryApp.controller('LocationsAllCtrl', function($scope, $http, LibraryLocations) {
-  console.log("Google Maps!");
-});
+  WakeLibraryApp.controller('LocationsAllCtrl', function($scope, $http, LibraryLocations) {
+    console.log("Google Maps!");
+  });
+
 
 
 
 // Controller that lists all the Library location
-WakeLibraryApp.controller('LocationsCtrl', function($scope, $http, LibraryLocations) {
+  WakeLibraryApp.controller('LocationsCtrl', function($scope, $http, LibraryLocations) {
 
-  $scope.location = {
-    name: ''
-  }
+    $scope.location = {
+      name: ''
+    }
 
-  $scope.searchLocations = function() {
+    $scope.searchLocations = function() {
 
-    LibraryLocations.list($scope.location.name, function(locations) {
-      $scope.locations = locations;
-    });
+      LibraryLocations.list($scope.location.name, function(locations) {
+        $scope.locations = locations;
+      });
 
-  };
+    };
 
-  $scope.searchLocations();
+    $scope.searchLocations();
 
-});
+  });
+
 
 
 
@@ -133,34 +130,38 @@ WakeLibraryApp.controller('LocationsCtrl', function($scope, $http, LibraryLocati
   });
 
 
+
+
 // Twitter Controller
-WakeLibraryApp.controller('TwitterCtrl', function($scope, $stateParams) {
-  // Twitter widget JS
-  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-});
+  WakeLibraryApp.controller('TwitterCtrl', function($scope, $stateParams) {
+    // Twitter widget JS
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+  });
+
+
 
 
 // Facebook Controller
-WakeLibraryApp.controller('FacebookCtrl', function($scope, $stateParams) {
-  // Facebook widget JS
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=281211761941863";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-});
+  WakeLibraryApp.controller('FacebookCtrl', function($scope, $stateParams) {
+    // Facebook widget JS
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=281211761941863";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  });
 
 
 
 // Events Landing Page Controller
-WakeLibraryApp.controller('EventsLandingCtrl', function($scope, EventsFactory, $stateParams) {
+  WakeLibraryApp.controller('EventsLandingCtrl', function($scope, EventsFactory, $stateParams) {
+    console.log("Events Landing Page");
+  });
 
-});
 
-
-
+/*
 // Event Controller
 WakeLibraryApp.controller('EventCtrl', function($scope, EventsFactory, $stateParams) {
 
@@ -174,6 +175,46 @@ WakeLibraryApp.controller('EventCtrl', function($scope, EventsFactory, $statePar
 
 //  });
 });
+*/
+
+
+
+
+// Eventst Ctrl
+WakeLibraryApp.controller('EventsAdultCtrl',function($scope, EventsFactory){
+  var _EventsCacheData;
+
+
+          $scope.events = [];
+          loadEvents();
+
+          function loadEvents(){
+            EventsFactory.getEvents().success(function(data){
+                event = x2js.xml_str2json(data);
+              /*  console.log(courses.books.course);
+                $scope.events = courses.books.course;
+
+
+
+            */
+            $scope.events = event.rss.channel.item;
+
+            $stateParams = event.rss.channel.$$hashKey;
+          //  _EventsCacheData = event.rss.channel.$$hashKey;
+          //  console.log($stateParams)
+          //  console.log(_EventsCacheData);
+
+// console.log(event)
+
+// console.log($scope.events);
+ console.log(JSON.stringify($scope.events));
+            });
+            }
+        });
+
+
+
+
 
 // Eventst Ctrl
 WakeLibraryApp.controller('EventsCtrl',function($scope, EventsFactory){

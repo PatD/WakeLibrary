@@ -128,12 +128,12 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     })
-    .state('app.eventsLanding.events', {
-      url: '/eventsLanding/events',
+    .state('app.eventsAdult', {
+      url: '/eventsAdult',
       views: {
         'menuContent': {
-          templateUrl: 'templates/events/events.html',
-          controller: 'EventsCtrl'
+          templateUrl: 'templates/events/events-adults.html',
+          controller: 'EventsAdultCtrl'
         }
       }
     })
