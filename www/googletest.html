@@ -1,18 +1,50 @@
-<div id='cse'>Loading</div>
-<script src='//www.google.com/jsapi' type='text/javascript'></script>
-<script type='text/javascript'>
-google.load('search', '1', {language: 'en', style: google.loader.themes.V2_DEFAULT});
-google.setOnLoadCallback(function() {
-  var customSearchOptions = {};
-  var orderByOptions = {};
-  orderByOptions['keys'] = [{label: 'Relevance', key: ''} , {label: 'Date', key: 'date'}];
-  customSearchOptions['enableOrderBy'] = true;
-  customSearchOptions['orderByOptions'] = orderByOptions;
-  customSearchOptions['overlayResults'] = true;
-  var customSearchControl =   new google.search.CustomSearchControl('001729500003019595200:fp9zpyuqyes', customSearchOptions);
-  customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
-  var options = new google.search.DrawOptions();
-  options.setAutoComplete(true);
-  customSearchControl.draw('cse', options);
-}, true);
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Element V2: Full-width Layout Demo</title>
+
+<!-- Put the following javascript before the closing </head> tag. -->
+<script>
+  var renderSearchElement = function() {
+
+    google.search.cse.element.render(
+      {
+        div: "bookSearch",
+        attributes: {
+          disableWebSearch: true,
+          enableHistory: true},
+        tag: 'search'
+      });
+  };
+  var myCallback = function() {
+    if (document.readyState == 'complete') {
+      renderSearchElement();
+    } else {
+      google.setOnLoadCallback(renderSearchElement, true);
+    }
+  };
+
+  window.__gcse = {
+    parsetags: 'explicit',
+    callback: myCallback
+  };
+
+  var loadElements = function() {
+    var cx = '001729500003019595200:fp9zpyuqyes';
+    var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
+  }
+
+  loadElements();
 </script>
+</head>
+
+<body>
+<!-- Place this tag where you want both of the search box and the search results to render -->
+<div id="bookSearch"></div>
+</body>
+
+</html>

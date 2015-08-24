@@ -76,6 +76,25 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
 // Google book search
   WakeLibraryApp.controller('BookSearchCtrl', function($scope, $stateParams) {
+
+    
+
+    /* Just search box */
+    (function() {
+      var cx = '001729500003019595200:fp9zpyuqyes';
+      var gcse = document.createElement('script');
+      gcse.type = 'text/javascript';
+      gcse.async = true;
+      gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+          '//cse.google.com/cse.js?cx=' + cx;
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(gcse, s);
+    })();
+
+
+/*
+// Both Searches
+
     (function() {
 
       var cx = '001729500003019595200:fp9zpyuqyes';
@@ -87,7 +106,65 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
       var s = document.getElementsByTagName('script')[0];
       s.parentNode.insertBefore(gcse, s);
     })();
+*/
+/*
+    var renderSearchElement = function() {
+
+      google.search.cse.element.render(
+        {
+          div: "bookSearch",
+          attributes: {
+            disableWebSearch: true,
+            enableHistory: true},
+          tag: 'search'
+        });
+    };
+    var myCallback = function() {
+      if (document.readyState == 'complete') {
+        renderSearchElement();
+      } else {
+        google.setOnLoadCallback(renderSearchElement, true);
+      }
+    };
+
+    window.__gcse = {
+      parsetags: 'explicit',
+      callback: myCallback
+    };
+
+    var loadElements = function() {
+      var cx = '001729500003019595200:fp9zpyuqyes';
+      var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
+      gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+          '//www.google.com/cse/cse.js?cx=' + cx;
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
+    }
+
+    loadElements();
+*/
   });
+
+// Google Search Results
+  WakeLibraryApp.controller('BookSearchResultsCtrl', function($scope, $http) {
+
+      (function() {
+        var cx = '001729500003019595200:fp9zpyuqyes';
+        var gcse = document.createElement('script');
+        gcse.type = 'text/javascript';
+        gcse.async = true;
+        gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+            '//cse.google.com/cse.js?cx=' + cx;
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(gcse, s);
+
+
+      })();
+
+
+
+  });
+
+
 
 
 

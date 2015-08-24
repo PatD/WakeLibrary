@@ -58,14 +58,23 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
       }
     })
     .state('app.booksearch', {
-      url: '/search',
+      url: '/search?gsc&q',
       views: {
         'menuContent': {
           templateUrl: 'templates/booksearch/search.html',
           controller: 'BookSearchCtrl'
         }
       }
-    })
+    })/*
+    .state('app.results', {
+      url: '/results?q',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/booksearch/results.html',
+          controller: 'BookSearchResultsCtrl'
+        }
+      }
+    })*/
     .state('app.locations-all', {
       url: '/locations-all',
       views: {
