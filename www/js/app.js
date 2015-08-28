@@ -43,11 +43,19 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
       url: '/home',
       views: {
         'menuContent': {
-          templateUrl: 'templates/home.html',
-          controller: 'HomeCtrl'
+          templateUrl: 'templates/home.html'
         }
       }
     })
+  // About page
+        .state('app.about', {
+          url: '/about',
+          views: {
+            'menuContent': {
+              templateUrl: 'templates/about.html'
+            }
+          }
+        })
     .state('app.askwcpl', {
       url: '/askwcpl',
       views: {
@@ -79,8 +87,7 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
       url: '/locations-all',
       views: {
         'menuContent': {
-          templateUrl: 'templates/locations/locations-all.html',
-          controller: 'LocationsAllCtrl'
+          templateUrl: 'templates/locations/locations-all.html'
         }
       }
     })

@@ -42,15 +42,6 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
 
 // Controller that loads the home screen
-  WakeLibraryApp.controller('HomeCtrl', function($scope, $stateParams) {
-    console.log("Welcome home");
-  });
-
-
-
-
-
-// Controller that loads the home screen
   WakeLibraryApp.controller('AskwcplCtrl', function($scope, $stateParams, AskWCPLfactory) {
 
     $scope.answer = {
@@ -77,7 +68,7 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 // Google book search
   WakeLibraryApp.controller('BookSearchCtrl', function($scope, $stateParams) {
 
-    
+
 
     /* Just search box */
     (function() {
@@ -167,11 +158,6 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
 
 
-
-// Controller that shows all locations on a map. Should replace this with angular google maps
-  WakeLibraryApp.controller('LocationsAllCtrl', function($scope, $http, LibraryLocations) {
-    console.log("Google Maps!");
-  });
 
 
 
