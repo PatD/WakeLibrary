@@ -6,7 +6,7 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
   // listen for the $ionicView.enter event:
   //$scope.$on('$ionicView.enter', function(e) {
   //});
-
+/*
   // Form data for the login modal
   $scope.loginData = {};
 
@@ -37,11 +37,15 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
       $scope.closeLogin();
     }, 1000);
   };
+
+  */
 });
 
 
 
-// Controller that loads the home screen
+
+
+// Controller that loads the Ask WCPL screen
   WakeLibraryApp.controller('AskwcplCtrl', function($scope, $stateParams, AskWCPLfactory) {
 
     $scope.answer = {
@@ -66,11 +70,10 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
 
 // Google book search
-  WakeLibraryApp.controller('BookSearchCtrl', function($scope, $stateParams) {
+  WakeLibraryApp.controller('BookSearchCtrl', function($scope, $stateParams, $ionicModal) {
 
 
-
-    /* Just search box */
+    /* Google CSE */
     (function() {
       var cx = '001729500003019595200:fp9zpyuqyes';
       var gcse = document.createElement('script');
@@ -83,78 +86,31 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
     })();
 
 
-/*
-// Both Searches
 
-    (function() {
 
-      var cx = '001729500003019595200:fp9zpyuqyes';
-      var gcse = document.createElement('script');
-      gcse.type = 'text/javascript';
-      gcse.async = true;
-      gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-          '//cse.google.com/cse.js?cx=' + cx;
-      var s = document.getElementsByTagName('script')[0];
-      s.parentNode.insertBefore(gcse, s);
-    })();
-*/
-/*
-    var renderSearchElement = function() {
+  // Form data for the login modal
+  // $scope.loginData = {};
 
-      google.search.cse.element.render(
-        {
-          div: "bookSearch",
-          attributes: {
-            disableWebSearch: true,
-            enableHistory: true},
-          tag: 'search'
-        });
-    };
-    var myCallback = function() {
-      if (document.readyState == 'complete') {
-        renderSearchElement();
-      } else {
-        google.setOnLoadCallback(renderSearchElement, true);
-      }
-    };
-
-    window.__gcse = {
-      parsetags: 'explicit',
-      callback: myCallback
-    };
-
-    var loadElements = function() {
-      var cx = '001729500003019595200:fp9zpyuqyes';
-      var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
-      gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-          '//www.google.com/cse/cse.js?cx=' + cx;
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
-    }
-
-    loadElements();
-*/
+  // Create the login modal that we will use later
+  $ionicModal.fromTemplateUrl('templates/booksearch/search.html', {
+    scope: $scope
+  }).then(function(modal) {
+    $scope.modal = modal;
   });
 
-// Google Search Results
-  WakeLibraryApp.controller('BookSearchResultsCtrl', function($scope, $http) {
+  // Triggered in the login modal to close it
+  $scope.closeLogin = function() {
+    $scope.modal.hide();
+  };
 
-      (function() {
-        var cx = '001729500003019595200:fp9zpyuqyes';
-        var gcse = document.createElement('script');
-        gcse.type = 'text/javascript';
-        gcse.async = true;
-        gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-            '//cse.google.com/cse.js?cx=' + cx;
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(gcse, s);
-
-
-      })();
+  // Open the login modal
+  $scope.login = function() {
+    $scope.modal.show();
+  };
 
 
 
-  });
-
+}); // End book search controller
 
 
 

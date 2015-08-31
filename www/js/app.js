@@ -28,7 +28,7 @@ WakeLibraryApp.run(function($ionicPlatform) {
 
 
 
-// App view Config
+// So. Many. Views.
 WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
 
   $stateProvider
@@ -73,16 +73,7 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
           controller: 'BookSearchCtrl'
         }
       }
-    })/*
-    .state('app.results', {
-      url: '/results?q',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/booksearch/results.html',
-          controller: 'BookSearchResultsCtrl'
-        }
-      }
-    })*/
+    })
     .state('app.locations-all', {
       url: '/locations-all',
       views: {
