@@ -56,6 +56,15 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
             }
           }
         })
+  // Contact page
+      .state('app.contact', {
+            url: '/contact',
+            views: {
+              'menuContent': {
+                templateUrl: 'templates/contact.html'
+              }
+            }
+          })
     .state('app.askwcpl', {
       url: '/askwcpl',
       views: {

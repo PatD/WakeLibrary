@@ -1,7 +1,22 @@
 <ion-view view-title="Wake County Adult Library Events">
   <ion-content>
 
-    <select ng-model="locationFilter">
+
+<!-- p>Start dropdown</p>
+    <ion-list class="list" ng-controller="LocationsCtrl">
+        <ion-item ng-repeat="location in locations" class="item">
+          <h2>{{location.attributes.NAME}}, {{location.attributes.CITY}}</h2>
+        </ion-item>
+  </ion-list -->
+<div ng-controller="LocationsCtrl">
+  <ion-list class="list" >
+
+    <select ng-options="location.attributes.NAME for location in locations track by location.attributes.NAME" ng-model="locationFilter">
+    </select>
+
+  </ion-list>
+
+    <!-- select>
       <option value="">[Select your library]</option>
       <option value="Athens Drive Community Library">Athens Drive Community Library</option>
       <option value="Cameron Village Regional Library">Cameron Village Regional Library</option>
@@ -23,11 +38,11 @@
       <option value="Wendell Community Library">Wendell Community Library</option>
       <option value="West Regional Library">West Regional Library</option>
       <option value="Zebulon Community Library">Zebulon Community Library</option>
-    </select>
+    </select  -->
 
     <!-- input ng-model="query" -->
 
-      <ion-list class="list">
+      <ion-list class="list" ng-controller="EventsAdultCtrl">
 
       		<ion-item class="item image-left" ng-repeat="event in events | filter:locationFilter" class="item item-text-wrap" ng-click="showDetails = ! showDetails">
 
@@ -43,5 +58,6 @@
           </ion-item>
 
     </ion-list>
+</div>
   </ion-content>
 </ion-view>

@@ -203,7 +203,6 @@ WakeLibraryApp.controller('EventCtrl', function($scope, EventsFactory, $statePar
 WakeLibraryApp.controller('EventsAdultCtrl',function($scope, EventsFactory){
   var _EventsCacheData;
 
-
           $scope.events = [];
           loadEvents();
 
@@ -226,9 +225,10 @@ WakeLibraryApp.controller('EventsAdultCtrl',function($scope, EventsFactory){
 // console.log(event)
 
 // console.log($scope.events);
- console.log(JSON.stringify($scope.events));
+// console.log(JSON.stringify($scope.events));
             });
             }
+    
         });
 
 
@@ -238,7 +238,6 @@ WakeLibraryApp.controller('EventsAdultCtrl',function($scope, EventsFactory){
 // Eventst Ctrl
 WakeLibraryApp.controller('EventsCtrl',function($scope, EventsFactory){
   var _EventsCacheData;
-
 
           $scope.events = [];
           loadEvents();
@@ -258,6 +257,9 @@ WakeLibraryApp.controller('EventsCtrl',function($scope, EventsFactory){
           //  _EventsCacheData = event.rss.channel.$$hashKey;
             console.log($stateParams)
           //  console.log(_EventsCacheData);
+
+
+
 
 //console.log(event)
 
