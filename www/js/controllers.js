@@ -230,7 +230,7 @@ WakeLibraryApp.controller('EventsAdultCtrl',function($scope, EventsFactory){
 // console.log(event)
 
 // console.log($scope.events);
-// console.log(JSON.stringify($scope.events));
+ // console.log(JSON.stringify($scope.events));
             });
             }
 

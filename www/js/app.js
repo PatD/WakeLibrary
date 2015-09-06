@@ -7,6 +7,9 @@
 
 
 // Our app is called WakeLibraryApp
+
+  // We inject Ionic, ngSanitize (for HTML in RSS), and angular.filter for select box filtering
+
 var WakeLibraryApp = angular.module('starter', ['ionic', 'ngSanitize', 'angular.filter']);
 
 // Run some Ionic/Cordovaish stuff
@@ -41,6 +44,8 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: 'templates/menu.html',
       controller: 'AppCtrl'
     })
+
+
 // Home page
     .state('app.home', {
       url: '/home',
@@ -50,7 +55,8 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     })
-  // About page
+
+// About page
         .state('app.about', {
           url: '/about',
           views: {
@@ -59,7 +65,9 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
             }
           }
         })
-  // Contact page
+
+
+// Contact page
       .state('app.contact', {
             url: '/contact',
             views: {
@@ -68,6 +76,8 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
               }
             }
           })
+
+// Ask WCPL FAQ screen
     .state('app.askwcpl', {
       url: '/askwcpl',
       views: {
@@ -77,6 +87,9 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     })
+
+
+// Google Booksearch
     .state('app.booksearch', {
       url: '/search?gsc&q',
       views: {
@@ -86,14 +99,11 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     })
-    .state('app.locations-all', {
-      url: '/locations-all',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/locations/locations-all.html'
-        }
-      }
-    })
+
+
+
+
+// Locations landing page
     .state('app.locations', {
       url: '/locations',
       views: {
@@ -103,15 +113,29 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     })
-    .state('app.location', {
-      url: '/locations/:locationId',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/locations/location.html',
-          controller: 'LocationCtrl'
+
+  // Individual location
+      .state('app.location', {
+        url: '/locations/:locationId',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/locations/location.html',
+            controller: 'LocationCtrl'
+          }
         }
-      }
-    })
+      })
+
+  // Google maps location
+      .state('app.locations-all', {
+        url: '/locations/all',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/locations/locations-all.html'
+          }
+        }
+      })
+
+// Twitter!
     .state('app.twitter', {
       url: '/twitter',
       views: {
@@ -121,6 +145,8 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     })
+
+// Facebook
     .state('app.facebook', {
       url: '/facebook',
       views: {
@@ -130,6 +156,8 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     })
+
+// Text to the Library
     .state('app.text', {
       url: '/text',
       views: {
@@ -138,8 +166,11 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     })
+
+
+// Events landing page
     .state('app.eventsLanding', {
-      url: '/eventsLanding',
+      url: '/events',
       views: {
         'menuContent': {
           templateUrl: 'templates/events/events-landing.html',
@@ -147,31 +178,62 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     })
-    .state('app.eventsAdult', {
-      url: '/eventsAdult',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/events/events-adults.html',
-          controller: 'EventsAdultCtrl'
-        }
-      }
-    })
-    /*
-    .state('app.event', {
-      url: '/event/:eventId',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/events/event-details.html',
-          controller: 'EventCtrl'
-        }
-      }
-    })
-    */
 
 
+
+    // Events for adults
+      .state('app.eventsAdult', {
+        url: '/events/eventsAdult',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/events/events-listing.html',
+            controller: 'EventsAdultCtrl'
+          }
+        }
+      })
+
+      // Events for teens
+        .state('app.eventsTeens', {
+          url: '/events/eventsTeens',
+          views: {
+            'menuContent': {
+              templateUrl: 'templates/events/events-listing.html',
+              controller: 'EventsTeensCtrl'
+            }
+          }
+        })
+
+
+      // Events for kids
+        .state('app.eventsKids', {
+          url: '/events/eventsKids',
+          views: {
+            'menuContent': {
+              templateUrl: 'templates/events/events-listing.html',
+              controller: 'EventsKidsCtrl'
+            }
+          }
+        })
+
+        // Events ALL
+          .state('app.eventsAll', {
+            url: '/events/eventsAll',
+            views: {
+              'menuContent': {
+                templateUrl: 'templates/events/events-listing.html',
+                controller: 'EventsKidsCtrl'
+              }
+            }
+          })
+
+
+
+
+
+// Loitering semicolon
     ;
 
-//When we are lost, we go home
+//When we are without a view, we go home
   $urlRouterProvider.otherwise("/app/home");
 
 });
