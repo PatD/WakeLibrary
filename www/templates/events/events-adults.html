@@ -17,7 +17,7 @@
     <option value="">All libraries</option>
     <option
       ng-if="event.location.__text"
-      ng-repeat="event in events | orderBy: 'location.__text' "
+      ng-repeat="event in events | orderBy: 'location.__text' | unique: 'location.__text'"
       value="{{event.location.__text}}">
       {{event.location.__text}}</option>
   </select>

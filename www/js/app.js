@@ -7,7 +7,7 @@
 
 
 // Our app is called WakeLibraryApp
-var WakeLibraryApp = angular.module('starter', ['ionic', 'ngSanitize']);
+var WakeLibraryApp = angular.module('starter', ['ionic', 'ngSanitize', 'angular.filter']);
 
 // Run some Ionic/Cordovaish stuff
 WakeLibraryApp.run(function($ionicPlatform) {
