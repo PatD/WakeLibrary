@@ -199,6 +199,11 @@ WakeLibraryApp.controller('EventCtrl', function($scope, EventsFactory, $statePar
 
 
 
+
+
+
+
+
 // Eventst Ctrl
 WakeLibraryApp.controller('EventsAdultCtrl',function($scope, EventsFactory){
   var _EventsCacheData;
@@ -228,7 +233,7 @@ WakeLibraryApp.controller('EventsAdultCtrl',function($scope, EventsFactory){
 // console.log(JSON.stringify($scope.events));
             });
             }
-    
+
         });
 
 

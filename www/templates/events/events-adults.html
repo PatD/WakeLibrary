@@ -8,43 +8,25 @@
           <h2>{{location.attributes.NAME}}, {{location.attributes.CITY}}</h2>
         </ion-item>
   </ion-list -->
-<div ng-controller="LocationsCtrl">
-  <ion-list class="list" >
 
-    <select ng-options="location.attributes.NAME for location in locations track by location.attributes.NAME" ng-model="locationFilter">
-    </select>
 
-  </ion-list>
 
-    <!-- select>
-      <option value="">[Select your library]</option>
-      <option value="Athens Drive Community Library">Athens Drive Community Library</option>
-      <option value="Cameron Village Regional Library">Cameron Village Regional Library</option>
-      <option value="Cary Community Library">Cary Community Library</option>
-      <option value="Duraleigh Road Community Library">Duraleigh Road Community Library</option>
-      <option value="East Regional Library">East Regional Library</option>
-      <option value="Eva Perry Regional Library">Eva Perry Regional Library</option>
-      <option value="Express Library - Fayetteville Street">Express Library - Fayetteville Street</option>
-      <option value="Fuquay-Varina Community Library">Fuquay-Varina Community Library</option>
-      <option value="Green Road Community Library">Green Road Community Library</option>
-      <option value="Holly Springs Community Library">Holly Springs Community Library</option>
-      <option value="Leesville Community Library">Leesville Community Library</option>
-      <option value="North Regional Library">North Regional Library</option>
-      <option value="Olivia Raney Local History Library">Olivia Raney Local History Library</option>
-      <option value="Richard B. Harrison Community Library">Richard B. Harrison Community Library</option>
-      <option value="Southeast Regional Library">Southeast Regional Library</option>
-      <option value="Southgate Community Library">Southgate Community Library</option>
-      <option value="Wake Forest Community Library">Wake Forest Community Library</option>
-      <option value="Wendell Community Library">Wendell Community Library</option>
-      <option value="West Regional Library">West Regional Library</option>
-      <option value="Zebulon Community Library">Zebulon Community Library</option>
-    </select  -->
+<div ng-controller="EventsAdultCtrl">
 
-    <!-- input ng-model="query" -->
+  <select ng-model="locationFilter">
+    <option value="">All libraries</option>
+    <option
+      ng-if="event.location.__text"
+      ng-repeat="event in events | orderBy: 'location.__text' "
+      value="{{event.location.__text}}">
+      {{event.location.__text}}</option>
+  </select>
 
-      <ion-list class="list" ng-controller="EventsAdultCtrl">
 
-      		<ion-item class="item image-left" ng-repeat="event in events | filter:locationFilter" class="item item-text-wrap" ng-click="showDetails = ! showDetails">
+      <ion-list class="list" >
+
+
+      		<ion-item class="item" ng-repeat="event in events | filter:locationFilter" class="item item-text-wrap" ng-click="showDetails = ! showDetails">
 
             <h2>{{event.title}}</h2>
             <h4>{{event.location.__text}}</h4>
@@ -53,11 +35,11 @@
 
               <span class="item-text-wrap" ng-bind-html="event.description_asArray"></span>
 
-
             </div>
           </ion-item>
 
     </ion-list>
 </div>
+
   </ion-content>
 </ion-view>
