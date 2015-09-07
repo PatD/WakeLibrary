@@ -68,15 +68,17 @@
 
 
 
-// Events
-  WakeLibraryApp.factory('EventsFactory',function($http){
+
+
+// Events Adults
+  WakeLibraryApp.factory('EventsFactoryAdults',function($http){
       var events = [];
 
       var currentEventId;
 
 
       events.getEvents = function(){
-        return $http.get("http://www.trumba.com/calendars/WCPL.rss?filterview=Adults+Only&HTML=1&previousweeks=0&weeks=4");
+        return $http.get("http://www.trumba.com/calendars/WCPL.rss?filterview=Adults+Only&HTML=1&previousweeks=0");
 
       }
 
@@ -88,6 +90,79 @@
         return events;
         return currentEventId;
     });
+
+
+
+
+// Events Teens Factory
+  WakeLibraryApp.factory('EventsTeensFactory',function($http){
+      var events = [];
+
+      var currentEventId;
+
+
+      events.getEvents = function(){
+        return $http.get("http://www.trumba.com/calendars/WCPL.rss?filterview=Teen+Events&HTML=1&previousweeks=0&weeks=6");
+
+      }
+
+      function setEventID(eventId){
+        currentEventId = eventId;
+      }
+
+        return events;
+        return currentEventId;
+    });
+
+
+
+
+// Events Kids Factory
+  WakeLibraryApp.factory('EventsKidsFactory',function($http){
+      var events = [];
+
+      var currentEventId;
+
+
+      events.getEvents = function(){
+        return $http.get("http://www.trumba.com/calendars/WCPL.rss?filterview=YS_only&HTML=1&previousweeks=0");
+
+      }
+
+      function setEventID(eventId){
+        currentEventId = eventId;
+      }
+
+        return events;
+        return currentEventId;
+    });
+
+
+
+// Events All Factory
+  WakeLibraryApp.factory('EventsAllFactory',function($http){
+      var events = [];
+
+      var currentEventId;
+
+
+      events.getEvents = function(){
+        return $http.get("http://www.trumba.com/calendars/WCPL.rss?HTML=1&previousweeks=0&weeks=10");
+
+      }
+
+      function setEventID(eventId){
+        currentEventId = eventId;
+      }
+
+        return events;
+        return currentEventId;
+    });
+
+
+
+
+
 
 
 /*

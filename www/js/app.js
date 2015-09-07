@@ -173,13 +173,12 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
       url: '/events',
       views: {
         'menuContent': {
-          templateUrl: 'templates/events/events-landing.html',
-          controller: 'EventsLandingCtrl'
+          templateUrl: 'templates/events/events-landing.html'
         }
       }
     })
 
-
+    // Views are recycled for each age group.
 
     // Events for adults
       .state('app.eventsAdult', {
@@ -221,7 +220,7 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
             views: {
               'menuContent': {
                 templateUrl: 'templates/events/events-listing.html',
-                controller: 'EventsKidsCtrl'
+                controller: 'EventsAllCtrl'
               }
             }
           })

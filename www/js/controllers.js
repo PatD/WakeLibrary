@@ -205,14 +205,14 @@ WakeLibraryApp.controller('EventCtrl', function($scope, EventsFactory, $statePar
 
 
 // Eventst Ctrl
-WakeLibraryApp.controller('EventsAdultCtrl',function($scope, EventsFactory){
+WakeLibraryApp.controller('EventsAdultCtrl',function($scope, EventsFactoryAdults){
   var _EventsCacheData;
 
           $scope.events = [];
           loadEvents();
 
           function loadEvents(){
-            EventsFactory.getEvents().success(function(data){
+            EventsFactoryAdults.getEvents().success(function(data){
                 event = x2js.xml_str2json(data);
               /*  console.log(courses.books.course);
                 $scope.events = courses.books.course;
@@ -229,7 +229,7 @@ WakeLibraryApp.controller('EventsAdultCtrl',function($scope, EventsFactory){
 
 // console.log(event)
 
-// console.log($scope.events);
+ console.log($scope.events);
  // console.log(JSON.stringify($scope.events));
             });
             }
@@ -239,6 +239,90 @@ WakeLibraryApp.controller('EventsAdultCtrl',function($scope, EventsFactory){
 
 
 
+
+
+// Events Teens Ctrl
+  WakeLibraryApp.controller('EventsTeensCtrl',function($scope, EventsTeensFactory){
+    var _EventsCacheData;
+
+          $scope.events = [];
+          loadEvents();
+
+          function loadEvents(){
+            EventsTeensFactory.getEvents().success(function(data){
+                event = x2js.xml_str2json(data);
+
+            $scope.events = event.rss.channel.item;
+
+            $stateParams = event.rss.channel.$$hashKey;
+
+            });
+            }
+
+        });
+
+
+
+
+
+// Events Kids Ctrl
+  WakeLibraryApp.controller('EventsKidsCtrl',function($scope, EventsKidsFactory){
+    var _EventsCacheData;
+
+          $scope.events = [];
+          loadEvents();
+
+          function loadEvents(){
+            EventsKidsFactory.getEvents().success(function(data){
+                event = x2js.xml_str2json(data);
+
+            $scope.events = event.rss.channel.item;
+
+            $stateParams = event.rss.channel.$$hashKey;
+
+            });
+            }
+
+        });
+
+
+
+
+
+// Events All Ctrl
+  WakeLibraryApp.controller('EventsAllCtrl',function($scope, EventsAllFactory){
+    var _EventsCacheData;
+
+          $scope.events = [];
+          loadEvents();
+
+          function loadEvents(){
+            EventsAllFactory.getEvents().success(function(data){
+                event = x2js.xml_str2json(data);
+
+            $scope.events = event.rss.channel.item;
+
+            $stateParams = event.rss.channel.$$hashKey;
+
+            });
+            }
+
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 
 // Eventst Ctrl
 WakeLibraryApp.controller('EventsCtrl',function($scope, EventsFactory){
@@ -250,12 +334,12 @@ WakeLibraryApp.controller('EventsCtrl',function($scope, EventsFactory){
           function loadEvents(){
             EventsFactory.getEvents().success(function(data){
                 event = x2js.xml_str2json(data);
-              /*  console.log(courses.books.course);
+              // console.log(courses.books.course);
                 $scope.events = courses.books.course;
 
 
 
-            */
+
             $scope.events = event.rss.channel.item;
 
             $stateParams = event.rss.channel.$$hashKey;
@@ -273,3 +357,5 @@ WakeLibraryApp.controller('EventsCtrl',function($scope, EventsFactory){
             });
             }
         });
+
+*/
