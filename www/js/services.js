@@ -1,4 +1,5 @@
 // Ask WCPL
+/*
   WakeLibraryApp.factory('AskWCPLfactory', function($http) {
     var _AnswerCachedData;
 
@@ -29,11 +30,46 @@
     };
 
   });
+*/
+
+  WakeLibraryApp.factory('AskService',['$http',function($http){
+    console.log("Factory start");
 
 
 
 
+    console.log("Factory end");
 
+        /*
+          var answers = []; //Private Variable
+          return {
+
+              // Suspect this is getting all the answers
+              GetAnswers: function(){
+                  return $http.get("http://askwcpl.wakegov.com/api_answers.php?iid=294&type=popular&limit=500&showans=1&showdet=1&format=json").then(function(response){
+                      answers = response;
+                      return response;
+                  });
+              },
+
+
+
+
+              // Suspect this is an individual answer
+              GetAnswer: function(answerId){
+                console.log("start factory")
+                  for(i=0;i < answers.length;i++){
+                      if(answers[i].id == answerId){
+                          return answers[i];
+
+                      }
+
+                  }
+              }
+          }
+
+          */
+      }]);
 
 // Locations
   WakeLibraryApp.factory('LibraryLocations', function($http) {
@@ -67,9 +103,6 @@
 
 
 
-
-
-
 // Events Adults
   WakeLibraryApp.factory('EventsFactoryAdults',function($http){
       var events = [];
@@ -93,7 +126,6 @@
 
 
 
-
 // Events Teens Factory
   WakeLibraryApp.factory('EventsTeensFactory',function($http){
       var events = [];
@@ -113,7 +145,6 @@
         return events;
         return currentEventId;
     });
-
 
 
 

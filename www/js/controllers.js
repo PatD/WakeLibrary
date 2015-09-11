@@ -42,29 +42,99 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 });
 
 
+/* Original Askwcpl ctrl
+WakeLibraryApp.controller('AskwcplCtrl', function($scope, $stateParams, AskWCPLfactory) {
+
+  $scope.answer = {
+    name: ''
+  }
+
+  $scope.searchAnswers = function() {
+
+
+    AskWCPLfactory.list($scope.answer.name, function(answers) {
+      $scope.answers = answers;
+
+
+    });
+  };
+
+  $scope.searchAnswers();
+
+});
+*/
 
 
 
-// Controller that loads the Ask WCPL screen
-  WakeLibraryApp.controller('AskwcplCtrl', function($scope, $stateParams, AskWCPLfactory) {
 
-    $scope.answer = {
-      name: ''
-    }
+// Controller that lists the Ask WCPL screen
+  WakeLibraryApp.controller('AskwcplListCtrl', function($scope, $http, $stateParams, AskService){
+    console.log("List Ctrl start");
 
-    $scope.searchAnswers = function() {
+    console.log("List Ctrl End");
+
+    /*
+
+    AskService.GetAnswers().then(function(answers){
+
+        $scope.answers = answers.data.answers;
+      });
+
+      */
+  });
 
 
-      AskWCPLfactory.list($scope.answer.name, function(answers) {
-        $scope.answers = answers;
 
+
+  // Detail View for AskWCPL
+    WakeLibraryApp.controller("AskwcplDetailsCtrl", function($scope, $stateParams, AskService){
+
+      console.log("Details Ctrl start");
+
+      console.log("Details Ctrl End");
+
+      /*
+      var answerId = $stateParams.id;
+      $scope.answer = AskService.GetAnswer(answerId);
+
+
+      console.log($stateParams.answerId);
+
+
+      AskService.GetAnswer($stateParams, function(answerId) {
+        $scope.answer = answer;
+        console.log("done")
 
       });
-    };
 
-    $scope.searchAnswers();
-
+      console.log("end")
+      */
   });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -159,7 +229,6 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
 
 
-
 // Facebook Controller
   WakeLibraryApp.controller('FacebookCtrl', function($scope, $stateParams) {
     // Facebook widget JS
@@ -178,6 +247,7 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
   WakeLibraryApp.controller('EventsLandingCtrl', function($scope, EventsFactory, $stateParams) {
     console.log("Events Landing Page");
   });
+
 
 
 /*

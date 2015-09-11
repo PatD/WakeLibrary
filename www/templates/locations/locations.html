@@ -1,9 +1,33 @@
 <ion-view view-title="Wake County Library Locations">
   <ion-content>
-    <label class="item item-input">
-      <i class="icon ion-search placeholder-icon"></i>
-      <input type="search" placeholder="Find a Library" ng-model="query" autocorrect="off">
+
+
+
+<ion-list class="list padding">
+
+  <label class="item item-input">
+    <i class="icon ion-search placeholder-icon"></i>
+    <input type="search" placeholder="Search Libraries" ng-model="query" autocorrect="off">
+  </label>
+
+    <label class="item item-input item-select">
+        <i class="icon ion-android-more-vertical placeholder-icon"></i>
+      <div class="input-label">
+        Filter by town
+      </div>
+      <select ng-model="query">
+        <option value="">All libraries</option>
+        <option
+          ng-if="location.attributes.CITY"
+          ng-repeat="location in locations | orderBy: 'attributes.CITY' | unique: 'attributes.CITY'"
+          value="{{location.attributes.CITY}}">
+          {{location.attributes.CITY}}</option>
+      </select>
     </label>
+</ion-list>
+
+
+
     <ion-list class="list">
 
       <ion-item collection-repeat="location in locations | filter:query" href="#/app/locations/{{location.attributes.OBJECTID}}" class="item item-thumbnail-left">

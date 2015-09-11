@@ -78,6 +78,7 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
           })
 
 // Ask WCPL FAQ screen
+/*
     .state('app.askwcpl', {
       url: '/askwcpl',
       views: {
@@ -87,6 +88,29 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     })
+*/
+
+.state('app.askwcpl', {
+  url: '/askwcpl',
+  views: {
+    'menuContent': {
+      templateUrl: 'templates/askwcpl/asklist.html',
+      controller: 'AskwcplListCtrl'
+    }
+  }
+})
+
+.state('app.askwcplDetails', {
+  url: '/askwcpl/:answerId',
+  views: {
+    'menuContent': {
+      templateUrl: 'templates/askwcpl/askdetail.html',
+      controller: 'AskwcplDetailsCtrl'
+    }
+  }
+})
+
+
 
 
 // Google Booksearch
