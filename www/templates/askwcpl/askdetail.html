@@ -1,9 +1,22 @@
 <ion-view title="Ask Answer">
 	<ion-content>
 
-		<h2>{{movie.id}}</h2>
-		<h2>{{movie.question}}</h2>
 
-<h2>end</h2>
+		<div class="card">
+		  <div class="item item-text-wrap item-icon-left item-divider">
+				 <i class="icon ion-ios-help-outline"></i>
+		  <span ng-bind-html="movie.question"></span>
+		  </div>
+		  <div class="item item-text-wrap item-icon-left">
+
+				<span ng-bind-html="movie.answer"></span>
+			</div>
+		  <div class="item item-divider item-icon-left">
+							 <i class="icon ion-ios-help-outline"></i>
+				Updated: {{movie.askedon}}
+		  </div>
+		</div>
+
+
 	</ion-content>
 </ion-view>
