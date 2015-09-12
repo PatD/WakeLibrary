@@ -11,9 +11,11 @@
 
     <ion-list class="list">
 
-      <ion-item ng-repeat="answers in answers | filter:query" class="item item-text-wrap item-icon-left" href="#/app/askwcpl/{{answers.id}}">
+      <ion-item ng-repeat="movie in movies | filter:query" class="item item-text-wrap item-icon-left" href="#/app/askwcpl/{{movie.id}}">
          <i class="icon ion-ios-book-outline"></i>
-        <h2 ng-bind-html="answers.question"></h2>
+
+        <h2 ng-bind-html="movie.question"></h2>
+
       </ion-item>
 
     </ion-list>

@@ -68,32 +68,74 @@ WakeLibraryApp.controller('AskwcplCtrl', function($scope, $stateParams, AskWCPLf
 
 
 // Controller that lists the Ask WCPL screen
-  WakeLibraryApp.controller('AskwcplListCtrl', function($scope, $http, $stateParams, AskService){
-    console.log("List Ctrl start");
+  WakeLibraryApp.controller('AskwcplListCtrl', function($scope, $http, AskServiceFactory){
+    $scope.movie = {
+      name: ''
+    }
 
-    console.log("List Ctrl End");
+    $scope.searchMovieDB = function() {
 
-    /*
-
-    AskService.GetAnswers().then(function(answers){
-
-        $scope.answers = answers.data.answers;
+      AskServiceFactory.list($scope.movie.name, function(movies) {
+        $scope.movies = movies;
       });
 
-      */
+    };
+
+    $scope.searchMovieDB();
+
+  /*
+    //  console.log("List Ctrl start");
+
+    $scope.answer = {
+      name: ''
+    }
+
+      $scope.listAnswers = function() {
+
+        AskServiceFactory.list($scope.answer, function(answers) {
+          $scope.answers = answers;
+
+          // Console log shows all responesse
+          // console.log(  $scope.answers );
+
+        });
+      };
+
+       $scope.listAnswers();
+
+    // console.log("List Ctrl End");
+*/
   });
 
 
 
 
   // Detail View for AskWCPL
-    WakeLibraryApp.controller("AskwcplDetailsCtrl", function($scope, $stateParams, AskService){
+    WakeLibraryApp.controller("AskwcplDetailsCtrl", function($scope, $http, $stateParams, AskServiceFactory){
+
+      AskServiceFactory.find($stateParams.movieid, function(movie) {
+        $scope.movie = movie;
+      });
+
+    /*
 
       console.log("Details Ctrl start");
 
+      $scope.showDetails = function() {
+
+      AskServiceFactory.find($stateParams.answerId, function(answer) {
+         $scope.answer = answer;
+         console.log("answerId is " + $stateParams.answerId);
+
+       });
+     };
+
+     $scope.showDetails();
+
+
       console.log("Details Ctrl End");
 
-      /*
+
       var answerId = $stateParams.id;
       $scope.answer = AskService.GetAnswer(answerId);
 

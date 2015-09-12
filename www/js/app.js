@@ -101,7 +101,7 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
 })
 
 .state('app.askwcplDetails', {
-  url: '/askwcpl/:answerId',
+  url: '/askwcpl/:movieid',
   views: {
     'menuContent': {
       templateUrl: 'templates/askwcpl/askdetail.html',
