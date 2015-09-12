@@ -6,21 +6,17 @@
 
     <label class="item item-input">
       <i class="icon ion-search placeholder-icon"></i>
-      <input type="search" placeholder="Search Popular Questions" ng-model="query" autocorrect="off">
+      <input type="search" placeholder="Search Questions" ng-model="query" autocorrect="off">
     </label>
 
     <ion-list class="list">
 
-      <ion-item ng-repeat="movie in movies | filter:query" class="item item-text-wrap item-icon-left" href="#/app/askwcpl/{{movie.id}}">
+      <ion-item ng-repeat="answer in answers | filter:query" class="item item-text-wrap item-icon-left" href="#/app/askwcpl/{{answer.id}}">
          <i class="icon ion-ios-book-outline"></i>
-
-        <h2 ng-bind-html="movie.question"></h2>
-
+         <h2 ng-bind-html="answer.question"></h2>
       </ion-item>
 
     </ion-list>
-
-    <p class="padding"><a class="button button-block button-positive icon-left ion-ios-help-outline" href="http://askwcpl.wakegov.com/mobile.php">All Questions on WakeGov.com</a></p>
 
   </ion-content>
 </ion-view>

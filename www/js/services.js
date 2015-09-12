@@ -4,97 +4,29 @@ WakeLibraryApp.factory('AskServiceFactory', function($http) {
 
   function getData(moviename, callback) {
 
-    var url = 'http://askwcpl.wakegov.com/api_answers.php?iid=294&limit=1000&showans=1&showdet=1&format=json';
+    var url = 'http://askwcpl.wakegov.com/api_answers.php?iid=294&limit=1000&showans=1&showdet=0&format=json';
 
     $http.get(url).success(function(data) {
 
       cachedData = data.answers;
       callback(data.answers);
-      console.log(data.answers);
+    //  console.log(data.answers);
     });
   }
 
   return {
     list: getData,
     find: function(name, callback) {
-      console.log(name);
-      var movie = cachedData.filter(function(entry) {
+    //  console.log(name);
+      var answer = cachedData.filter(function(entry) {
         return entry.id == name;
       })[0];
-      callback(movie);
+      callback(answer);
     }
   };
 });
 
 
-/*
-
-WakeLibraryApp.factory('AskServiceFactory', function($http) {
-  var _AnswerCachedData;
-
-  function getData(answername, callback) {
-    var AnswersUrl = 'http://askwcpl.wakegov.com/api_answers.php?iid=294&limit=1000&showans=1&showdet=1&format=json';
-
-
-    $http.get(AnswersUrl).success(function(data) {
-
-      _AnswerCachedData = data.answers;
-      callback(data.answers);
-      // Factory has successfully queried data
-      // console.log(JSON.stringify(_AnswerCachedData));
-
-    });
-  }
-
-  return {
-    list: getData,
-    find: function(name, callback) {
-      // console.log("name" + name);
-      console.log("go");
-      var location = _AnswerCachedData.filter(function(entry) {
-        return entry.answers == name;
-      })[0];
-      callback(location);
-      console.log(name);
-    }
-  };
-
-});
-
-
-
-
-  WakeLibraryApp.factory('AskWCPLfactory', function($http) {
-    var _AnswerCachedData;
-
-    function getData(answername, callback) {
-      var AnswersUrl = 'http://askwcpl.wakegov.com/api_answers.php?iid=294&type=popular&limit=30&showans=1&showdet=0&format=json';
-
-
-
-      $http.get(AnswersUrl).success(function(data) {
-
-        _AnswerCachedData = data.answers;
-        callback(data.answers);
-        // Factory has successfully queried data
-        // console.log(JSON.stringify(_AnswerCachedData));
-
-      });
-    }
-
-    return {
-      list: getData,
-      find: function(name, callback) {
-        // console.log("name" + name);
-        var answer = _AnswerCachedData.filter(function(entry) {
-          return entry.answers.id == name;
-        })[0];
-        callback(answer);
-      }
-    };
-
-  });
-*/
 
 
 

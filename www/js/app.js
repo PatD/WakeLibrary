@@ -77,38 +77,27 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
             }
           })
 
-// Ask WCPL FAQ screen
-/*
-    .state('app.askwcpl', {
-      url: '/askwcpl',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/askwcpl.html',
-          controller: 'AskwcplCtrl'
-        }
+  // Ask WCPL FAQ screen
+
+  .state('app.askwcpl', {
+    url: '/askwcpl',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/askwcpl/asklist.html',
+        controller: 'AskwcplListCtrl'
       }
-    })
-*/
-
-.state('app.askwcpl', {
-  url: '/askwcpl',
-  views: {
-    'menuContent': {
-      templateUrl: 'templates/askwcpl/asklist.html',
-      controller: 'AskwcplListCtrl'
     }
-  }
-})
+  })
 
-.state('app.askwcplDetails', {
-  url: '/askwcpl/:movieid',
-  views: {
-    'menuContent': {
-      templateUrl: 'templates/askwcpl/askdetail.html',
-      controller: 'AskwcplDetailsCtrl'
+  .state('app.askwcplDetails', {
+    url: '/askwcpl/:answerid',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/askwcpl/askdetail.html',
+        controller: 'AskwcplDetailsCtrl'
+      }
     }
-  }
-})
+  })
 
 
 

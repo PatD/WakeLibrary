@@ -42,69 +42,16 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 });
 
 
-/* Original Askwcpl ctrl
-WakeLibraryApp.controller('AskwcplCtrl', function($scope, $stateParams, AskWCPLfactory) {
-
-  $scope.answer = {
-    name: ''
-  }
-
-  $scope.searchAnswers = function() {
-
-
-    AskWCPLfactory.list($scope.answer.name, function(answers) {
-      $scope.answers = answers;
-
-
-    });
-  };
-
-  $scope.searchAnswers();
-
-});
-*/
-
-
-
-
 // Controller that lists the Ask WCPL screen
   WakeLibraryApp.controller('AskwcplListCtrl', function($scope, $http, AskServiceFactory){
-    $scope.movie = {
-      name: ''
-    }
-
-    $scope.searchMovieDB = function() {
-
-      AskServiceFactory.list($scope.movie.name, function(movies) {
-        $scope.movies = movies;
-      });
-
-    };
-
-    $scope.searchMovieDB();
-
-  /*
-    //  console.log("List Ctrl start");
-
     $scope.answer = {
       name: ''
     }
 
-      $scope.listAnswers = function() {
+    AskServiceFactory.list($scope.answer.name, function(answers) {
+      $scope.answers = answers;
+    });
 
-        AskServiceFactory.list($scope.answer, function(answers) {
-          $scope.answers = answers;
-
-          // Console log shows all responesse
-          // console.log(  $scope.answers );
-
-        });
-      };
-
-       $scope.listAnswers();
-
-    // console.log("List Ctrl End");
-*/
   });
 
 
@@ -112,65 +59,10 @@ WakeLibraryApp.controller('AskwcplCtrl', function($scope, $stateParams, AskWCPLf
 
   // Detail View for AskWCPL
     WakeLibraryApp.controller("AskwcplDetailsCtrl", function($scope, $http, $stateParams, AskServiceFactory){
-
-      AskServiceFactory.find($stateParams.movieid, function(movie) {
-        $scope.movie = movie;
-      });
-
-    /*
-
-      console.log("Details Ctrl start");
-
-      $scope.showDetails = function() {
-
-      AskServiceFactory.find($stateParams.answerId, function(answer) {
-         $scope.answer = answer;
-         console.log("answerId is " + $stateParams.answerId);
-
-       });
-     };
-
-     $scope.showDetails();
-
-
-      console.log("Details Ctrl End");
-
-
-      var answerId = $stateParams.id;
-      $scope.answer = AskService.GetAnswer(answerId);
-
-
-      console.log($stateParams.answerId);
-
-
-      AskService.GetAnswer($stateParams, function(answerId) {
-        $scope.answer = answer;
-        console.log("done")
-
-      });
-
-      console.log("end")
-      */
-  });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        AskServiceFactory.find($stateParams.answerid, function(answer) {
+          $scope.answer = answer;
+        });
+    });
 
 
 
