@@ -62,6 +62,41 @@ WakeLibraryApp.factory('AskServiceFactory', function($http) {
 
 
 
+
+
+
+// Wake News
+  WakeLibraryApp.factory('NewsFactory',function($http){
+// https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D'http%3A%2F%2Fwww.wakegov.com%2Fnews%2F_layouts%2Flistfeed.aspx%3FList%3D%257B9478165C-B0D4-48D4-B6D9-B3EBA1007F6E%257D'&format=json&callback=
+    var newsData;
+
+    function getData(moviename, callback) {
+
+      var url = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D'http%3A%2F%2Fwww.wakegov.com%2Fnews%2F_layouts%2Flistfeed.aspx%3FList%3D%257B9478165C-B0D4-48D4-B6D9-B3EBA1007F6E%257D'&format=json&callback=";
+
+      $http.get(url).success(function(data) {
+
+        newsData = data.query.results;
+        callback(data.query.results.item);
+       console.log(data.query.results.item);
+      });
+    }
+
+    return {
+      list: getData,
+      find: function(name, callback) {
+      //  console.log(name);
+        var newsitem = newsData.filter(function(entry) {
+          return entry.id == name;
+        })[0];
+        callback(newsitem);
+      }
+    };
+});
+
+
+
+
 // Events Adults
   WakeLibraryApp.factory('EventsFactoryAdults',function($http){
       var events = [];
@@ -149,34 +184,3 @@ WakeLibraryApp.factory('AskServiceFactory', function($http) {
         return events;
         return currentEventId;
     });
-
-
-
-
-
-
-
-/*
-WakeLibraryApp.factory('DataSource', ['$http',function($http){
-      var _libraryEventsCache;
-      var eventsdata;
-      return {
-          get: function(file,callback,transform){
-               $http.get(
-                   file,
-                   {transformResponse:transform}
-               ).
-               success(function(data, status) {
-                // console.log("Request succeeded");
-                //  console.log(data);
-                _libraryEventsCache = data;
-                   callback(data);
-                   console.log(_libraryEventsCache)
-               }).
-               error(function(eventdata, status) {
-                   console.log("Request failed " + status);
-               });
-          }
-      };
-  }]);
-*/

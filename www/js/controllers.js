@@ -184,21 +184,13 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
 
 
-/*
-// Event Controller
-WakeLibraryApp.controller('EventCtrl', function($scope, EventsFactory, $stateParams) {
 
 
-  console.log($stateParams);
-    console.log($stateParams.eventId);
 
 
-//  EventsFactory.find($stateParams.eventId, function(event) {
-  //  $scope.event = event.rss.channel.item.uid.__text;
 
-//  });
-});
-*/
+
+
 
 
 
@@ -211,34 +203,28 @@ WakeLibraryApp.controller('EventCtrl', function($scope, EventsFactory, $statePar
 // Eventst Ctrl
 WakeLibraryApp.controller('EventsAdultCtrl',function($scope, EventsFactoryAdults){
   var _EventsCacheData;
+  $scope.events = [];
+  loadEvents();
 
-          $scope.events = [];
-          loadEvents();
+    function loadEvents(){
+      EventsFactoryAdults.getEvents().success(function(data){
+          event = x2js.xml_str2json(data);
 
-          function loadEvents(){
-            EventsFactoryAdults.getEvents().success(function(data){
-                event = x2js.xml_str2json(data);
-              /*  console.log(courses.books.course);
-                $scope.events = courses.books.course;
+      $scope.events = event.rss.channel.item;
 
+      $stateParams = event.rss.channel.$$hashKey;
+      _EventsCacheData = event.rss.channel.$$hashKey;
+    //  console.log($stateParams)
+  //    console.log(event);
 
+    // console.log(event)
 
-            */
-            $scope.events = event.rss.channel.item;
+  //  console.log($scope.events);
+  // console.log(JSON.stringify($scope.events));
+      });
+      }
 
-            $stateParams = event.rss.channel.$$hashKey;
-          //  _EventsCacheData = event.rss.channel.$$hashKey;
-          //  console.log($stateParams)
-          //  console.log(_EventsCacheData);
-
-// console.log(event)
-
- console.log($scope.events);
- // console.log(JSON.stringify($scope.events));
-            });
-            }
-
-        });
+  });
 
 
 
@@ -324,42 +310,22 @@ WakeLibraryApp.controller('EventsAdultCtrl',function($scope, EventsFactoryAdults
 
 
 
+  // News Listing Ctrl
+    WakeLibraryApp.controller('NewsCtrl',function($scope, NewsFactory){
+      $scope.newsitem = {
+        name: ''
+      }
 
+      NewsFactory.list($scope.newsitem.name, function(news) {
+        $scope.news = news;
+        console.log(news);
+      });
 
-/*
+    });
 
-// Eventst Ctrl
-WakeLibraryApp.controller('EventsCtrl',function($scope, EventsFactory){
-  var _EventsCacheData;
-
-          $scope.events = [];
-          loadEvents();
-
-          function loadEvents(){
-            EventsFactory.getEvents().success(function(data){
-                event = x2js.xml_str2json(data);
-              // console.log(courses.books.course);
-                $scope.events = courses.books.course;
-
-
-
-
-            $scope.events = event.rss.channel.item;
-
-            $stateParams = event.rss.channel.$$hashKey;
-          //  _EventsCacheData = event.rss.channel.$$hashKey;
-            console.log($stateParams)
-          //  console.log(_EventsCacheData);
-
-
-
-
-//console.log(event)
-
-// console.log($scope.events);
-// console.log(JSON.stringify($scope.events));
-            });
-            }
-        });
-
-*/
+    // News Detail Ctrl
+      WakeLibraryApp.controller("NewsDetailCtrl", function($scope, $http, $stateParams, NewsFactory){
+          AskServiceFactory.find($stateParams.newsid, function(newsitem) {
+            $scope.newsitem = newsitem;
+          });
+      });

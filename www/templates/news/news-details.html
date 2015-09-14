@@ -1,0 +1,23 @@
+<ion-view title="Ask Answer">
+	<ion-content>
+
+
+		<div class="card">
+		  <div class="item item-text-wrap item-icon-left item-divider">
+				 <i class="icon ion-ios-help-outline"></i>
+		  {{newsitem.title}}</span>
+		  </div>
+		  <div class="item item-text-wrap item-icon-left">
+
+				<span ng-bind-html="newsitem.description"></span>
+        <span>By {{newsitem.author}}</span>
+			</div>
+		  <div class="item item-divider item-icon-left">
+							 <i class="icon ion-clock"></i>
+				Updated: {{newsitem.pubDate}}
+		  </div>
+		</div>
+
+
+	</ion-content>
+</ion-view>

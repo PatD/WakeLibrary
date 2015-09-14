@@ -37,6 +37,7 @@ WakeLibraryApp.run(function($ionicPlatform) {
 // So. Many. Views.
 WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
 
+// Menu
   $stateProvider
     .state('app', {
       url: '/app',
@@ -44,7 +45,6 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: 'templates/menu.html',
       controller: 'AppCtrl'
     })
-
 
 // Home page
     .state('app.home', {
@@ -57,28 +57,26 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
     })
 
 // About page
-        .state('app.about', {
-          url: '/about',
+    .state('app.about', {
+      url: '/about',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/about.html'
+        }
+      }
+    })
+
+// Contact page
+    .state('app.contact', {
+          url: '/contact',
           views: {
             'menuContent': {
-              templateUrl: 'templates/about.html'
+              templateUrl: 'templates/contact.html'
             }
           }
         })
 
-
-// Contact page
-      .state('app.contact', {
-            url: '/contact',
-            views: {
-              'menuContent': {
-                templateUrl: 'templates/contact.html'
-              }
-            }
-          })
-
-  // Ask WCPL FAQ screen
-
+// Ask WCPL FAQ screen
   .state('app.askwcpl', {
     url: '/askwcpl',
     views: {
@@ -89,6 +87,7 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
     }
   })
 
+// Ask WCPL Details screen
   .state('app.askwcplDetails', {
     url: '/askwcpl/:answerid',
     views: {
@@ -98,9 +97,6 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
       }
     }
   })
-
-
-
 
 // Google Booksearch
     .state('app.booksearch', {
@@ -113,9 +109,6 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
       }
     })
 
-
-
-
 // Locations landing page
     .state('app.locations', {
       url: '/locations',
@@ -127,26 +120,25 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
       }
     })
 
-  // Individual location
-      .state('app.location', {
-        url: '/locations/:locationId',
-        views: {
-          'menuContent': {
-            templateUrl: 'templates/locations/location.html',
-            controller: 'LocationCtrl'
-          }
+// Individual location
+    .state('app.location', {
+      url: '/locations/:locationId',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/locations/location.html',
+          controller: 'LocationCtrl'
         }
-      })
-
-  // Google maps location
-      .state('app.locations-all', {
-        url: '/locations/all',
-        views: {
-          'menuContent': {
-            templateUrl: 'templates/locations/locations-all.html'
-          }
+      }
+    })
+// Google maps location
+    .state('app.locations-all', {
+      url: '/locations/all',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/locations/locations-all.html'
         }
-      })
+      }
+    })
 
 // Twitter!
     .state('app.twitter', {
@@ -239,7 +231,27 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
           })
 
 
+          // News listing
+            .state('app.news', {
+              url: '/news',
+              views: {
+                'menuContent': {
+                  templateUrl: 'templates/news/news-listing.html',
+                  controller: 'NewsCtrl'
+                }
+              }
+            })
 
+            // NewsDetails
+              .state('app.newsDetail', {
+                url: '/news/:newsid',
+                views: {
+                  'menuContent': {
+                    templateUrl: 'templates/news/news-details.html',
+                    controller: 'NewsDetailCtrl'
+                  }
+                }
+              })
 
 
 // Loitering semicolon

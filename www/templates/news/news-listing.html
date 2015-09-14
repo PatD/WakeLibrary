@@ -1,0 +1,16 @@
+<ion-view view-title="Wake County Library News">
+  <ion-content>
+
+    <!-- Lists news items -->
+    <ion-list class="list">
+
+    		<ion-item class="item item-icon-left item-text-wrap" ng-repeat="newsitem in news | filter:{category:'Libraries'} | orderBy:'-pubDate'" href="#/app/askwcpl/{{answer.id}}">
+          <i class="icon ion-ios-copy-outline"></i>
+          <h2>{{newsitem.title}}</h2>
+          <h5>{{newsitem.pubDate}}</h5>
+        </ion-item>
+
+    </ion-list>
+
+  </ion-content>
+</ion-view>
