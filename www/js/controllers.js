@@ -311,21 +311,23 @@ WakeLibraryApp.controller('EventsAdultCtrl',function($scope, EventsFactoryAdults
 
 
   // News Listing Ctrl
-    WakeLibraryApp.controller('NewsCtrl',function($scope, NewsFactory){
+    WakeLibraryApp.controller('NewsCtrl',function($scope, $http, NewsFactory){
       $scope.newsitem = {
         name: ''
       }
 
       NewsFactory.list($scope.newsitem.name, function(news) {
         $scope.news = news;
-        console.log(news);
+       console.log(news);
       });
 
     });
 
+
+
     // News Detail Ctrl
       WakeLibraryApp.controller("NewsDetailCtrl", function($scope, $http, $stateParams, NewsFactory){
-          AskServiceFactory.find($stateParams.newsid, function(newsitem) {
+          NewsFactory.find($stateParams.title, function(newsitem) {
             $scope.newsitem = newsitem;
           });
       });

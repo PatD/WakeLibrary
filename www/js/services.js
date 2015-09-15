@@ -76,9 +76,9 @@ WakeLibraryApp.factory('AskServiceFactory', function($http) {
 
       $http.get(url).success(function(data) {
 
-        newsData = data.query.results;
+        newsData = data.query.results.item;
         callback(data.query.results.item);
-       console.log(data.query.results.item);
+  //     console.log(data.query.results.item);
       });
     }
 
@@ -87,7 +87,7 @@ WakeLibraryApp.factory('AskServiceFactory', function($http) {
       find: function(name, callback) {
       //  console.log(name);
         var newsitem = newsData.filter(function(entry) {
-          return entry.id == name;
+          return entry.title == name;
         })[0];
         callback(newsitem);
       }

@@ -231,6 +231,13 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
           })
 
 
+
+
+
+
+
+
+
           // News listing
             .state('app.news', {
               url: '/news',
@@ -244,7 +251,7 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
 
             // NewsDetails
               .state('app.newsDetail', {
-                url: '/news/:newsid',
+                url: '/news/:title',
                 views: {
                   'menuContent': {
                     templateUrl: 'templates/news/news-details.html',
