@@ -2,7 +2,38 @@
   <ion-content>
 
 
-<div class="padding">
+
+  <!-- Buttons -->
+    <div class="row">
+        <a class="col col-50 button icon-left ion-ios-book-outline button-block button-calm" ui-sref="app.booksearch">Find Books</a>
+
+        <a class="col col-50 button icon-left ion-ios-calendar-outline button-block button-calm" ui-sref="app.eventsLanding">Events</a>
+      </div>
+    <div class="row">
+        <a class="col col-50 button icon-left ion-ios-location-outline button-block button-calm" ui-sref="app.locations">Locations</a>
+
+        <a class="col col-50 button icon-left ion-ios-help-outline button-block button-calm" ui-sref="app.askwcpl">Ask WCPL</a>
+    </div>
+
+    <!-- News -->
+    <ion-list type="list-inset" ng-controller="NewsCtrl">
+
+        <ion-item class="item item-divider">
+          Wake Library News
+        </ion-item>
+
+        <ion-item class="item item-icon-left item-text-wrap" ng-repeat="newsitem in news | filter:{category:'Libraries'} | orderBy:'-pubDate'" href="#/app/news/{{newsitem.title}}">
+          <i class="icon ion-ios-information-outline"></i>
+          <h2>{{newsitem.title}}</h2>
+          <h5>{{newsitem.pubDate}}</h5>
+        </ion-item>
+
+  </ion-list>
+
+
+
+
+<!-- div class="padding">
     <a class="button icon-left ion-ios-book-outline button-block button-calm" ui-sref="app.booksearch">Find a Book</a>
 
     <a class="button icon-left ion-ios-calendar-outline button-block button-calm" ui-sref="app.eventsLanding">Wake Library Events</a>
@@ -10,7 +41,7 @@
     <a class="button icon-left ion-ios-location-outline button-block button-calm" ui-sref="app.locations">Library Locations</a>
 
     <a class="button icon-left ion-ios-help-outline button-block button-calm" ui-sref="app.askwcpl">Ask WCPL (FAQs)</a>
-</div>
+</div -->
 
 
 
