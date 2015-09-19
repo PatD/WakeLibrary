@@ -302,7 +302,25 @@ WakeLibraryApp.controller('EventsAdultCtrl',function($scope, EventsFactoryAdults
 
 
 
+  // Events Today Ctrl
+    WakeLibraryApp.controller('EventsTodayCtrl',function($scope, EventsFactoryToday){
+      var _EventsCacheData;
 
+            $scope.events = [];
+            loadEvents();
+
+            function loadEvents(){
+              EventsFactoryToday.getEvents().success(function(data){
+                  event = x2js.xml_str2json(data);
+
+              $scope.events = event.rss.channel.item;
+
+              $stateParams = event.rss.channel.$$hashKey;
+
+              });
+              }
+
+          });
 
 
 

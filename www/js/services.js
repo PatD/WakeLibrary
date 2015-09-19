@@ -97,6 +97,65 @@ WakeLibraryApp.factory('AskServiceFactory', function($http) {
 
 
 
+
+
+
+
+// Events Today
+  WakeLibraryApp.factory('EventsFactoryToday',function($http){
+
+  // This gets us today's date
+  // And formats it so we can pass it into the URL string for the RSS feed
+      var todaysDate = new Date();
+      var dd = todaysDate.getDate();
+      var mm = todaysDate.getMonth()+1; //January is 0!
+
+      var yyyy = todaysDate.getFullYear();
+      if(dd<10){
+          dd='0'+dd
+      }
+      if(mm<10){
+          mm='0'+mm
+      }
+
+      var todaysDate = yyyy+''+mm+''+dd;
+
+
+
+
+
+// Usual Factory stuff starts here
+
+      var events = [];
+
+      var currentEventId;
+
+
+      events.getEvents = function(){
+        return $http.get('http://www.trumba.com/calendars/WCPL.rss?previousweeks=0&startdate='+todaysDate+'&days=1');
+
+      }
+
+      function setEventID(eventId){
+        currentEventId = eventId;
+      }
+
+    //  console.log(events);
+        return events;
+        return currentEventId;
+    });
+
+
+
+
+
+
+
+
+
+
+
+
 // Events Adults
   WakeLibraryApp.factory('EventsFactoryAdults',function($http){
       var events = [];

@@ -1,11 +1,71 @@
 <ion-view view-title="Wake Library Events">
   <ion-content>
 
+    <ion-list type="list-inset">
+      <ion-item class="item item-divider">
+        Find events by age group
+      </ion-item>
+      <ion-item ui-sref="app.eventsKids" class="item item-icon-left">
+  <i class="icon ion-happy-outline"></i>
+        Kids Events</ion-item>
+      <ion-item ui-sref="app.eventsTeens" class="item item-icon-left">
+  <i class="icon ion-ios-people-outline"></i>
+        Teen Events</ion-item>
+      <ion-item ui-sref="app.eventsAdult" class="item item-icon-left">
+  <i class="icon ion-ios-bookmarks-outline"></i>
+        Adults</ion-item>
+      <ion-item ui-sref="app.eventsAll" class="item item-icon-left">
+  <i class="icon ion-calendar"></i>
+        All events</ion-item>
+    </ion-list>
 
-  <a ui-sref="app.eventsKids" class="button">Kids Events</a>
-  <a ui-sref="app.eventsTeens" class="button">Teen Events</a>
-  <a ui-sref="app.eventsAdult" class="button">Adults</a>
-  <a ui-sref="app.eventsAll" class="button">All events (for search)</a>
+
+
+
+<!-- Today's events -->
+  <ion-list type="list-inset" ng-controller="EventsTodayCtrl">
+    <ion-item class="item item-divider">
+      Today's Wake Library Events
+    </ion-item>
+
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Select Library
+        </div>
+        <select ng-model="locationFilter">
+          <option value="">All libraries</option>
+          <option
+            ng-if="event.location.__text"
+            ng-repeat="event in events | orderBy: 'location.__text' | unique: 'location.__text'"
+            value="{{event.location.__text}}">
+            {{event.location.__text}}</option>
+        </select>
+      </label>
+
+      </label>
+
+
+
+
+
+    <!-- Lists events -->
+
+    		<ion-item class="item item-icon-left" ng-repeat="event in events | filter:locationFilter" class="item item-text-wrap" ng-click="showDetails = ! showDetails">
+          <i class="icon ion-calendar"></i>
+          <h2>{{event.title}}</h2>
+          <h4>{{event.location.__text}}, </h4>
+          <h4>{{event.formatteddatetime.__text}}</h4>
+          <div class="card padding answerdetails " ng-show="showDetails">
+            <p>File under: <strong>{{event.customfield[2].__text}}</strong></p>
+            <span class="item-text-wrap" ng-bind-html="event.description_asArray"></span>
+
+          </div>
+        </ion-item>
+
+
+
+  </ion-list>
+
 
 
   </ion-content>
