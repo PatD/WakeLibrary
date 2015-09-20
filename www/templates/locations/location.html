@@ -1,4 +1,4 @@
-<ion-view view-title="Wake County Library Locations">
+<ion-view view-title="{{location.attributes.NAME}}">
   <ion-content>
     <!-- starts the library location card -->
     <div class="list card">
@@ -24,29 +24,52 @@
           </div>
         </div>
       </div>
-
-      <!-- Hours iframe -->
-      <div class="item">
-      </div>
+    </div> <!-- ends card -->
 
 
-      <!-- large map image -->
-      <div class="item item-image">
-        <a href="https://www.google.com/maps/place/{{location.attributes.NAME}}+{{location.attributes.FAC_ADDRESS}}/{{location.geometry.x}},{{location.geometry.y}},17z/">
-          <img ng-src="http://maps.googleapis.com/maps/api/staticmap?center={{location.attributes.FAC_ADDRESS}}+{{location.attributes.CITY}}+NC&zoom=15&scale=1&size=440x300&maptype=roadmap&key=AIzaSyC4lGFKI7caErQ3MacquCOUjU4fJJjpzHM&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xff0000%7Clabel:L%7C{{location.attributes.FAC_ADDRESS}}+{{location.attributes.CITY}}+NC">
-        </a>
-      </div>
+<!-- Events at this location -->
 
-      <div class="item item-divider">
-      </div>
 
-      </div><!-- ends card -->
 
-      <div class="padding">
+<!-- Today's events -->
+  <ion-list type="list-inset" ng-controller="EventsTodayCtrl">
+    <ion-item class="item item-divider">
+     Today at {{location.attributes.NAME}}
+    </ion-item>
+
+    <!-- location is passed as a filter into events -->
+    		<ion-item class="item item-icon-left" ng-repeat="event in events | filter: location.attributes.NAME" class="item item-text-wrap" ng-click="showDetails = ! showDetails">
+          <i class="icon ion-calendar"></i>
+          <h2>{{event.title}}</h2>
+          <h4>{{event.location.__text}}, </h4>
+          <h4>{{event.formatteddatetime.__text}}</h4>
+          <div class="card padding answerdetails " ng-show="showDetails">
+            <p>File under: <strong>{{event.customfield[2].__text}}</strong></p>
+            <span class="item-text-wrap" ng-bind-html="event.description_asArray"></span>
+
+          </div>
+        </ion-item>
+
+  </ion-list>
+
+
+<!-- end events -->
+
+
+
+
+      <!-- div class="padding">
         <a class="button icon-left ion-chevron-left button-clear button-dark" href="#/app/locations"> Back to All Locations</a>
-      </div>
+      </div -->
 
+      <!-- ion-list>
 
+            <div class="item item-image">
+              <a href="https://www.google.com/maps/place/{{location.attributes.NAME}}+{{location.attributes.FAC_ADDRESS}}/{{location.geometry.x}},{{location.geometry.y}},17z/">
+                <img ng-src="http://maps.googleapis.com/maps/api/staticmap?center={{location.attributes.FAC_ADDRESS}}+{{location.attributes.CITY}}+NC&zoom=15&scale=1&size=440x300&maptype=roadmap&key=AIzaSyC4lGFKI7caErQ3MacquCOUjU4fJJjpzHM&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xff0000%7Clabel:L%7C{{location.attributes.FAC_ADDRESS}}+{{location.attributes.CITY}}+NC">
+              </a>
+            </div>
+      </ion-list -->
 
 
 
