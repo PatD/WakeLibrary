@@ -20,14 +20,22 @@
             <a href="https://www.google.com/maps/place/{{location.attributes.NAME}}+{{location.attributes.FAC_ADDRESS}}/{{location.geometry.x}},{{location.geometry.y}},17z/" class="button icon-left ion-android-map button-positive">Map</a>
           </div>
           <div class="col col-67">
-            <p><strong>{{location.attributes.NAME}}</strong><br/>{{location.attributes.FAC_ADDRESS}}<br/>{{location.attributes.CITY}}, NC</p>
+            <p><strong>{{location.attributes.NAME}}</strong>
+              <br/>{{location.attributes.FAC_ADDRESS}}
+              <br/>{{location.attributes.CITY}}, NC</p>
           </div>
         </div>
       </div>
     </div> <!-- ends card -->
 
 
-<!-- Events at this location -->
+<!-- Foursquare data -->
+  <ion-list type="list-inset" ng-controller="FourSquareLocationCtrl">
+    <ion-item ng-repeat="answer in answers" class="item">
+
+       <p>{{answer.contact.formattedPhone}}</p>
+    </ion-item>
+  </ion-list>
 
 
 

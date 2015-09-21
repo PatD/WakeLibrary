@@ -34,6 +34,30 @@ WakeLibraryApp.run(function($ionicPlatform) {
 
 
 
+
+// This gets us today's date
+// And formats it so we can pass it into the URL string
+// for the RSS feed
+// for the FourSquare query
+
+    var todaysDate = new Date();
+    var dd = todaysDate.getDate();
+    var mm = todaysDate.getMonth()+1; //January is 0!
+
+    var yyyy = todaysDate.getFullYear();
+    if(dd<10){
+        dd='0'+dd
+    }
+    if(mm<10){
+        mm='0'+mm
+    }
+
+    var todaysDate = yyyy+''+mm+''+dd;
+
+
+
+
+
 // So. Many. Views.
 WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
 

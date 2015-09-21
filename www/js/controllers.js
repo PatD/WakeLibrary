@@ -42,6 +42,33 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 });
 
 
+
+// FourSquare Controller to list phone number
+  WakeLibraryApp.controller('FourSquareLocationCtrl', function($scope, $http, FourSquareFactory){
+    $scope.answer = {
+      name: ''
+    }
+
+    FourSquareFactory.list($scope.answer.name, function(answers) {
+      $scope.answers = answers;
+    });
+
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Controller that lists the Ask WCPL screen
   WakeLibraryApp.controller('AskwcplListCtrl', function($scope, $http, AskServiceFactory){
     $scope.answer = {

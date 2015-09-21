@@ -1,3 +1,51 @@
+// Foursquare Factory WCPL
+WakeLibraryApp.factory('FourSquareFactory', function($http) {
+  var cachedData;
+
+  function getData(moviename, callback) {
+
+    var fourSquareBase = 'https://api.foursquare.com/v2/venues/search?limit=1&client_id=R4AMR23V3JWLXO3LIQILBZPZ1TNEWELPYSUK2YBEUBPL4OBU&client_secret=RUX5IIKBSU0K0MEKJYVOJNPSX3E1G4WGJCRGSVHQK02AAXRE';
+    var fourSquareDate = todaysDate;
+    var fourSquareLibLocation = 'East Wake Library';
+    var fourSquareLibCity = 'Knightdale';
+
+
+    var url = fourSquareBase + '&v=' + fourSquareDate + '&query=' + fourSquareLibLocation + '&near=' + fourSquareLibCity;
+
+    $http.get(url).success(function(data) {
+
+      cachedData = data.response.venues;
+      callback(data.response.venues);
+      console.log(data.response.venues);
+    });
+  }
+
+  return {
+    list: getData,
+    find: function(name, callback) {
+    //  console.log(name);
+      var answer = cachedData.filter(function(entry) {
+        return entry.id == name;
+      })[0];
+      callback(answer);
+    }
+  };
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Ask WCPL
 WakeLibraryApp.factory('AskServiceFactory', function($http) {
   var cachedData;
@@ -103,26 +151,6 @@ WakeLibraryApp.factory('AskServiceFactory', function($http) {
 
 // Events Today
   WakeLibraryApp.factory('EventsFactoryToday',function($http){
-
-  // This gets us today's date
-  // And formats it so we can pass it into the URL string for the RSS feed
-      var todaysDate = new Date();
-      var dd = todaysDate.getDate();
-      var mm = todaysDate.getMonth()+1; //January is 0!
-
-      var yyyy = todaysDate.getFullYear();
-      if(dd<10){
-          dd='0'+dd
-      }
-      if(mm<10){
-          mm='0'+mm
-      }
-
-      var todaysDate = yyyy+''+mm+''+dd;
-
-
-
-
 
 // Usual Factory stuff starts here
 
