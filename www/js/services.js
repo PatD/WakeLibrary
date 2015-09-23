@@ -16,7 +16,7 @@ WakeLibraryApp.factory('FourSquareFactory', function($http) {
 
       cachedData = data.response.venues;
       callback(data.response.venues);
-      console.log(data.response.venues);
+    //  console.log(data.response.venues);
     });
   }
 

@@ -2,12 +2,13 @@
 <widget id="com.ionicframework.wakelibrary349021" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>WakeLibrary</name>
   <description>
-        An Ionic Framework and Cordova project.
+        For users of the Wake County Public Library - get locations, check events, get questions answered, and find books all from one convenient app.
     </description>
-  <author email="hi@ionicframework" href="http://ionicframework.com/">
-      Ionic Framework Team
+  <author email="pdoran@gmail.com" href="http://patrickDoran.com/">
+      Patrick Doran
     </author>
   <content src="index.html"/>
+  <access origin="tel:*" launch-external="yes" />
   <access origin="*"/>
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>

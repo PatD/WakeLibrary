@@ -23,19 +23,22 @@
             <p><strong>{{location.attributes.NAME}}</strong>
               <br/>{{location.attributes.FAC_ADDRESS}}
               <br/>{{location.attributes.CITY}}, NC</p>
+            </div>
           </div>
-        </div>
+              <!-- Foursquare data -->
+              <div ng-controller="FourSquareLocationCtrl">
+                  <a ng-repeat="answer in answers" class="button icon-left ion-ios7-telephone button-calm" ng-href="tel: {{phone}}">{{answer.contact.formattedPhone}}</a>
+             </div>
+
+             <a href="https://foursquare.com" class="button button-clear button-light icon-left ion-social-foursquare">
+               Phone data from Foursquare
+             </a>
+
       </div>
     </div> <!-- ends card -->
 
 
-<!-- Foursquare data -->
-  <ion-list type="list-inset" ng-controller="FourSquareLocationCtrl">
-    <ion-item ng-repeat="answer in answers" class="item">
 
-       <p>{{answer.contact.formattedPhone}}</p>
-    </ion-item>
-  </ion-list>
 
 
 

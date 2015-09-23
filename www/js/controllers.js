@@ -44,7 +44,9 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
 
 // FourSquare Controller to list phone number
-  WakeLibraryApp.controller('FourSquareLocationCtrl', function($scope, $http, FourSquareFactory){
+  WakeLibraryApp.controller('FourSquareLocationCtrl', function($scope, $http, $stateParams, LibraryLocations, FourSquareFactory){
+
+
     $scope.answer = {
       name: ''
     }
@@ -52,6 +54,8 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
     FourSquareFactory.list($scope.answer.name, function(answers) {
       $scope.answers = answers;
     });
+
+    
 
   });
 
@@ -363,7 +367,7 @@ WakeLibraryApp.controller('EventsAdultCtrl',function($scope, EventsFactoryAdults
 
       NewsFactory.list($scope.newsitem.name, function(news) {
         $scope.news = news;
-       console.log(news);
+       // console.log(news);
       });
 
     });
