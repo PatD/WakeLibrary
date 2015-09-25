@@ -4,19 +4,6 @@
   .gsc-search-button {box-sizing: content-box;}
   #_modal{width:100%;min-height:500px}
 </style>
-
-
-  <ion-content>
-    <button class="button ion-compose" ng-click="modal.show()">
-</button>
-
-    <div class="gcse-search" data-linkTarget="_modal" data-enableHistory="false"></div>
-
-    <!-- gcse:searchbox-only resultsUrl="/#/app/search/results" newWindow="true" queryParameterName="q" -->
-
-  </ion-content>
-</ion-view>
-
 <!-- Modal for search result -->
 <script id="templates/booksearch/search.html" type="text/ng-template">
 
@@ -31,3 +18,14 @@
 </ion-modal-view>
 
 </script>
+
+  <ion-content>
+    <!-- button class="button ion-compose" ng-click="modal.show()" -->
+</button>
+
+    <div class="gcse-search" data-linkTarget="_modal" data-enableHistory="false"></div>
+
+    <!-- gcse:searchbox-only resultsUrl="/#/app/search/results" newWindow="true" queryParameterName="q" -->
+
+  </ion-content>
+</ion-view>

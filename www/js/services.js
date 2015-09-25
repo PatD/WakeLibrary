@@ -1,13 +1,15 @@
 // Foursquare Factory WCPL
-WakeLibraryApp.factory('FourSquareFactory', function($http) {
+WakeLibraryApp.factory('FourSquareFactory', function($http, LibraryLocations) {
+
+
   var cachedData;
 
   function getData(moviename, callback) {
 
     var fourSquareBase = 'https://api.foursquare.com/v2/venues/search?limit=1&client_id=R4AMR23V3JWLXO3LIQILBZPZ1TNEWELPYSUK2YBEUBPL4OBU&client_secret=RUX5IIKBSU0K0MEKJYVOJNPSX3E1G4WGJCRGSVHQK02AAXRE';
     var fourSquareDate = todaysDate;
-    var fourSquareLibLocation = 'East Wake Library';
-    var fourSquareLibCity = 'Knightdale';
+    var fourSquareLibLocation = 'East Wake Library';  // maybe scope.locationname
+    var fourSquareLibCity = 'Knightdale';             // maybe scope.city
 
 
     var url = fourSquareBase + '&v=' + fourSquareDate + '&query=' + fourSquareLibLocation + '&near=' + fourSquareLibCity;
@@ -17,6 +19,8 @@ WakeLibraryApp.factory('FourSquareFactory', function($http) {
       cachedData = data.response.venues;
       callback(data.response.venues);
     //  console.log(data.response.venues);
+
+  ;
     });
   }
 

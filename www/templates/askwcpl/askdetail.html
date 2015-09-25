@@ -1,13 +1,15 @@
 <ion-view title="Ask Answer">
 	<ion-content>
-
+<style>
+.item-text-wrap p {margin-bottom:1em;}
+</style>
 
 		<div class="card">
 		  <div class="item item-text-wrap item-icon-left item-divider">
 				 <i class="icon ion-ios-help-outline"></i>
 		  <span ng-bind-html="answer.question"></span>
 		  </div>
-		  <div class="item item-text-wrap item-icon-left">
+		  <div class="item item-text-wrap">
 
 				<span ng-bind-html="answer.answer"></span>
 			</div>

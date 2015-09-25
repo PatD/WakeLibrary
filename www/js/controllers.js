@@ -44,23 +44,28 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
 
 // FourSquare Controller to list phone number
+/*
   WakeLibraryApp.controller('FourSquareLocationCtrl', function($scope, $http, $stateParams, LibraryLocations, FourSquareFactory){
 
+    // Shared Scope of location from LocationCtrl
+      $scope.location;
 
     $scope.answer = {
       name: ''
     }
 
     FourSquareFactory.list($scope.answer.name, function(answers) {
+
       $scope.answers = answers;
+
+
     });
 
-    
 
   });
 
 
-
+*/
 
 
 
@@ -107,43 +112,49 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 // Google book search
   WakeLibraryApp.controller('BookSearchCtrl', function($scope, $stateParams, $ionicModal) {
 
-
-    /* Google CSE */
-    (function() {
-      var cx = '001729500003019595200:fp9zpyuqyes';
-      var gcse = document.createElement('script');
-      gcse.type = 'text/javascript';
-      gcse.async = true;
-      gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-          '//cse.google.com/cse.js?cx=' + cx;
-      var s = document.getElementsByTagName('script')[0];
-      s.parentNode.insertBefore(gcse, s);
-    })();
+    // This holds everything up until the DOM is ready, then fires Google Search
+     ionic.DomUtil.ready(function($ionicModal){
 
 
+      /* Google CSE */
+      (function() {
+        var cx = '001729500003019595200:fp9zpyuqyes';
+        var gcse = document.createElement('script');
+        gcse.type = 'text/javascript';
+        gcse.async = true;
+        gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+            '//cse.google.com/cse.js?cx=' + cx;
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(gcse, s);
+      })();
 
 
+
+    });  //end ionic.DomUtil.ready
+
+
+    /*
   // Form data for the login modal
   // $scope.loginData = {};
 
   // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/booksearch/search.html', {
-    scope: $scope
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
+      scope: $scope
+    }).then(function(modal) {
+      $scope.modal = modal;
+    });
 
-  // Triggered in the login modal to close it
-  $scope.closeLogin = function() {
-    $scope.modal.hide();
-  };
+      // Triggered in the login modal to close it
+      $scope.closeLogin = function() {
+        $scope.modal.hide();
+      };
 
-  // Open the login modal
-  $scope.login = function() {
-    $scope.modal.show();
-  };
+      // Open the login modal
+      $scope.login = function() {
+        $scope.modal.show();
+      };
 
-
+*/
 
 }); // End book search controller
 
@@ -179,6 +190,7 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
   WakeLibraryApp.controller('LocationCtrl', function($scope, $http, $stateParams, LibraryLocations) {
     LibraryLocations.find($stateParams.locationId, function(location) {
       $scope.location = location;
+
 
     });
   });
