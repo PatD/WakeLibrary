@@ -1,15 +1,14 @@
 // Foursquare Factory WCPL
-WakeLibraryApp.factory('FourSquareFactory', function($http, LibraryLocations) {
-
+WakeLibraryApp.factory('FourSquareFactory', function($http) {
 
   var cachedData;
 
   function getData(moviename, callback) {
 
-    var fourSquareBase = 'https://api.foursquare.com/v2/venues/search?limit=1&client_id=R4AMR23V3JWLXO3LIQILBZPZ1TNEWELPYSUK2YBEUBPL4OBU&client_secret=RUX5IIKBSU0K0MEKJYVOJNPSX3E1G4WGJCRGSVHQK02AAXRE';
+    var fourSquareBase = 'https://api.foursquare.com/v2/venues/search?limit=50&client_id=R4AMR23V3JWLXO3LIQILBZPZ1TNEWELPYSUK2YBEUBPL4OBU&client_secret=RUX5IIKBSU0K0MEKJYVOJNPSX3E1G4WGJCRGSVHQK02AAXRE';
     var fourSquareDate = todaysDate;
-    var fourSquareLibLocation = 'East Wake Library';  // maybe scope.locationname
-    var fourSquareLibCity = 'Knightdale';             // maybe scope.city
+    var fourSquareLibLocation = 'Library';  // maybe scope.locationname
+    var fourSquareLibCity = 'Wake County NC';             // maybe scope.city
 
 
     var url = fourSquareBase + '&v=' + fourSquareDate + '&query=' + fourSquareLibLocation + '&near=' + fourSquareLibCity;

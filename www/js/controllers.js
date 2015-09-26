@@ -44,11 +44,11 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
 
 // FourSquare Controller to list phone number
-/*
-  WakeLibraryApp.controller('FourSquareLocationCtrl', function($scope, $http, $stateParams, LibraryLocations, FourSquareFactory){
+
+  WakeLibraryApp.controller('FourSquareLocationContactsCtrl', function($scope, $http, $stateParams, FourSquareFactory){
 
     // Shared Scope of location from LocationCtrl
-      $scope.location;
+    //  $scope.location;
 
     $scope.answer = {
       name: ''
@@ -64,8 +64,6 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
   });
 
-
-*/
 
 
 
@@ -190,25 +188,20 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
   WakeLibraryApp.controller('LocationCtrl', function($scope, $http, $stateParams, LibraryLocations, uiGmapGoogleMapApi) {
 
 
-
-
-
-
-
     LibraryLocations.find($stateParams.locationId, function(location) {
       $scope.location = location;
-
+/*
       // Here we load Google Maps
       uiGmapGoogleMapApi.then(function(maps) {
 
         console.log(location.geometry.x);
-  console.log(location.geometry.y);
+          console.log(location.geometry.y);
 
         $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
 
 
       }); // end of Google Maps
-
+*/
 
     });
   });

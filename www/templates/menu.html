@@ -16,36 +16,50 @@
       <h1 class="title">Wake County Libraries</h1>
     </ion-header-bar>
     <ion-content>
+
       <ion-list>
-        <ion-item menu-close href="#/app/home">
+        <ion-item class="item-icon-left" menu-close ui-sref="app.home">
+          <i class="icon ion-ios-home-outline"></i>
           Home
         </ion-item>
         <!-- ion-item menu-close ng-click="login()">
           Login
         </ion-item -->
-        <ion-item menu-close ui-sref="app.news">
+        <ion-item class="item-icon-left" menu-close ui-sref="app.news">
+            <i class="icon ion-ios-paper-outline"></i>
           News
         </ion-item>
-        <ion-item menu-close ui-sref="app.booksearch">
+        <ion-item class="item-icon-left" menu-close ui-sref="app.booksearch">
+          <i class="icon ion-ios-book-outline"></i>
           Find Books
         </ion-item>
-        <ion-item menu-close ui-sref="app.locations">
-          Library Locations
+        <ion-item class="item-icon-left" menu-close ui-sref="app.locations">
+          <i class="icon ion-ios-location-outline"></i>
+          Locations
         </ion-item>
-        <ion-item menu-close ui-sref="app.eventsLanding">
+        <ion-item class="item-icon-left" menu-close ui-sref="app.eventsLanding">
+          <i class="icon ion-ios-calendar-outline"></i>
           Events
         </ion-item>
-        <ion-item menu-close ui-sref="app.askwcpl">
+        <ion-item class="item-icon-left" menu-close ui-sref="app.askwcpl">
+          <i class="icon ion-ios-list-outline"></i>
           Ask WCPL
         </ion-item>
 
-        <ion-item menu-close ui-sref="app.about">
+        <ion-item class="item-icon-left" menu-close ui-sref="app.facebook">
+          <i class="icon ion-social-facebook-outline"></i>
+         Facebook
+        </ion-item>
+        <ion-item class="item-icon-left" menu-close ui-sref="app.twitter">
+          <i class="icon ion-social-twitter-outline"></i>
+          Twitter
+        </ion-item>
+        <ion-item class="item-icon-left" menu-close ui-sref="app.about">
+          <i class="icon ion-ios-help-outline"></i>
           About this app
         </ion-item>
-      </ion-list>
 
-      <a ui-sref="app.facebook">Facebook</a>
-      <a ui-sref="app.twitter">Twitter</a>
+      </ion-list>
 
     </ion-content>
   </ion-side-menu>
