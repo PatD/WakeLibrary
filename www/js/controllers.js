@@ -187,9 +187,27 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
 
 // Controller that for a single Library location
-  WakeLibraryApp.controller('LocationCtrl', function($scope, $http, $stateParams, LibraryLocations) {
+  WakeLibraryApp.controller('LocationCtrl', function($scope, $http, $stateParams, LibraryLocations, uiGmapGoogleMapApi) {
+
+
+
+
+
+
+
     LibraryLocations.find($stateParams.locationId, function(location) {
       $scope.location = location;
+
+      // Here we load Google Maps
+      uiGmapGoogleMapApi.then(function(maps) {
+
+        console.log(location.geometry.x);
+  console.log(location.geometry.y);
+
+        $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
+
+
+      }); // end of Google Maps
 
 
     });
