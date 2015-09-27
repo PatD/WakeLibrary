@@ -1,24 +1,26 @@
 <ion-view view-title="Library Contacts">
   <ion-content>
 
-
    <!-- Foursquare data -->
-   <div ng-controller="FourSquareLocationContactsCtrl">
 
-       <ion-list class="list">
+   <ion-list class="list" ng-controller="FourSquareLocationContactsCtrl">
+     <ion-item class="item item-divider">
+      Tap to call your local branch
+     </ion-item>
+     <ion-item collection-repeat="answer in answers  | filterBy: ['contact.facebookUsername']: 'wcplonline' |  orderBy : 'name' " ng-href="tel: {{phone}}" class="item item-icon-left">
+       <i class="icon ion-ios-telephone"></i>
+       {{answer.name}}
+       <h4>{{answer.location.city}}: {{answer.contact.formattedPhone}}</h4>
+     </ion-item>
+   </ion-list>
 
-         <ion-item collection-repeat="answer in answers  | filterBy: ['contact.facebookUsername']: 'wcplonline' |  orderBy : 'name' " ng-href="tel: {{phone}}" class="item item-icon-left">
-           <i class="icon ion-ios-telephone"></i>
-           <h2>{{answer.name}}</h2>
-           <h4>{{answer.location.city}}: {{answer.contact.formattedPhone}}</h4>
-         </ion-item>
 
-       </ion-list>
+   <ion-item class="item item-divider">
 
-          <a href="https://foursquare.com" class="button button-clear button-light icon-left ion-social-foursquare">
-            Phone data from Foursquare
-          </a>
-   </div>
 
+   <a href="https://foursquare.com" class="item  icon-left ion-social-foursquare">
+     Phone data from Foursquare
+   </a>
+      </ion-item>
   </ion-content>
 </ion-view>
