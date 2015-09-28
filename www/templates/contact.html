@@ -7,7 +7,7 @@
      <ion-item class="item item-divider">
       Tap to call your local branch
      </ion-item>
-     <ion-item collection-repeat="answer in answers  | filterBy: ['contact.facebookUsername']: 'wcplonline' |  orderBy : 'name' " ng-href="tel: {{phone}}" class="item item-icon-left">
+     <ion-item collection-repeat="answer in answers  | filterBy: ['contact.facebookUsername']: 'wcplonline' |  orderBy : 'name' " ng-href="tel:{{answer.contact.phone}}" class="item item-icon-left">
        <i class="icon ion-ios-telephone"></i>
        {{answer.name}}
        <h4>{{answer.location.city}}: {{answer.contact.formattedPhone}}</h4>

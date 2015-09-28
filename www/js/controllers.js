@@ -45,22 +45,15 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
 // FourSquare Controller to list phone number
 
-  WakeLibraryApp.controller('FourSquareLocationContactsCtrl', function($scope, $http, $stateParams, FourSquareFactory){
-
-    // Shared Scope of location from LocationCtrl
-    //  $scope.location;
+  WakeLibraryApp.controller('FourSquareLocationContactsCtrl', function($scope, $http, $stateParams, $ionicLoading, FourSquareFactory){
 
     $scope.answer = {
       name: ''
     }
 
     FourSquareFactory.list($scope.answer.name, function(answers) {
-
       $scope.answers = answers;
-
-
     });
-
 
   });
 
