@@ -1,31 +1,25 @@
-<ion-view view-title="Search Wake County Books">
+<ion-view view-title="Search Wake County Books" cache-view="false">
 
 <style>
   .gsc-search-button {box-sizing: content-box;}
-  #_modal{width:100%;min-height:500px}
+  .gs-webResult .gs-snippet {margin-left: 0.6em}
+  .gs-webResult.gs-result a.gs-title:link {display: block;}
 </style>
-<!-- Modal for search result -->
-<script id="templates/booksearch/search.html" type="text/ng-template">
 
-<ion-modal-view>
-  <ion-header-bar class="bar bar-header bar-positive">
-    <h1 class="title">Result</h1>
-    <button class="button button-clear button-primary" ng-click="modal.hide()">Close</button>
-  </ion-header-bar>
-  <ion-content class="padding">
-    <iframe id="_modal" name="_modal"></iframe>
-  </ion-content>
-</ion-modal-view>
-
-</script>
 
   <ion-content>
-    <!-- button class="button ion-compose" ng-click="modal.show()" -->
-</button>
 
-    <div class="gcse-search" data-linkTarget="_modal" data-enableHistory="false"></div>
+    <div class="card">
+      <div class="item item-text-wrap">
+        Search Wake County libraries for books, movies, music, and much more.
+      </div>
+    </div>
 
-    <!-- gcse:searchbox-only resultsUrl="/#/app/search/results" newWindow="true" queryParameterName="q" -->
+
+    <div class="gcse-search" data-linkTarget="_blank" data-enableHistory="false"></div>
+
+
+
 
   </ion-content>
 </ion-view>

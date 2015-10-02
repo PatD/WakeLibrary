@@ -20,6 +20,10 @@
     <!-- News -->
     <ion-list type="list-inset" ng-controller="NewsCtrl">
 
+      <a class="button" href="https://www.twitter.com" target="_blank">Test</a>
+      <a class="item" href="#" onclick="window.open(‘http://example.com’, ‘_blank’); return false;">
+                      Open a inn
+                  </a>
         <ion-item class="item item-divider">
           Wake Library News
         </ion-item>
@@ -29,7 +33,6 @@
           <h2>{{newsitem.title}}</h2>
           <h5>{{newsitem.pubDate}}</h5>
         </ion-item>
-
   </ion-list>
 
 

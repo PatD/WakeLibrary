@@ -58,31 +58,32 @@ WakeLibraryApp.run(function($ionicPlatform) {
 
 
 
-// Loading injector
-WakeLibraryApp.config(function($httpProvider) {
-  $httpProvider.interceptors.push(function($rootScope) {
-    return {
-      request: function(config) {
-        $rootScope.$broadcast('loading:show')
-        return config
-      },
-      response: function(response) {
-        $rootScope.$broadcast('loading:hide')
-        return response
+// Loading injector code - Loading modal for everything
+  WakeLibraryApp.config(function($httpProvider) {
+    $httpProvider.interceptors.push(function($rootScope) {
+      return {
+        request: function(config) {
+          $rootScope.$broadcast('loading:show')
+          return config
+        },
+        response: function(response) {
+          $rootScope.$broadcast('loading:hide')
+          return response
+        }
       }
-    }
-  })
-});
+    })
+  });
 
-WakeLibraryApp.run(function($rootScope, $ionicLoading) {
-  $rootScope.$on('loading:show', function() {
-    $ionicLoading.show({template: 'Loading'})
-  })
+// Runs loading modal
+  WakeLibraryApp.run(function($rootScope, $ionicLoading) {
+    $rootScope.$on('loading:show', function() {
+      $ionicLoading.show({template: 'Loading'})
+    })
 
-  $rootScope.$on('loading:hide', function() {
-    $ionicLoading.hide()
-  })
-});
+    $rootScope.$on('loading:hide', function() {
+      $ionicLoading.hide()
+    })
+  });
 
 
 
