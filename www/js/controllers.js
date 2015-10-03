@@ -62,13 +62,6 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
 
 
-
-
-
-
-
-
-
 // Controller that lists the Ask WCPL screen
   WakeLibraryApp.controller('AskwcplListCtrl', function($scope, $http, AskServiceFactory){
     $scope.answer = {
@@ -85,18 +78,11 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
 
   // Detail View for AskWCPL
-    WakeLibraryApp.controller("AskwcplDetailsCtrl", function($scope, $http, $stateParams, AskServiceFactory){
-        AskServiceFactory.find($stateParams.answerid, function(answer) {
-          $scope.answer = answer;
-        });
-    });
-
-
-
-
-
-
-
+  WakeLibraryApp.controller("AskwcplDetailsCtrl", function($scope, $http, $stateParams, AskServiceFactory){
+      AskServiceFactory.find($stateParams.answerid, function(answer) {
+        $scope.answer = answer;
+      });
+  });
 
 
 
@@ -174,7 +160,7 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
 
 // Twitter Controller
-  WakeLibraryApp.controller('TwitterCtrl', function($scope, $stateParams) {
+  WakeLibraryApp.controller('TwitterCtrl', function($scope) {
     // Twitter widget JS
     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
   });
@@ -182,7 +168,7 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
 
 // Facebook Controller
-  WakeLibraryApp.controller('FacebookCtrl', function($scope, $stateParams) {
+  WakeLibraryApp.controller('FacebookCtrl', function($scope) {
     // Facebook widget JS
     (function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
@@ -192,24 +178,6 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
   });
-
-
-
-// Events Landing Page Controller
-  WakeLibraryApp.controller('EventsLandingCtrl', function($scope, EventsFactory, $stateParams) {
-    console.log("Events Landing Page");
-  });
-
-
-
-
-
-
-
-
-
-
-
 
 
 

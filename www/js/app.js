@@ -40,25 +40,25 @@ WakeLibraryApp.run(function($ionicPlatform) {
 // for the RSS feed
 // for the FourSquare query
 
-    var todaysDate = new Date();
-    var dd = todaysDate.getDate();
-    var mm = todaysDate.getMonth()+1; //January is 0!
+var todaysDate = new Date();
+var dd = todaysDate.getDate();
+var mm = todaysDate.getMonth()+1; //January is 0!
 
-    var yyyy = todaysDate.getFullYear();
-    if(dd<10){
-        dd='0'+dd
-    }
-    if(mm<10){
-        mm='0'+mm
-    }
+var yyyy = todaysDate.getFullYear();
+if(dd<10){
+    dd='0'+dd
+}
+if(mm<10){
+    mm='0'+mm
+}
 
-    var todaysDate = yyyy+''+mm+''+dd;
-
-
+var todaysDate = yyyy+''+mm+''+dd;
 
 
 
-// Loading injector code - Loading modal for everything
+
+
+// Loading injector code - Loading dialog for everything
   WakeLibraryApp.config(function($httpProvider) {
     $httpProvider.interceptors.push(function($rootScope) {
       return {
@@ -124,14 +124,14 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
     })
 
 // Contact page
-    .state('app.contact', {
-          url: '/contact',
-          views: {
-            'menuContent': {
-              templateUrl: 'templates/contact.html'
-            }
+  .state('app.contact', {
+        url: '/contact',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/contact.html'
           }
-        })
+        }
+      })
 
 // Ask WCPL FAQ screen
   .state('app.askwcpl', {
@@ -157,7 +157,7 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
 
 // Google Booksearch
     .state('app.booksearch', {
-      url: '/search?gsc&q',
+      url: '/search',
       views: {
         'menuContent': {
           templateUrl: 'templates/booksearch/search.html',
@@ -286,13 +286,6 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
               }
             }
           })
-
-
-
-
-
-
-
 
 
           // News listing
