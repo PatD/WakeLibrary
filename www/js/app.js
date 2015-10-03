@@ -10,7 +10,7 @@
 
   // We inject Ionic, ngSanitize (for HTML in RSS), and angular.filter for select box filtering
 
-var WakeLibraryApp = angular.module('starter', ['ionic', 'ngSanitize', 'angular.filter', 'uiGmapgoogle-maps']);
+var WakeLibraryApp = angular.module('starter', ['ionic', 'ngSanitize', 'angular.filter']);
 
 // Run some Ionic/Cordovaish stuff
 WakeLibraryApp.run(function($ionicPlatform) {
