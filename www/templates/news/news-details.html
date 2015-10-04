@@ -2,22 +2,34 @@
 	<ion-content>
 		<style>
 		 .item p {text-align: left !Important; margin-bottom:1em}
+		 span.ng-binding a {text-decoration: none;color:#666;}
+
 		</style>
 
-		<div class="card">
-		  <div class="item item-text-wrap item-icon-left item-divider">
+		<ion-list type="card">
+
+		  <ion-item class="item item-text-wrap item-icon-left item-divider">
 				 <i class="icon ion-ios-paper-outline"></i>
 		  {{newsitem.title}}</span>
-		  </div>
-		  <div class="item item-text-wrap">
+		  </ion-item>
 
+			<ion-item class="item item-text-wrap">
+				<span>By {{newsitem.author}}</span>
 				<span ng-bind-html="newsitem.description"></span><br />
-        <span>By {{newsitem.author}}</span>
-			</div>
-		  <div class="item item-divider">
+			</ion-item>
+
+			<!-- ion-item class="item padding">
+				<a class="button button-block button-balanced" onclick="window.open('" + {{newsitem.link}} + "', '_blank', 'location=bi');">
+					<i class="icon iion-ios-browsers-outline"></i>
+					View on WakeGov.com
+				</a>
+		  </ion-item -->
+
+
+		  <ion-item class="item item-divider">
 				Updated: {{newsitem.pubDate}}
-		  </div>
-		</div>
+		  </ion-item>
+		</ion-list>
 
 
 	</ion-content>

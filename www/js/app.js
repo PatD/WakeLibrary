@@ -74,7 +74,10 @@ var todaysDate = yyyy+''+mm+''+dd;
     })
   });
 
+
+
 // Runs loading modal
+
   WakeLibraryApp.run(function($rootScope, $ionicLoading) {
     $rootScope.$on('loading:show', function() {
       $ionicLoading.show({template: 'Loading'})
@@ -84,17 +87,6 @@ var todaysDate = yyyy+''+mm+''+dd;
       $ionicLoading.hide()
     })
   });
-
-
-
-
-
-
-
-
-
-
-
 
 
 

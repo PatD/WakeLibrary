@@ -153,6 +153,18 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 // Controller that for a single Library location
   WakeLibraryApp.controller('LocationCtrl', function($scope, $http, $stateParams, LibraryLocations) {
 
+    // This function inappbrowswer's the map clicks
+    document.onclick = function (e) {
+         e = e ||  window.event;
+         var element = e.target || e.srcElement;
+
+         if (element.className == 'google-map button icon-left ion-android-map button-positive') {
+    //     if (element.tagName == 'A') {
+             window.open(element.href, "_system", "location=no");
+             return false; // prevent default action and stop event propagation
+         }
+     };
+
 
     LibraryLocations.find($stateParams.locationId, function(location) {
       $scope.location = location;
