@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.ionicframework.wakelibrary349021" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>WakeLibrary</name>
+  <name>Wake County Libraries</name>
   <description>
-        For users of the Wake County Public Library - get locations, check events, get questions answered, and find books all from one convenient app.
+        For users of the Wake County Public Library system - get locations, check events, get questions answered, and find books all from one convenient app.
     </description>
   <author email="pdoran@gmail.com" href="http://patrickDoran.com/">
       Patrick Doran
     </author>
   <content src="index.html"/>
+  <access origin="sms:*" launch-external="yes" />
+  <access origin="mailto:*" launch-external="yes" />
   <access origin="tel:*" launch-external="yes" />
   <access origin="*"/>
   <preference name="webviewbounce" value="false"/>

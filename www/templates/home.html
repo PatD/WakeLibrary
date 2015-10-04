@@ -1,9 +1,8 @@
 <ion-view view-title="Wake County Libraries">
   <ion-content>
 
-
-<div class="padding">
   <!-- Buttons -->
+<div class="padding">
     <div class="row">
         <a class="col col-50 button icon-left ion-ios-book-outline button-block button-calm" ui-sref="app.booksearch">Find Books</a>
 
@@ -17,56 +16,53 @@
 </div>
 
 
-    <!-- News -->
-    <ion-list type="list-inset" ng-controller="NewsCtrl">
-        <ion-item class="item item-divider">
-          Wake Library News
-        </ion-item>
-
-        <ion-item class="item item-icon-left item-text-wrap" ng-repeat="newsitem in news | filter:{category:'Libraries'} | orderBy:'-pubDate'" href="#/app/news/{{newsitem.title}}">
-          <i class="icon ion-ios-information-outline"></i>
-          <h2>{{newsitem.title}}</h2>
-          <h5>{{newsitem.pubDate}}</h5>
-        </ion-item>
-  </ion-list>
 
 
-  <div class="list card">
-    <div class="item item-divider">
-    Wake Library Services
-    </div>
 
-  
+<!-- News -->
+<ion-list type="list-inset" ng-controller="NewsCtrl">
+    <ion-item class="item item-divider">
+      Wake Library News
+    </ion-item>
 
-    <!-- a href="https://catalog.wakegov.com/MyAccount/Home" class="item item-icon-left">
-      <i class="icon ion-ios-browsers-outline"></i>
-      Sign into your account
-    </a -->
+    <ion-item class="item item-icon-left item-text-wrap" ng-repeat="newsitem in news | filter:{category:'Libraries'} | orderBy:'-pubDate'" href="#/app/news/{{newsitem.title}}">
+      <i class="icon ion-ios-paper-outline"></i>
+      <h2>{{newsitem.title}}</h2>
+      <h5>{{newsitem.pubDate}}</h5>
+    </ion-item>
+</ion-list>
 
 
-    <!-- link to view -->
-    <a ui-sref="app.text" class="item item-icon-left">
-      <i class="icon ion-android-chat"></i>
-      Text a question
-    </a>
 
-    <!-- this'll have to be a view -->
-    <a ui-sref="app.contact" class="item item-icon-left">
-      <i class="icon ion-android-call"></i>
-      Library Contacts
-    </a>
 
-    <a ui-sref="app.twitter" class="item item-icon-left">
-      <i class="icon ion-social-twitter-outline"></i>
-      Wake County Library on Twitter
-    </a>
+<!-- Services -->
+<ion-list type="card">
 
-    <!-- This'll need to be a view -->
-    <a ui-sref="app.facebook" class="item item-icon-left">
-      <i class="icon ion-social-facebook-outline"></i>
-      Wake County Library on Facebook
-    </a>
-  </div>
+  <ion-item class="item item-divider">
+    Library Services
+  </ion-item>
+
+  <ion-item ui-sref="app.text" class="item item-icon-left">
+    <i class="icon ion-android-chat"></i>
+    Text a question
+  </ion-item>
+
+  <ion-item ui-sref="app.contact" class="item item-icon-left">
+    <i class="icon ion-android-call"></i>
+    Library Contacts
+  </ion-item>
+
+  <ion-item ui-sref="app.twitter" class="item item-icon-left">
+    <i class="icon ion-social-twitter-outline"></i>
+    Wake Libraries on Twitter
+  </ion-item>
+
+  <ion-item ui-sref="app.facebook" class="item item-icon-left">
+    <i class="icon ion-social-facebook-outline"></i>
+    Wake Libraries on Facebook
+  </ion-item>
+
+</ion-list>
 
 
   </ion-content>

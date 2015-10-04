@@ -1,21 +1,20 @@
 <ion-view title="Wake Library News">
 	<ion-content>
 		<style>
-		 .item p {text-align: left !Important; margin-bottom:.5em}
+		 .item p {text-align: left !Important; margin-bottom:1em}
 		</style>
 
 		<div class="card">
 		  <div class="item item-text-wrap item-icon-left item-divider">
-				 <i class="icon ion-ios-information-outline"></i>
+				 <i class="icon ion-ios-paper-outline"></i>
 		  {{newsitem.title}}</span>
 		  </div>
 		  <div class="item item-text-wrap">
 
-				<span ng-bind-html="newsitem.description"></span>
+				<span ng-bind-html="newsitem.description"></span><br />
         <span>By {{newsitem.author}}</span>
 			</div>
-		  <div class="item item-divider item-icon-left">
-							 <i class="icon ion-clock"></i>
+		  <div class="item item-divider">
 				Updated: {{newsitem.pubDate}}
 		  </div>
 		</div>
