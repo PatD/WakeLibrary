@@ -88,6 +88,22 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
 // Google book search
   WakeLibraryApp.controller('BookSearchCtrl', function($scope) {
+
+    // This function inappbrowswer's the booksearch clicks
+    document.onclick = function (e) {
+         e = e ||  window.event;
+         var element = e.target || e.srcElement;
+
+         if (element.className == 'gs-title') {
+    //     if (element.tagName == 'A') {
+             window.open(element.href, "_blank", "location=no");
+             return false; // prevent default action and stop event propagation
+         }
+     };
+
+
+
+
       ionic.Platform.ready(function(){
         /* Google CSE */
 
@@ -135,7 +151,7 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
 
 // Controller that for a single Library location
-  WakeLibraryApp.controller('LocationCtrl', function($scope, $http, $stateParams, LibraryLocations, uiGmapGoogleMapApi) {
+  WakeLibraryApp.controller('LocationCtrl', function($scope, $http, $stateParams, LibraryLocations) {
 
 
     LibraryLocations.find($stateParams.locationId, function(location) {
