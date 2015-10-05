@@ -160,7 +160,7 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
          if (element.className == 'google-map button icon-left ion-android-map button-positive') {
     //     if (element.tagName == 'A') {
-             window.open(element.href, "_system", "location=no");
+             window.open(element.href, "_blank", "location=no");
              return false; // prevent default action and stop event propagation
          }
      };
