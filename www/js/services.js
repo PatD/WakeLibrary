@@ -1,4 +1,4 @@
-// Foursquare Factory WCPL
+// Foursquare Factory WCPL for contact screen
 WakeLibraryApp.factory('FourSquareFactory', function($http) {
 
   var cachedData;

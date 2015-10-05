@@ -8,12 +8,20 @@
 
 
   <ion-content>
-
     <ion-list>
+<ion-item class="item item-text-wrap">
+  Search Wake County libraries for books, ebooks, audiobooks, and much more.
+</ion-item>
+      <ion-item  class="item item-text-wrap">
+          <gcse:searchbox></gcse:searchbox>
+        </ion-item>
+      <ion-item class="item item-text-wrap">
+        <div data-tap-disabled="true">
+          <gcse:searchresults data-linkTarget="_system" data-enableHistory="false"></gcse:searchresults>
+          <!-- div class="gcse-search" data-linkTarget="_system" data-enableHistory="false"></div -->
+        </div>
 
-      <ion-item data-tap-disabled="true" class="item item-text-wrap">
-          Search Wake County libraries for books, ebooks, audiobooks, and much more.
-          <div class="gcse-search" data-linkTarget="_system" data-enableHistory="false"></div>
+
       </ion-item>
     </ion-list>
 

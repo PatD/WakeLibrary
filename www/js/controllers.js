@@ -165,7 +165,7 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
          }
      };
 
-
+    // Routing stuff
     LibraryLocations.find($stateParams.locationId, function(location) {
       $scope.location = location;
 /*
