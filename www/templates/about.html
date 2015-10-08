@@ -2,29 +2,37 @@
   <ion-content>
 
 
-    <div class="list card">
+    <ion-list type="card">
 
-      <div class="item item-divider">
+      <ion-item class="item item-divider">
       Usage of this app
-      </div>
+      </ion-item>
 
-      <div class="item item-body">
+      <ion-item class="item item-body">
+        <p>This is not an official Wake County app by any means.</p>
+
         <p>
           By using this mobile app, <strong>you swear to never bother any of the hard-working staff at Wake County Public Libraries</strong>.
-          They didn't make this app.</p><p>
+          They didn't make this app.</p>
+        <p>
           They're far too busy proiding an excellent public service to the citizens of Wake County,
-          helping increase literacy, getting kids excited about reading and learning,
+          helping increase literacy, getting kids excited about reading,
           and making sure all Wake County citizens have access to the internet.</p>
 
-          <p>For questions, feedback, and suggested improvements for this app, please Patrick Doran via Twitter:</p>
+          <p>For questions, feedback, and suggested improvements for this app, please contact Patrick Doran via Twitter:</p>
 
-      </div>
+          <div class="padding">
+            <a class="button button-block button-balanced" onclick="window.open('http://www.twitter.com/patd', '_system', 'location=yes'); return false;">
+              <i class="icon ion-social-twitter-outline"></i>
+              Send Feedback to @PatD
+            </a>
+          </div>
+      </ion-item>
 
-      <a class="item item-icon-left calm" href="https://data.wake.opendata.arcgis.com/">
-      <i class="icon ion-social-twitter-outline"></i>
-      Send Feedback to @PatD</a>
 
-    </div>
+
+
+    </ion-list>
 
 
 
@@ -40,24 +48,29 @@
           <p>The data from this app comes from the same sources that Wake County uses in its library web sites. This app isn't meant to replace their web site, only to present and augment their existing content in a mobile application.</p>
 
           <h2>Book Search</h2>
-          <p>This Google Custom Search, reading Wake County's <a href="https://catalog.wakegov.com">Library</a> website.  Neither Wake County nor the author receive any funds for the ads placed in the search results.</p>
+          <p>This Google Custom Search reads Wake County's <b href="https://catalog.wakegov.com">Library</b> website.  Neither Wake County nor the author receive any funds for the ads placed in the search results.</p>
 
           <h2>Library Events</h2>
-          <p>Wake County Libraries uses <a href="http://trumba.com">Trumba.com</a> to manage their events, and makes that data available through RSS and iCal feeds.  This app utilizes these feeds.
+          <p>Wake County Libraries uses <b href="http://trumba.com">Trumba.com</b> to manage their events, and makes that data available through RSS and iCal feeds. This app utilizes these feeds.
 
           <h2>Locations</h2>
-          <p>Wake County, through it's <a href="https://data.wake.opendata.arcgis.com">Open Data Portal</a>, makes it's building location data available through a JSON REST service.
+          <p>Wake County, through it's <b href="https://data.wake.opendata.arcgis.com">Open Data Portal</b>, makes it's building location data available through a JSON REST service.
 
           <h2>Ask Wake County Library</h2>
           <p>Comes from the RSS feed from Wake County's AskWCPL Portal</p>
 
-          <p>This app was built using the open source Ionic Framework library</p>
+          <p>This app was built using the open source Ionic Framework library.</p>
+          <p>The source code for this app is available on GitHub.</p>
         </p>
       </div>
 
-      <a class="item item-icon-left calm" href="https://data.wake.opendata.arcgis.com/">
-      <i class="icon ion-social-twitter-outline"></i>
-      Send Feedback to @PatD</a>
+
+                <div class="padding">
+                  <a class="button button-block button-calm" onclick="window.open('http://www.github.com/patd', '_system', 'location=yes'); return false;">
+                    <i class="icon ion-social-github"></i>
+                    Fork on Github
+                  </a>
+                </div>
 
     </div>
 

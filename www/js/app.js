@@ -27,6 +27,11 @@ WakeLibraryApp.run(function($ionicPlatform) {
       StatusBar.styleDefault();
     }
   });
+
+
+
+
+
 });
 
 
@@ -87,7 +92,6 @@ var todaysDate = yyyy+''+mm+''+dd;
       $ionicLoading.hide()
     })
   });
-
 
 
 
