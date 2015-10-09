@@ -3,7 +3,14 @@
 
    <!-- Foursquare data -->
 
-   <ion-list class="list" ng-controller="FourSquareLocationContactsCtrl">
+   <ion-refresher
+      pulling-text="The freshest..."
+      pulling-icon="ion-ios-bookmarks-outline"
+      on-refresh="doRefresh()">
+    </ion-refresher>
+
+
+   <ion-list class="list">
      <ion-item class="item item-divider">
       Tap to call your local branch
      </ion-item>

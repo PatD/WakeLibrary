@@ -51,9 +51,16 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
       name: ''
     }
 
-    FourSquareFactory.list($scope.answer.name, function(answers) {
-      $scope.answers = answers;
-    });
+    $scope.doRefresh = function() {
+
+       FourSquareFactory.list($scope.answer.name, function(answers) {
+         $scope.answers = answers;
+       });
+         $scope.$broadcast('scroll.refreshComplete');
+
+     };
+     $scope.doRefresh();
+
 
   });
 

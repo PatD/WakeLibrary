@@ -139,7 +139,8 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
         url: '/contact',
         views: {
           'menuContent': {
-            templateUrl: 'templates/contact.html'
+            templateUrl: 'templates/contact.html',
+            controller: 'FourSquareLocationContactsCtrl'
           }
         }
       })
