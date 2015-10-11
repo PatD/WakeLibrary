@@ -1,8 +1,15 @@
 <ion-view view-title="Wake County Library News">
   <ion-content>
 
+
+    <ion-refresher
+       pulling-text="The freshest..."
+       pulling-icon="ion-ios-bookmarks-outline"
+       on-refresh="doRefresh()">
+     </ion-refresher>
+
     <!-- Lists news items -->
-    <ion-list class="list">
+    <ion-list>
 
     		<ion-item class="item item-icon-left item-text-wrap" ng-repeat="newsitem in news | filter:{category:'Libraries'} | orderBy:'-pubDate'" href="#/app/news/{{newsitem.title}}">
           <i class="icon ion-ios-paper-outline"></i>

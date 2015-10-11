@@ -142,15 +142,17 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
       name: ''
     }
 
-    $scope.searchLocations = function() {
+    // Pull to refresh wrapper
+    $scope.doRefresh = function() {
 
       LibraryLocations.list($scope.location.name, function(locations) {
         $scope.locations = locations;
       });
 
-    };
+      $scope.$broadcast('scroll.refreshComplete');
 
-    $scope.searchLocations();
+     };
+     $scope.doRefresh();
 
   });
 
@@ -341,6 +343,11 @@ WakeLibraryApp.controller('EventsAdultCtrl',function($scope, EventsFactoryAdults
               });
               }
 
+
+
+
+
+
           });
 
 
@@ -351,14 +358,23 @@ WakeLibraryApp.controller('EventsAdultCtrl',function($scope, EventsFactoryAdults
 
   // News Listing Ctrl
     WakeLibraryApp.controller('NewsCtrl',function($scope, $http, NewsFactory){
+
       $scope.newsitem = {
         name: ''
       }
 
-      NewsFactory.list($scope.newsitem.name, function(news) {
-        $scope.news = news;
-       // console.log(news);
-      });
+      // Pull to refresh wrapper
+      $scope.doRefresh = function() {
+
+        NewsFactory.list($scope.newsitem.name, function(news) {
+          $scope.news = news;
+          // console.log(news);
+        });
+
+        $scope.$broadcast('scroll.refreshComplete');
+
+       };
+       $scope.doRefresh();
 
     });
 

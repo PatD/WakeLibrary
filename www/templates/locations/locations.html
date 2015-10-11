@@ -1,9 +1,13 @@
 <ion-view view-title="Wake County Library Locations">
   <ion-content>
 
+    <ion-refresher
+       pulling-text="The freshest..."
+       pulling-icon="ion-ios-bookmarks-outline"
+       on-refresh="doRefresh()">
+     </ion-refresher>
 
-
-<ion-list class="list padding">
+<ion-list class="pad ding">
 
   <!-- label class="item item-input">
     <i class="icon ion-search placeholder-icon"></i>
@@ -13,7 +17,7 @@
     <label class="item item-input item-select">
         <i class="icon ion-ios-color-filter-outline placeholder-icon"></i>
       <div class="input-label">
-        Filter by town
+        Select town
       </div>
       <select ng-model="query">
         <option value="">All libraries</option>
