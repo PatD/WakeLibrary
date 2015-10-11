@@ -4,7 +4,7 @@
 
 <!-- Slidebox of images -->
 <ion-slide-box
-  style="margin-bottom:-2em"
+  style="margin-bottom:-3em;margin-top:-1em"
   show-pager="false"
   does-continue="true"
   ng-init="images=['erl','cry','dur','elf','cam','eva','fuq','gre','hsp','lee','nor','orl','rbh','ser','sga','wak','wen','wrl','zeb']">
@@ -21,40 +21,21 @@
 
     <ion-item class="item item-icon-left item-text-wrap" ng-repeat="newsitem in news | filter:{category:'Libraries'} | orderBy:'-pubDate'" href="#/app/news/{{newsitem.title}}">
       <i class="icon ion-ios-paper-outline"></i>
-      <h2>{{newsitem.title}}</h2>
+      <h3>{{newsitem.title}}</h3>
       <p>{{newsitem.pubDate}}</p>
     </ion-item>
 
     <!-- For situations with no news articles -->
     <ion-item ng-hide="news.length" class="item item-icon-left item-text-wrap" ui-sref="app.news" >
       <i class="icon ion-ios-paper-outline"></i>
-      <h2>No current news available.</h2>
+      <h3>No news today.</h3>
       <p>Check Facebook for the latest!</p>
     </ion-item>
 
 </ion-list>
 
 
-
-
-
-  <!-- Buttons -->
-<!-- div class="padding">
-    <div class="row">
-        <a class="col button icon-left ion-ios-book-outline button-block button-calm" ui-sref="app.booksearch">Find Books</a>
-
-        <a class="col button icon-left ion-ios-calendar-outline button-block button-calm" ui-sref="app.eventsLanding">Events</a>
-      </div>
-    <div class="row">
-        <a class="col col-50 button icon-left ion-ios-location-outline button-block button-calm" ui-sref="app.locations">Locations</a>
-
-        <a class="col col-50 button icon-left ion-ios-help-outline button-block button-calm" ui-sref="app.askwcpl">Ask WCPL</a>
-    </div>
-</div -->
-
-<br />
-
-<ion-list>
+<ion-list type="card">
   <ion-item class="item item-divider">
     Wake Library Services
   </ion-item>
@@ -63,34 +44,40 @@
   <ion-item class="item-icon-left item-text-wrap" ui-sref="app.locations">
     <i class="icon ion-ios-location-outline"></i>
     <h2>Wake Library Locations</h2>
-    <p>Find your local library and check out today's events and activities there</p>
+    <p>Find your local library and check out today's events & activities</p>
   </ion-item>
 
   <ion-item class="item-icon-left item-text-wrap" ui-sref="app.booksearch">
     <i class="icon ion-ios-book-outline"></i>
     <h2>Search for books</h2>
-    <p>And more in Wake County Libraries</p>
+    <p>Currently available through Wake County Libraries</p>
   </ion-item>
 
   <ion-item class="item-icon-left item-text-wrap" ui-sref="app.askwcpl">
       <i class="icon ion-ios-help-outline"></i>
-      <h2>Ask Wake County Public Libraries</h2>
-      <p>Q&A about library membership, book borrowing, ebooks, and more.</p>
+      <h2>Ask Wake County Libraries</h2>
+      <p>FAQs about membership, book borrowing, ebooks, and more.</p>
   </ion-item>
 
   <ion-item class="item-icon-left item-text-wrap" ui-sref="app.eventsLanding">
     <i class="icon ion-ios-calendar-outline"></i>
     <h2>Wake Library Events</h2>
-    <p>Find fun things to do at your local library. Events for kids, teens, and adults.</p>
+    <p>Find great things to do at your local Wake County library. Events for kids, teens, and adults.</p>
   </ion-item>
+</ion-list>
 
 
 
+<ion-list type="card">
 
+  <ion-item class="item item-divider">
+   Contact Wake Libraries
+  </ion-item>
 
   <ion-item class="item-icon-left" ui-sref="app.contact">
       <i class="icon ion-android-call"></i>
       <h2>Call your local library</h2>
+      <p></p>
   </ion-item>
 
   <ion-item ui-sref="app.text" class="item item-icon-left">
@@ -102,30 +89,8 @@
 
 
 
+<br />
 
-
-
-
-
-<!-- Services
-<ion-list type="card">
-
-
-
-  <ion-item ui-sref="app.twitter" class="item item-icon-left">
-    <i class="icon ion-social-twitter-outline"></i>
-    Wake Libraries on Twitter
-  </ion-item>
-
-  <ion-item ui-sref="app.facebook" class="item item-icon-left">
-    <i class="icon ion-social-facebook-outline"></i>
-    Wake Libraries on Facebook
-  </ion-item>
-
-</ion-list>
--->
-<br /><br /><br /><br />
-  <img ng-src="img/drawable-xxxhdpi-icon.png"
 
   </ion-content>
 </ion-view>
