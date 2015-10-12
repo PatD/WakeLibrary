@@ -86,6 +86,22 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
   // Detail View for AskWCPL
   WakeLibraryApp.controller("AskwcplDetailsCtrl", function($scope, $http, $stateParams, AskServiceFactory){
+
+    // This function inappbrowswer's the booksearch clicks
+    document.onclick = function (e) {
+         e = e ||  window.event;
+         var element = e.target || e.srcElement;
+
+         if (element.className == 'gs-title') {
+    
+             window.open(element.href, "_blank", "location=no");
+             return false; // prevent default action and stop event propagation
+
+
+         }
+     };
+
+
       AskServiceFactory.find($stateParams.answerid, function(answer) {
         $scope.answer = answer;
       });

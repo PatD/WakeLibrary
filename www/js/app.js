@@ -28,11 +28,8 @@ WakeLibraryApp.run(function($ionicPlatform) {
     }
   });
 
-
-
-
-
 });
+
 
 
 
