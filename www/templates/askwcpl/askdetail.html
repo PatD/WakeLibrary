@@ -4,19 +4,20 @@
 .item-text-wrap p {margin-bottom:1em;}
 </style>
 
-		<ion-list type="card">
-		  <ion-item class="item item-text-wrap item-icon-left item-divider">
-				 <i class="icon ion-ios-help-outline"></i>
-		  <span  ng-bind-html="answer.question"></span>
-		</ion-item>
-		  <ion-item class="item item-text-wrap">
+<ion-list type="card">
+  <ion-item class="item item-text-wrap item-icon-left item-divider">
+		 <i class="icon ion-ios-help-outline"></i>
+  		<span ng-bind-html="answer.question"></span>
+	</ion-item>
 
-				<span id="wcplAnswer" ng-bind-html="answer.answer"></span>
-			</ion-item>
-		  <ion-item class="item item-divider item-icon-left">
 
-				Updated: {{answer.askedon}}
-		  </ion-item>
+  <ion-item class="item item-text-wrap" id="wcplAnswer" ng-bind-html="answer.answer">
+	</ion-item>
+
+  <ion-item class="item item-divider item-icon-left">
+		Updated: {{answer.askedon}}
+  </ion-item>
+
 		</ion-list>
 
 
