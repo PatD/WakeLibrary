@@ -87,11 +87,6 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
   // Detail View for AskWCPL
   WakeLibraryApp.controller("AskwcplDetailsCtrl", function($scope, $http, $stateParams, AskServiceFactory){
 
-    // This function inappbrowswer's the booksearch clicks
-    var DoesThisHaveClickableElements = document.getElementById("wcplAnswer").getElementsByTagName("a");
-
-
- console.log(DoesThisHaveClickableElements);
 
     document.onclick = function (e) {
          e = e ||  window.event;

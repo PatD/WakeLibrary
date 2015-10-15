@@ -55,7 +55,7 @@ WakeLibraryApp.factory('AskServiceFactory', function($http) {
 
   function getData(moviename, callback) {
 
-    var url = 'http://askwcpl.wakegov.com/api_answers.php?iid=294&limit=1000&showans=1&showdet=0&format=json';
+    var url = 'http://askwcpl.wakegov.com/api_answers.php?iid=294&limit=500&showans=1&showdet=0&format=json';
 
     $http.get(url).success(function(data) {
 
@@ -118,7 +118,6 @@ WakeLibraryApp.factory('AskServiceFactory', function($http) {
 
 // Wake News
   WakeLibraryApp.factory('NewsFactory',function($http){
-// https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D'http%3A%2F%2Fwww.wakegov.com%2Fnews%2F_layouts%2Flistfeed.aspx%3FList%3D%257B9478165C-B0D4-48D4-B6D9-B3EBA1007F6E%257D'&format=json&callback=
     var newsData;
 
     function getData(moviename, callback) {
@@ -195,7 +194,7 @@ WakeLibraryApp.factory('AskServiceFactory', function($http) {
 
 
       events.getEvents = function(){
-        return $http.get("http://www.trumba.com/calendars/WCPL.rss?filterview=Adults+Only&HTML=1&previousweeks=0");
+        return $http.get("http://www.trumba.com/calendars/WCPL.rss?filterview=Adults+Only&HTML=1&previousweeks=0&weeks=2");
 
       }
 
@@ -218,7 +217,7 @@ WakeLibraryApp.factory('AskServiceFactory', function($http) {
 
 
       events.getEvents = function(){
-        return $http.get("http://www.trumba.com/calendars/WCPL.rss?filterview=Teen+Events&HTML=1&previousweeks=0&weeks=6");
+        return $http.get("http://www.trumba.com/calendars/WCPL.rss?filterview=Teen+Events&HTML=1&previousweeks=0&weeks=2");
 
       }
 
@@ -241,7 +240,7 @@ WakeLibraryApp.factory('AskServiceFactory', function($http) {
 
 
       events.getEvents = function(){
-        return $http.get("http://www.trumba.com/calendars/WCPL.rss?filterview=YS_only&HTML=1&previousweeks=0");
+        return $http.get("http://www.trumba.com/calendars/WCPL.rss?filterview=YS_only&HTML=1&previousweeks=0&weeks=2");
 
       }
 
@@ -263,7 +262,7 @@ WakeLibraryApp.factory('AskServiceFactory', function($http) {
 
 
       events.getEvents = function(){
-        return $http.get("http://www.trumba.com/calendars/WCPL.rss?HTML=1&previousweeks=0&weeks=10");
+        return $http.get("http://www.trumba.com/calendars/WCPL.rss?HTML=1&previousweeks=0&weeks=2");
 
       }
 

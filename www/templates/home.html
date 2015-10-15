@@ -23,15 +23,14 @@
 
     <ion-item class="item item-icon-left item-text-wrap" ng-repeat="newsitem in news | filter:{category:'Libraries'} | orderBy:'-pubDate'" href="#/app/news/{{newsitem.title}}">
       <i class="icon ion-ios-paper-outline"></i>
-      {{newsitem.title}}
+      <h2>{{newsitem.title}}</h2>
       <p>{{newsitem.pubDate}}</p>
     </ion-item>
 
     <!-- For situations with no news articles -->
-    <ion-item ng-hide="news.length" class="item item-icon-left item-text-wrap" ui-sref="app.news" >
-      <i class="icon ion-ios-paper-outline"></i>
+    <ion-item ng-hide="news.length" class="item item-icon-left item-text-wrap" ui-sref="app.twitter" >
       <h3>No news today.</h3>
-      <p>Check Facebook for the latest!</p>
+      <p>Check Twitter for the latest!</p>
     </ion-item>
 
 </ion-list>
@@ -64,7 +63,7 @@
   <ion-item class="item-icon-left item-text-wrap" ui-sref="app.eventsLanding">
     <i class="icon ion-ios-calendar-outline"></i>
     <h2>Wake Library Events</h2>
-    <p>Find great things to do at your local Wake County library. Events for kids, teens, and adults.</p>
+    <p>Find great things to do at your Wake County library. Events for kids, teens, and adults.</p>
   </ion-item>
 </ion-list>
 
@@ -72,7 +71,7 @@
 <ion-list type="card" ng-controller="TwitterCtrl">
 
   <ion-item class="item item-divider">
-   #wcplreads on Twitter
+   WCPL on Twitter
   </ion-item>
 
   <ion-item>
@@ -82,6 +81,8 @@
     data-chrome="noheader transparent nofooter noscrollbar"
     data-tweet-limit="1">
     Tweets by @wcplonline</a>
+<br />
+      <button class="button button-small button-calm" onclick="window.open('https://www.twitter.com/wcplonline', '_system'); return false;">Follow @wcplonline</button>  <button class="button button-small button-balanced" onclick="window.open('https://twitter.com/search?q=%23wcplreads%20from%3Awcplonline', '_system'); return false;">#wcplreads</button>
   </ion-item>
 
 </ion-list>
@@ -114,5 +115,8 @@
 <br />
 
 
+<img style="margin:0 auto; display:block;" ng-src="img/drawable-xxxhdpi-icon.png" />
+
+<br />
   </ion-content>
 </ion-view>
