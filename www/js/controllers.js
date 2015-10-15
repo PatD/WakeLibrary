@@ -87,7 +87,7 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
   // Detail View for AskWCPL
   WakeLibraryApp.controller("AskwcplDetailsCtrl", function($scope, $http, $stateParams, AskServiceFactory){
 
-
+    function clickSetter(){
     document.onclick = function (e) {
          e = e ||  window.event;
          var element = e.target || e.srcElement;
@@ -100,10 +100,11 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
          }
      };
-
+};
 
       AskServiceFactory.find($stateParams.answerid, function(answer) {
         $scope.answer = answer;
+        clickSetter();
       });
   });
 
