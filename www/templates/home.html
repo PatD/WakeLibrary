@@ -18,17 +18,21 @@
   style="top:-2em"
   type="list-inset" ng-controller="NewsCtrl">
     <ion-item class="item item-divider">
-      Wake Library News
+      Wake Library News  <button style="float:right;min-height:20px;line-height:20px" class="button button-small button-calm" ui-sref="app.news">View all news</button>
     </ion-item>
 
-    <ion-item class="item item-icon-left item-text-wrap" ng-repeat="newsitem in news | filter:{category:'Libraries'} | orderBy:'-pubDate'" href="#/app/news/{{newsitem.title}}">
+    <ion-item class="item item-icon-left item-text-wrap" ng-repeat="newsitem in news | limitTo:1 | filter:{category:'Libraries'} | orderBy:'-pubDate'" href="#/app/news/{{newsitem.title}}">
       <i class="icon ion-ios-paper-outline"></i>
       <h2>{{newsitem.title}}</h2>
-      <p>{{newsitem.pubDate}}</p>
+      <p>{{newsitem.pubDate | limitTo: 17 }}{{newsitem.pubDate.length > 17 ? ' ' : ''}}</p>
     </ion-item>
 
+
+
+
+
     <!-- For situations with no news articles -->
-    <ion-item ng-hide="news.length" class="item item-icon-left item-text-wrap" ui-sref="app.twitter" >
+    <ion-item ng-hide="news.length" class="item item-icon-left item-text-wrap" onclick="window.open('https://www.twitter.com/wcplonline', '_system'); return false;" >
       <h3>No news today.</h3>
       <p>Check Twitter for the latest!</p>
     </ion-item>
@@ -45,7 +49,7 @@
   <ion-item class="item-icon-left item-text-wrap" ui-sref="app.locations">
     <i class="icon ion-ios-location-outline"></i>
     <h2>Wake Library Locations</h2>
-    <p>Find your local library and check out today's events & activities</p>
+    <p>Find your local library and check out today's events &amp; activities</p>
   </ion-item>
 
   <ion-item class="item-icon-left item-text-wrap" ui-sref="app.booksearch">
