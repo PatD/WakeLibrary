@@ -78,6 +78,18 @@ var todaysDate = yyyy+''+mm+''+dd;
 
 
 
+
+/* Native scroll
+  WakeLibraryApp.config(function ($ionicConfigProvider) {
+
+      // Enable native scrolls for Android platform only
+      if (ionic.Platform.isAndroid()) {
+        $ionicConfigProvider.scrolling.jsScrolling(false);
+      }
+
+  });
+*/
+
 // Runs loading modal
 
   WakeLibraryApp.run(function($rootScope, $ionicLoading) {
