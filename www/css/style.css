@@ -1,2 +1,6 @@
 /* Empty. Add your own CSS if you like */
- .pane, .view {background:#eeedd9;} 
+ .pane, .view {background:#eeedd9;}
+
+ .bar.bar-light {
+   background-color: rgba(255,255,255,.12) !important; /* or transparent, or background:none */
+ }

@@ -381,17 +381,17 @@ WakeLibraryApp.controller('EventsAdultCtrl',function($scope, EventsFactoryAdults
       }
 
       // Pull to refresh wrapper
-      $scope.doRefresh = function() {
+    //  $scope.doRefresh = function() {
 
         NewsFactory.list($scope.newsitem.name, function(news) {
           $scope.news = news;
           // console.log(news);
         });
 
-        $scope.$broadcast('scroll.refreshComplete');
+  //      $scope.$broadcast('scroll.refreshComplete');
 
-       };
-       $scope.doRefresh();
+  //     };
+  //     $scope.doRefresh();
 
     });
 

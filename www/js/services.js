@@ -82,34 +82,34 @@ WakeLibraryApp.factory('AskServiceFactory', function($http) {
 
 
 // Locations
-  WakeLibraryApp.factory('LibraryLocations', function($http) {
-    var _LocationcachedData;
+WakeLibraryApp.factory('LibraryLocations', function($http) {
+  var _LocationcachedData;
 
-    function getData(locationname, callback) {
-      var LocationsUrl = 'http://maps.wakegov.com/arcgis/rest/services/WCPL/Libraries/FeatureServer/0/query?where=+&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&relationParam=&outFields=*&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&outSR=&gdbVersion=&returnDistinctValues=false&returnIdsOnly=false&returnCountOnly=false&orderByFields=NAME&groupByFieldsForStatistics=CITY&outStatistics=&returnZ=false&returnM=false&f=pjson';
+  function getData(locationname, callback) {
+    var LocationsUrl = 'http://maps.wakegov.com/arcgis/rest/services/WCPL/Libraries/FeatureServer/0/query?where=+&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&relationParam=&outFields=*&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&outSR=&gdbVersion=&returnDistinctValues=false&returnIdsOnly=false&returnCountOnly=false&orderByFields=NAME&groupByFieldsForStatistics=CITY&outStatistics=&returnZ=false&returnM=false&f=pjson';
 
-      $http.get(LocationsUrl).success(function(data) {
+    $http.get(LocationsUrl).success(function(data) {
 
-        _LocationcachedData = data.features;
-        callback(data.features);
-        // Factory has successfully queried data
-        // console.log(JSON.stringify(_LocationcachedData));
+      _LocationcachedData = data.features;
+      callback(data.features);
+      // Factory has successfully queried data
+      // console.log(JSON.stringify(_LocationcachedData));
 
-      });
+    });
+  }
+
+  return {
+    list: getData,
+    find: function(name, callback) {
+      // console.log("name" + name);
+      var location = _LocationcachedData.filter(function(entry) {
+        return entry.attributes.OBJECTID == name;
+      })[0];
+      callback(location);
     }
+  };
 
-    return {
-      list: getData,
-      find: function(name, callback) {
-        // console.log("name" + name);
-        var location = _LocationcachedData.filter(function(entry) {
-          return entry.attributes.OBJECTID == name;
-        })[0];
-        callback(location);
-      }
-    };
-
-  });
+});
 
 
 
@@ -117,31 +117,45 @@ WakeLibraryApp.factory('AskServiceFactory', function($http) {
 
 
 // Wake News
-  WakeLibraryApp.factory('NewsFactory',function($http){
-    var newsData;
+WakeLibraryApp.factory('NewsFactory',function($http){
+  var newsData;
 
-    function getData(moviename, callback) {
+  function getData(moviename, callback) {
 
-      var url = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D'http%3A%2F%2Fwww.wakegov.com%2Fnews%2F_layouts%2Flistfeed.aspx%3FList%3D%257B9478165C-B0D4-48D4-B6D9-B3EBA1007F6E%257D'&format=json&callback=";
+/*
+Original:
 
-      $http.get(url).success(function(data) {
+select * from rss where url='http://www.wakegov.com/news/_layouts/listfeed.aspx?List=%7B9478165C-B0D4-48D4-B6D9-B3EBA1007F6E%7D'
 
-        newsData = data.query.results.item;
-        callback(data.query.results.item);
-  //     console.log(data.query.results.item);
-      });
+
+New:
+select * from rss where category like '%Libraries%' AND url='http://www.wakegov.com/news/_layouts/listfeed.aspx?List=%7B9478165C-B0D4-48D4-B6D9-B3EBA1007F6E%7D'
+select * from rss where url='http://www.wakegov.com/news/_layouts/listfeed.aspx?List=%7B9478165C-B0D4-48D4-B6D9-B3EBA1007F6E%7D' AND category like '%Libraries%'
+
+
+
+*/
+
+    var url = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D'http%3A%2F%2Fwww.wakegov.com%2Fnews%2F_layouts%2Flistfeed.aspx%3FList%3D%257B9478165C-B0D4-48D4-B6D9-B3EBA1007F6E%257D'&format=json&callback=";
+  //  var url = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D'http%3A%2F%2Fwww.wakegov.com%2Fnews%2F_layouts%2Flistfeed.aspx%3FList%3D%257B9478165C-B0D4-48D4-B6D9-B3EBA1007F6E%257D'%20AND%20category%20like%20'%25Libraries%25'%20%0A&format=json&callback=";
+    $http.get(url).success(function(data) {
+
+      newsData = data.query.results.item;
+      callback(data.query.results.item);
+  //   console.log(data.query.results.item);
+    });
+  }
+
+  return {
+    list: getData,
+    find: function(name, callback) {
+    //  console.log(name);
+      var newsitem = newsData.filter(function(entry) {
+        return entry.title == name;
+      })[0];
+      callback(newsitem);
     }
-
-    return {
-      list: getData,
-      find: function(name, callback) {
-      //  console.log(name);
-        var newsitem = newsData.filter(function(entry) {
-          return entry.title == name;
-        })[0];
-        callback(newsitem);
-      }
-    };
+  };
 });
 
 
