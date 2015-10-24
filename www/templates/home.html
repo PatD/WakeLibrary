@@ -1,12 +1,11 @@
-<ion-view class="home">
+<ion-view class="home" view-title="Wake County Libraries">
 
   <!-- add hide-nav-bar="true" to ion-view to hide -->
-    <ion-content  overflow-scroll="true">
-
-      <style>
+    <ion-content overflow-scroll="true">
+      <!-- style>
         .home .has-header{top:0px;}
        .nav-bar-block{max-width:3em;}
-      </style>
+     </style -->
 
 <!-- Slidebox of images -->
 <ion-slide-box
@@ -27,12 +26,13 @@
     </ion-item>
 
     <!-- original ng-repeat newsitem in news | limitTo:1 | filter:{category:'Libraries'} | orderBy:'-pubDate' -->
-
-    <ion-item class="item item-icon-left item-text-wrap" ng-repeat="newsitem in news | filter:{category:'Libraries'} | orderBy:'-pubDate' " href="#/app/news/{{newsitem.title}}">
+    <!-- maybe good: ng-repeat="newsitem in news | filter:{category:'Libraries'} | filter:{category:'Libraries; WakeGOV Home Page'} | orderBy:'-pubDate' " -->
+    <ion-item class="item item-icon-left item-text-wrap" ng-repeat="newsitem in news | filter:{category:'Libraries'} |  orderBy:'-pubDate' " href="#/app/news/{{newsitem.title}}">
       <i class="icon ion-ios-paper-outline"></i>
       <h2>{{newsitem.title}}</h2>
       <p>{{newsitem.pubDate | limitTo: 17 }}{{newsitem.pubDate.length > 17 ? ' ' : ''}}</p>
     </ion-item>
+
 
     <!-- For situations with no news articles -->
     <ion-item ng-hide="news.length" class="item item-icon-left item-text-wrap" onclick="window.open('https://www.twitter.com/wcplonline', '_system'); return false;" >
