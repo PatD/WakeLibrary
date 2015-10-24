@@ -55,7 +55,9 @@ WakeLibraryApp.factory('AskServiceFactory', function($http) {
 
   function getData(moviename, callback) {
 
-    var url = 'http://askwcpl.wakegov.com/api_answers.php?iid=294&limit=500&showans=1&showdet=0&format=json';
+//    var url = 'http://askwcpl.wakegov.com/api_answers.php?iid=294&limit=500&showans=1&showdet=0&format=json';
+  // Changed this to sort by most popular at the top
+    var url = 'http://askwcpl.wakegov.com/api_answers.php?iid=294&type=popular&limit=500&showans=1&showdet=0&format=json';
 
     $http.get(url).success(function(data) {
 

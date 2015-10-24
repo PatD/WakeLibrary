@@ -1,72 +1,75 @@
 <ion-view class="home" view-title="Wake County Libraries">
 
   <!-- add hide-nav-bar="true" to ion-view to hide -->
-    <ion-content overflow-scroll="true">
+    <ion-content>
       <!-- style>
         .home .has-header{top:0px;}
        .nav-bar-block{max-width:3em;}
      </style -->
 
-<!-- Slidebox of images -->
-<ion-slide-box
-  style="top:-2em;margin-bottom:-2em"
-  show-pager="false"
-  does-continue="true"
-  ng-init="images=['erl','cry','dur','elf','cam','eva','fuq','gre','hsp','lee','nor','orl','rbh','ser','sga','wak','wen','wrl','zeb']">
-		<ion-slide ng-repeat="image in images">
-			<img ng-src="img/locations/{{ image }}.png" style="width:100%;margin:auto;display:block" />
-		</ion-slide>
-</ion-slide-box>
+    <style>
+      .homescreen-list div.list {margin-bottom: 0.6em}
+      .NewsInset div.list {margin-top: -0.25em;margin-bottom: 1.5em;}
+    </style>
+
+  <!-- Slidebox of images -->
+  <ion-slide-box
+    style="top:-3em;margin-bottom:-3em"
+    show-pager="false"
+    does-continue="true"
+    ng-init="images=['erl','cry','dur','elf','cam','eva','fuq','gre','hsp','lee','nor','orl','rbh','ser','sga','wak','wen','wrl','zeb']">
+  		<ion-slide ng-repeat="image in images">
+  			<img ng-src="img/locations/{{ image }}.png" style="width:100%;margin:auto;display:block" />
+  		</ion-slide>
+  </ion-slide-box>
 
 <!-- News -->
-<ion-list
-  type="list-inset" ng-controller="NewsCtrl">
-    <ion-item class="item item-divider">
-      Wake Library News  <button style="float:right;min-height:20px;line-height:20px" class="button button-small button-calm" ui-sref="app.news">View all news</button>
-    </ion-item>
+<h4 class="icon ion-ios-paperplane padding-left padding-top dark"> LIBRARY NEWS</h4>
 
-    <!-- original ng-repeat newsitem in news | limitTo:1 | filter:{category:'Libraries'} | orderBy:'-pubDate' -->
-    <!-- maybe good: ng-repeat="newsitem in news | filter:{category:'Libraries'} | filter:{category:'Libraries; WakeGOV Home Page'} | orderBy:'-pubDate' " -->
-    <ion-item class="item item-icon-left item-text-wrap" ng-repeat="newsitem in news | filter:{category:'Libraries'} |  orderBy:'-pubDate' " href="#/app/news/{{newsitem.title}}">
-      <i class="icon ion-ios-paper-outline"></i>
-      <h2>{{newsitem.title}}</h2>
-      <p>{{newsitem.pubDate | limitTo: 17 }}{{newsitem.pubDate.length > 17 ? ' ' : ''}}</p>
-    </ion-item>
+  <ion-list type="card" ng-controller="NewsCtrl" class=NewsInset>
 
+      <!-- original ng-repeat newsitem in news | limitTo:1 | filter:{category:'Libraries'} | orderBy:'-pubDate' -->
+      <!-- maybe good: ng-repeat="newsitem in news | filter:{category:'Libraries'} | filter:{category:'Libraries; WakeGOV Home Page'} | orderBy:'-pubDate' " -->
+      <ion-item class="item item-text-wrap item-icon-right" ng-repeat="newsitem in news | filter:{category:'Libraries'} |  orderBy:'-pubDate' " href="#/app/news/{{newsitem.title}}">
+        <p>{{newsitem.pubDate | limitTo: 17 }}{{newsitem.pubDate.length > 17 ? ' ' : ''}}</p>
+        <h2>{{newsitem.title}}</h2>
+        <i class="icon ion-ios-paper-outline"></i>
+      </ion-item>
 
-    <!-- For situations with no news articles -->
-    <ion-item ng-hide="news.length" class="item item-icon-left item-text-wrap" onclick="window.open('https://www.twitter.com/wcplonline', '_system'); return false;" >
-      <h3>No news today.</h3>
-      <p>Check Twitter for the latest!</p>
-    </ion-item>
+      <!-- For situations with no news articles -->
+      <ion-item ng-hide="news.length" class="item item-text-wrap" onclick="window.open('https://www.twitter.com/wcplonline', '_system'); return false;" >
+        <h3>No news today.</h3>
+        <p>Check Twitter for the latest!</p>
+      </ion-item>
 
-</ion-list>
+  </ion-list>
 
 
-<ion-list type="card">
-  <ion-item class="item item-divider">
-    Wake Library Services
-  </ion-item>
+<h4 class="icon ion-radio-waves padding-left dark"> WAKE LIBRARY SERVICES</h4>
 
-
-  <ion-item class="item-icon-left item-text-wrap" ui-sref="app.locations">
+<ion-list class="homescreen-list">
+  <ion-item class="item-icon-left item-text-wrap" ui-sref="app.locations" >
     <i class="icon ion-ios-location-outline"></i>
     <h2>Wake Library Locations</h2>
     <p>Find your local library and check out today's events &amp; activities</p>
   </ion-item>
+</ion-list>
 
-  <ion-item class="item-icon-left item-text-wrap" ui-sref="app.booksearch">
+<ion-list class="homescreen-list">
+    <ion-item class="item-icon-left item-text-wrap" ui-sref="app.booksearch">
     <i class="icon ion-ios-book-outline"></i>
     <h2>Search for books</h2>
     <p>Currently available through Wake County Libraries</p>
   </ion-item>
-
+</ion-list>
+<ion-list class="homescreen-list">
   <ion-item class="item-icon-left item-text-wrap" ui-sref="app.askwcpl">
       <i class="icon ion-ios-help-outline"></i>
       <h2>Ask Wake County Libraries</h2>
       <p>FAQs about membership, book borrowing, ebooks, and more.</p>
   </ion-item>
-
+</ion-list>
+<ion-list class="homescreen-list">
   <ion-item class="item-icon-left item-text-wrap" ui-sref="app.eventsLanding">
     <i class="icon ion-ios-calendar-outline"></i>
     <h2>Wake Library Events</h2>
@@ -74,13 +77,12 @@
   </ion-item>
 </ion-list>
 
+<BR />
 
-<ion-list type="card" ng-controller="TwitterCtrl">
 
-  <ion-item class="item item-divider">
-   WCPL on Twitter
-  </ion-item>
+<h4 class="icon ion-social-twitter padding-left dark"> WCPL ON TWITTER</h4>
 
+<ion-list type="list-inset" ng-controller="TwitterCtrl" class=NewsInset>
   <ion-item>
     <a class="twitter-timeline"
     href="https://twitter.com/wcplonline"
@@ -95,14 +97,10 @@
 </ion-list>
 
 
+<br />
+<h4 class="icon ion-android-chat padding-left dark"> CONTACT WCPL</h4>
 
-
-
-<ion-list type="card">
-
-  <ion-item class="item item-divider">
-   Contact Wake Libraries
-  </ion-item>
+<ion-list type="list-inset" type="list-inset" class=NewsInset>
 
   <ion-item class="item-icon-left" ui-sref="app.contact">
       <i class="icon ion-android-call"></i>
@@ -118,12 +116,7 @@
 </ion-list>
 
 
-
 <br />
-
-
-<img style="margin:0 auto; display:block;" ng-src="img/drawable-xxxhdpi-icon.png" />
-
 <br />
   </ion-content>
 </ion-view>
