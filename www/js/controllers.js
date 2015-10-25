@@ -361,11 +361,26 @@ WakeLibraryApp.controller('EventsAdultCtrl',function($scope, EventsFactoryAdults
               }
 
 
-
-
-
-
           });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

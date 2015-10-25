@@ -2,7 +2,22 @@
   <ion-content>
 
 
-    <ion-list type="list-inset">
+
+
+    <ion-list type="list-inset" ng-controller="LocationsCtrl">
+
+      <!-- pass this to a detail page.  Show 4 weeks of events on details page.  -->
+
+
+      <ion-item ng-repeat="location in locations | filter:query" href="#/app/locations/{{location.attributes.OBJECTID}}">
+        <h2>{{location.attributes.NAME}}</h2>
+      </ion-item>
+
+    </ion-list>
+
+
+
+    <!-- ion-list type="list-inset">
       <ion-item class="item item-divider">
         Find events by age group
       </ion-item>
@@ -18,12 +33,12 @@
       <ion-item ui-sref="app.eventsAll" class="item item-icon-left">
             <i class="icon ion-calendar"></i>
         All events</ion-item>
-    </ion-list>
+    </ion-list -->
 
 
 
 
-<!-- Today's events -->
+<!-- Today's events>
   <ion-list type="list-inset" ng-controller="EventsTodayCtrl">
     <ion-item class="item item-divider">
       Today's Wake Library Events
@@ -34,7 +49,7 @@
           Pick Library
         </div>
         <select ng-model="locationFilter">
-          <option value="">All libraries</option>
+
           <option
             ng-if="event.location.__text"
             ng-repeat="event in events | orderBy: 'location.__text' | unique: 'location.__text'"
@@ -46,10 +61,6 @@
       </label>
 
 
-
-
-
-    <!-- Lists events -->
 
     		<ion-item ng-repeat="event in events | filter:locationFilter :true" class="item item-text-wrap" ng-click="showDetails = ! showDetails">
           <h2>{{event.title}}</h2>
@@ -64,7 +75,7 @@
 
 
 
-  </ion-list>
+  </ion-list  -->
 
 
 
