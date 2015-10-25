@@ -51,7 +51,7 @@
 
     <!-- Lists events -->
 
-    		<ion-item ng-repeat="event in events | filter:locationFilter" class="item item-text-wrap" ng-click="showDetails = ! showDetails">
+    		<ion-item ng-repeat="event in events | filter:locationFilter :true" class="item item-text-wrap" ng-click="showDetails = ! showDetails">
           <h2>{{event.title}}</h2>
           <h4>{{event.location.__text}}, </h4>
           <h4>{{event.formatteddatetime.__text}}</h4>
