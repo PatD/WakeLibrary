@@ -56,7 +56,7 @@ if(mm<10){
 
 var todaysDate = yyyy+''+mm+''+dd;
 
-
+console.log("Today is " + todaysDate);
 
 
 
@@ -307,6 +307,26 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
               }
             }
           })
+
+
+
+
+          // Events ALL
+            .state('app.eventsFilter', {
+              url: '/events/eventsFilter',
+              views: {
+                'menuContent': {
+                  templateUrl: 'templates/events/events-listing.html',
+                  controller: 'EventsFilterCtrl'
+                }
+              }
+            })
+
+
+
+
+
+
 
 
           // News listing

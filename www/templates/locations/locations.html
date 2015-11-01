@@ -35,10 +35,10 @@
 
     <ion-list>
 
-      <ion-item collection-repeat="location in locations | filter:query" href="#/app/locations/{{location.attributes.OBJECTID}}" class="item item-avatar">
+      <ion-item ng-repeat="location in locations | filter:query | orderBy: 'attributes.CITY' " href="#/app/locations/{{location.attributes.OBJECTID}}" class="item item-avatar">
         <img ng-src="http://maps.googleapis.com/maps/api/staticmap?center={{location.attributes.FAC_ADDRESS}},+{{location.attributes.CITY}},+NC&zoom=13&scale=2&size=160x160&maptype=terrain&key=AIzaSyC4lGFKI7caErQ3MacquCOUjU4fJJjpzHM&format=png&visual_refresh=true">
         <h2>{{location.attributes.NAME}}</h2>
-        <p>{{location.attributes.CITY}}</p>
+        <p>{{location.attributes.CITY}} <strong class="assertive">{{location.attributes.STATUS}}</strong></p>
       </ion-item>
 
     </ion-list>
@@ -49,6 +49,32 @@
         <h4>View on Google Maps</h4>
       </ion-item>
     </ion-list>
+
+
+<ion-list type="card">
+  <ion-item class="item item-divider">About this data</ion-item>
+  <ion-item class="item item-text-wrap">The location information comes from Wake County GIS.  They provide data feeds of the library locations, available in the JSON format.
+
+
+
+<br />
+    <div class="padding">
+      <a class="button button-block button-positive" onclick="window.open('http://www.wakegov.com/gis/', '_system', 'location=yes'); return false;">
+        <i class="icon ion-map"></i>
+        Wake County GIS
+      </a>
+    </div>
+
+
+    <div class="padding">
+      <a class="button button-block button-calm" onclick="window.open('http://data.wake.opendata.arcgis.com/', '_system', 'location=yes'); return false;">
+        <i class="icon ion-ios-world"></i>
+        Wake County Open Data
+      </a>
+    </div>
+
+  </ion-item>
+</ion-list>
 
 
   </ion-content>

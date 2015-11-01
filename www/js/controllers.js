@@ -367,6 +367,33 @@ WakeLibraryApp.controller('EventsAdultCtrl',function($scope, EventsFactoryAdults
 
 
 
+/*
+
+          // Events Filter Ctrl
+            WakeLibraryApp.controller('EventsFilterCtrl',function($scope, EventsFactoryFilter){
+              var _EventsCacheData;
+
+                    $scope.events = [];
+                    loadEvents();
+
+                    function loadEvents(){
+                      EventsFactoryFilter.getEvents().success(function(data){
+                          event = x2js.xml_str2json(data);
+
+                      $scope.events = event.rss.channel.item;
+
+                      $stateParams = event.rss.channel.$$hashKey;
+
+                      });
+                      }
+
+                  });
+
+*/
+
+
+
+
 
 
 

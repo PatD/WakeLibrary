@@ -88,7 +88,17 @@ WakeLibraryApp.factory('LibraryLocations', function($http) {
   var _LocationcachedData;
 
   function getData(locationname, callback) {
-    var LocationsUrl = 'http://maps.wakegov.com/arcgis/rest/services/WCPL/Libraries/FeatureServer/0/query?where=+&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&relationParam=&outFields=*&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&outSR=&gdbVersion=&returnDistinctValues=false&returnIdsOnly=false&returnCountOnly=false&orderByFields=NAME&groupByFieldsForStatistics=CITY&outStatistics=&returnZ=false&returnM=false&f=pjson';
+
+    // From Wake County GIS
+   // var LocationsUrl = 'http://maps.wakegov.com/arcgis/rest/services/WCPL/Libraries/FeatureServer/0/query?where=+&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&relationParam=&outFields=*&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&outSR=&gdbVersion=&returnDistinctValues=false&returnIdsOnly=false&returnCountOnly=false&orderByFields=NAME&groupByFieldsForStatistics=CITY&outStatistics=&returnZ=false&returnM=false&f=pjson';
+
+   // New URL
+   var LocationsUrl = 'http://maps.wakegov.com/arcgis/rest/services/WCPL/Libraries/MapServer/0/query?where=&text=&geometry=%7B%22xmin%22%3A-8940350.349409211%2C%22ymin%22%3A4224027.176468994%2C%22xmax%22%3A-8557247.963644091%2C%22ymax%22%3A4315751.610411161%2C%22spatialReference%22%3A%7B%22wkid%22%3A102100%7D%7D&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&relationParam=&outFields=*&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&outSR=&returnIdsOnly=false&returnCountOnly=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&f=pjson';
+
+    // Local copy
+  //  var LocationsUrl = 'js/sample-local-data/locations.json'
+
+
 
     $http.get(LocationsUrl).success(function(data) {
 
@@ -98,6 +108,11 @@ WakeLibraryApp.factory('LibraryLocations', function($http) {
       // console.log(JSON.stringify(_LocationcachedData));
 
     });
+
+
+
+
+
   }
 
   return {
@@ -178,7 +193,7 @@ select * from rss where url='http://www.wakegov.com/news/_layouts/listfeed.aspx?
 
 
       events.getEvents = function(){
-        return $http.get('http://www.trumba.com/calendars/WCPL.rss?previousweeks=0&startdate='+todaysDate+'&days=1');
+        return $http.get('http://www.trumba.com/calendars/WCPL.rss?previousweeks=0&startdate='+todaysDate+'&days=1&HTML=0');
 
       }
 
@@ -210,7 +225,7 @@ select * from rss where url='http://www.wakegov.com/news/_layouts/listfeed.aspx?
 
 
       events.getEvents = function(){
-        return $http.get("http://www.trumba.com/calendars/WCPL.rss?filterview=Adults+Only&HTML=1&previousweeks=0&weeks=2");
+        return $http.get("http://www.trumba.com/calendars/WCPL.rss?filterview=Adults+Only&HTML=0&previousweeks=0&weeks=2&startdate="+todaysDate+"");
 
       }
 
@@ -233,7 +248,7 @@ select * from rss where url='http://www.wakegov.com/news/_layouts/listfeed.aspx?
 
 
       events.getEvents = function(){
-        return $http.get("http://www.trumba.com/calendars/WCPL.rss?filterview=Teen+Events&HTML=1&previousweeks=0&weeks=2");
+        return $http.get("http://www.trumba.com/calendars/WCPL.rss?filterview=Teen+Events&HTML=0&previousweeks=0&weeks=2&startdate="+todaysDate+"");
 
       }
 
@@ -256,7 +271,7 @@ select * from rss where url='http://www.wakegov.com/news/_layouts/listfeed.aspx?
 
 
       events.getEvents = function(){
-        return $http.get("http://www.trumba.com/calendars/WCPL.rss?filterview=YS_only&HTML=1&previousweeks=0&weeks=2");
+        return $http.get("http://www.trumba.com/calendars/WCPL.rss?filterview=YS_only&HTML=0&previousweeks=0&weeks=2&startdate="+todaysDate+"");
 
       }
 
@@ -278,7 +293,7 @@ select * from rss where url='http://www.wakegov.com/news/_layouts/listfeed.aspx?
 
 
       events.getEvents = function(){
-        return $http.get("http://www.trumba.com/calendars/WCPL.rss?HTML=1&previousweeks=0&weeks=2");
+        return $http.get("http://www.trumba.com/calendars/WCPL.rss?HTML=0&previousweeks=0&weeks=2");
 
       }
 
@@ -289,3 +304,48 @@ select * from rss where url='http://www.wakegov.com/news/_layouts/listfeed.aspx?
         return events;
         return currentEventId;
     });
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+    // Events Filter
+      WakeLibraryApp.factory('EventsFactoryFilter',function($http){
+
+
+      // Highly unlikely search term
+        var EventFactoryFilterSearchString = 'AndroidApp'
+
+    // Usual Factory stuff starts here
+
+
+          var events = [];
+
+          var currentEventId;
+
+
+          events.getEvents = function(){
+        //    return $http.get('http://www.trumba.com/calendars/WCPL.rss?previousweeks=0&startdate='+todaysDate+'&days=1');
+
+            return $http.get('http://www.trumba.com/calendars/WCPL.rss?HTML=0&search='+EventFactoryFilterSearchString+'&previousweeks=0&startdate='+todaysDate+'&weeks=4');
+
+          }
+
+          function setEventID(eventId){
+            currentEventId = eventId;
+          }
+
+        //  console.log(events);
+            return events;
+            return currentEventId;
+        });
+*/
