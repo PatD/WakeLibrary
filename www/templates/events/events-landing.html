@@ -1,58 +1,147 @@
 <ion-view view-title="Wake County Library Events">
   <ion-content>
 
-<!--
-
-Use location ctrler for <option> and as parent scope
-
-Create new Service >  Four weeks out for locationctrler's location.  50kb
-
-Find scope of dropdown LocationsCtrl.  Pass to services
-
-Ctrler to render
-
-
--->
-
 <div ng-controller="EventsTodayCtrl">
 
+<!-- Filtering -->
+    <ion-list type="card">
 
-<ion-list type="card">
-
-  <label class="item item-input item-select">
-    <div class="input-label">
-      Pick Library
-    </div>
-    <select ng-model="locationFilter">
-
-      <option
-        ng-if="event.location.__text"
-        ng-repeat="event in events | orderBy: 'location.__text' | unique: 'location.__text'"
-        value="{{event.location.__text}}">
-        {{event.location.__text}}</option>
-    </select>
-  </label>
-
-
-  <label class="item item-input item-select">
-    <div class="input-label">
-      Type of event
-    </div>
-    <select ng-model="typeFilter">
-
-      <option value="">All types</option>
-      <option
-        ng-if="event.location.__text"
-        ng-repeat="event in events | orderBy: 'customfield[2].__text' | unique: 'customfield[2].__text'"
-        value="{{event.customfield[2].__text}}">
-        {{event.customfield[2].__text}}</option>
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Pick Library
+        </div>
+        <select ng-model="locationFilter">
+          <option
+            ng-if="event.location.__text"
+            ng-repeat="event in events | orderBy: 'location.__text' | unique: 'location.__text'"
+            value="{{event.location.__text}}">
+            {{event.location.__text}}</option>
+        </select>
+      </label>
 
 
-    </select>
-  </label>
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Type of event
+        </div>
+        <select ng-model="typeFilter">
+
+          <option value="">All types</option>
+          <option
+            ng-if="event.location.__text"
+            ng-repeat="event in events | orderBy: 'customfield[2].__text' | unique: 'customfield[2].__text'"
+            value="{{event.customfield[2].__text}}">
+            {{event.customfield[2].__text}}</option>
+
+        </select>
+      </label>
+
+    </ion-list>
 
 
-</ion-list>
+
+<h5 class="padding-left dark"> <i class="icon ion-arrow-swap padding-top dark"></i> Slide to change date <!-- i class="icon ion-arrow-right-c padding-top dark"></i --></h5>
+
+<ion-slide-box>
+
+<!-- Today -->
+  <ion-slide>
+
+    <ion-list>
+      <ion-item class="item item-divider">
+        Today at Wake Libraries {{todaysDate}}
+      </ion-item>
+
+          <ion-item ng-repeat="event in events | filter:locationFilter :true | filter:typeFilter " class="item" ng-click="showDetails = ! showDetails">
+            <h2>{{event.title}}</h2>
+            <h4>{{event.location.__text}}, </h4>
+            <h4>{{event.formatteddatetime.__text}}</h4>
+            <div class=" padding answerdetails " ng-show="showDetails">
+              <p>File under: <strong>{{event.customfield[2].__text}}</strong></p>
+              <br />
+              <span class="item-text-wrap" ng-bind-html="event.description_asArray"></span>
+            </div>
+          </ion-item>
+
+        </ion-list>
+
+  </ion-slide>
+
+
+<!-- tomorrow -->
+  <ion-slide ng-controller="EventsTomorrowCtrl">
+    <ion-list>
+      <ion-item class="item item-divider">
+        Tomorrow at Wake Libraries
+      </ion-item>
+
+          <ion-item ng-repeat="event in events | filter:locationFilter :true | filter:typeFilter " class="item" ng-click="showDetails = ! showDetails">
+            <h2>{{event.title}}</h2>
+            <h4>{{event.location.__text}}, </h4>
+            <h4>{{event.formatteddatetime.__text}}</h4>
+            <div class=" padding answerdetails " ng-show="showDetails">
+              <p>File under: <strong>{{event.customfield[2].__text}}</strong></p>
+              <br />
+              <span class="item-text-wrap" ng-bind-html="event.description_asArray"></span>
+            </div>
+          </ion-item>
+
+        </ion-list>
+
+
+
+
+
+
+
+
+
+
+  </ion-slide>
+
+
+
+  <ion-slide>
+
+    <ion-list>
+      <ion-item class="item item-divider">
+        Find events by age group
+      </ion-item>
+      <ion-item ui-sref="app.eventsKids" class="item item-icon-left">
+        <i class="icon ion-happy-outline"></i>
+        Kids Events</ion-item>
+      <ion-item ui-sref="app.eventsTeens" class="item item-icon-left">
+        <i class="icon ion-ios-people-outline"></i>
+        Teen Events</ion-item>
+      <ion-item ui-sref="app.eventsAdult" class="item item-icon-left">
+        <i class="icon ion-ios-bookmarks-outline"></i>
+        Adults</ion-item>
+      <ion-item ui-sref="app.eventsAll" class="item item-icon-left">
+        <i class="icon ion-calendar"></i>
+        All events</ion-item>
+    </ion-list>
+
+  </ion-slide>
+
+</ion-slide-box>
+
+<ion-slide-pager></ion-slide-pager>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -84,23 +173,7 @@ Ctrler to render
 
 
 
-    <ion-list type="list-inset">
-      <ion-item class="item item-divider">
-        Find events by age group
-      </ion-item>
-      <ion-item ui-sref="app.eventsKids" class="item item-icon-left">
-            <i class="icon ion-happy-outline"></i>
-        Kids Events</ion-item>
-      <ion-item ui-sref="app.eventsTeens" class="item item-icon-left">
-            <i class="icon ion-ios-people-outline"></i>
-        Teen Events</ion-item>
-      <ion-item ui-sref="app.eventsAdult" class="item item-icon-left">
-            <i class="icon ion-ios-bookmarks-outline"></i>
-        Adults</ion-item>
-      <ion-item ui-sref="app.eventsAll" class="item item-icon-left">
-            <i class="icon ion-calendar"></i>
-        All events</ion-item>
-    </ion-list>
+
 
 
 

@@ -194,7 +194,6 @@ select * from rss where url='http://www.wakegov.com/news/_layouts/listfeed.aspx?
 
       events.getEvents = function(){
         return $http.get('http://www.trumba.com/calendars/WCPL.rss?previousweeks=0&startdate='+todaysDate+'&days=1&HTML=0');
-
       }
 
       function setEventID(eventId){
@@ -207,7 +206,29 @@ select * from rss where url='http://www.wakegov.com/news/_layouts/listfeed.aspx?
     });
 
 
+// Events tomorrow
+  WakeLibraryApp.factory('EventsFactoryTomorrow',function($http){
 
+// Usual Factory stuff starts here
+
+      var events = [];
+
+      var currentEventId;
+
+
+      events.getEvents = function(){
+        return $http.get('http://www.trumba.com/calendars/WCPL.rss?previousweeks=0&startdate='+tomorrowsDate+'&days=1&HTML=0');
+
+      }
+
+      function setEventID(eventId){
+        currentEventId = eventId;
+      }
+
+    //  console.log(events);
+        return events;
+        return currentEventId;
+    });
 
 
 

@@ -61,7 +61,6 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
      };
      $scope.doRefresh();
 
-
   });
 
 
@@ -96,7 +95,6 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
              window.open(element.href, "_blank", "location=no");
              return false; // prevent default action and stop event propagation
-
 
          }
      };
@@ -346,6 +344,9 @@ WakeLibraryApp.controller('EventsAdultCtrl',function($scope, EventsFactoryAdults
     WakeLibraryApp.controller('EventsTodayCtrl',function($scope, EventsFactoryToday){
       var _EventsCacheData;
 
+          $scope.todaysDate = todaysDate;
+          //console.log($scope.todaysDate);
+
             $scope.events = [];
             loadEvents();
 
@@ -360,12 +361,32 @@ WakeLibraryApp.controller('EventsAdultCtrl',function($scope, EventsFactoryAdults
               });
               }
 
-
           });
 
 
 
+          // Events Tomorrow Ctrl
+            WakeLibraryApp.controller('EventsTomorrowCtrl',function($scope, EventsFactoryTomorrow){
+              var _EventsCacheData;
 
+                //  $scope.todaysDate = todaysDate;
+                  //console.log($scope.todaysDate);
+
+                    $scope.events = [];
+                    loadEvents();
+
+                    function loadEvents(){
+                      EventsFactoryTomorrow.getEvents().success(function(data){
+                          event = x2js.xml_str2json(data);
+
+                      $scope.events = event.rss.channel.item;
+
+                      $stateParams = event.rss.channel.$$hashKey;
+
+                      });
+                      }
+
+                  });
 
 /*
 

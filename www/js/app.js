@@ -56,7 +56,34 @@ if(mm<10){
 
 var todaysDate = yyyy+''+mm+''+dd;
 
-console.log("Today is " + todaysDate);
+
+
+
+
+// Tomorrow's date.  It's like today, but more futuristic
+
+var currentDate = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+var _tomorrowDay = currentDate.getDate();
+var _tomorrowMonth = currentDate.getMonth() + 1;
+var _tomorrowYear = currentDate.getFullYear();
+
+if(_tomorrowDay<10){
+    _tomorrowDay='0'+_tomorrowDay
+}
+if(_tomorrowMonth<10){
+    _tomorrowMonth='0'+_tomorrowMonth
+}
+var tomorrowsDate = _tomorrowYear+''+_tomorrowMonth+''+_tomorrowDay;
+
+//console.log(tomorrowsDate);
+
+
+
+
+
+
+
+
 
 
 
