@@ -49,7 +49,7 @@
 
     <ion-list>
       <ion-item class="item item-divider">
-        Today at Wake Libraries {{todaysDate}}
+        Today at Wake Libraries {{todaysDateShort}}
       </ion-item>
 
           <ion-item ng-repeat="event in events | filter:locationFilter :true | filter:typeFilter " class="item" ng-click="showDetails = ! showDetails">
@@ -72,7 +72,7 @@
   <ion-slide ng-controller="EventsTomorrowCtrl">
     <ion-list>
       <ion-item class="item item-divider">
-        Tomorrow at Wake Libraries
+        Tomorrow at Wake Libraries {{tomorrowsDateShort}}
       </ion-item>
 
           <ion-item ng-repeat="event in events | filter:locationFilter :true | filter:typeFilter " class="item" ng-click="showDetails = ! showDetails">
@@ -91,12 +91,6 @@
 
 
 
-
-
-
-
-
-
   </ion-slide>
 
 
@@ -105,7 +99,7 @@
 
     <ion-list>
       <ion-item class="item item-divider">
-        Find events by age group
+        Find more events
       </ion-item>
       <ion-item ui-sref="app.eventsKids" class="item item-icon-left">
         <i class="icon ion-happy-outline"></i>
@@ -146,7 +140,7 @@
 
 
 
-<ion-list type="list-inset" >
+<!-- ion-list type="list-inset" >
   <ion-item class="item item-divider">
     Today's Wake Library Events
   </ion-item>
@@ -164,7 +158,7 @@
         </div>
       </ion-item>
 
-    </ion-list>
+    </ion-list -->
 
 
 </div> <!-- end of ng-controller="EventsTodayCtrl" -->
@@ -217,7 +211,7 @@
 
   </ion-list  -->
 
-
+<br /><br /><br /><br />
 
   </ion-content>
 </ion-view>

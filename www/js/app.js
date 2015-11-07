@@ -42,20 +42,20 @@ WakeLibraryApp.run(function($ionicPlatform) {
 // for the RSS feed
 // for the FourSquare query
 
-var todaysDate = new Date();
-var dd = todaysDate.getDate();
-var mm = todaysDate.getMonth()+1; //January is 0!
+  var todaysDate = new Date();
+  var dd = todaysDate.getDate();
+  var mm = todaysDate.getMonth()+1; //January is 0!
 
-var yyyy = todaysDate.getFullYear();
-if(dd<10){
-    dd='0'+dd
-}
-if(mm<10){
-    mm='0'+mm
-}
+  var yyyy = todaysDate.getFullYear();
+  if(dd<10){
+      dd='0'+dd
+  }
+  if(mm<10){
+      mm='0'+mm
+  }
 
-var todaysDate = yyyy+''+mm+''+dd;
-
+  var todaysDate = yyyy+''+mm+''+dd;
+  var todaysDateShort = mm+'/'+dd;
 
 
 
@@ -74,6 +74,8 @@ if(_tomorrowMonth<10){
     _tomorrowMonth='0'+_tomorrowMonth
 }
 var tomorrowsDate = _tomorrowYear+''+_tomorrowMonth+''+_tomorrowDay;
+var tomorrowsDateShort = _tomorrowMonth+'/'+_tomorrowDay;
+
 
 //console.log(tomorrowsDate);
 

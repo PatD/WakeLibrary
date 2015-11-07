@@ -344,7 +344,7 @@ WakeLibraryApp.controller('EventsAdultCtrl',function($scope, EventsFactoryAdults
     WakeLibraryApp.controller('EventsTodayCtrl',function($scope, EventsFactoryToday){
       var _EventsCacheData;
 
-          $scope.todaysDate = todaysDate;
+          $scope.todaysDateShort = todaysDateShort;
           //console.log($scope.todaysDate);
 
             $scope.events = [];
@@ -368,6 +368,7 @@ WakeLibraryApp.controller('EventsAdultCtrl',function($scope, EventsFactoryAdults
           // Events Tomorrow Ctrl
             WakeLibraryApp.controller('EventsTomorrowCtrl',function($scope, EventsFactoryTomorrow){
               var _EventsCacheData;
+              $scope.tomorrowsDateShort = tomorrowsDateShort;
 
                 //  $scope.todaysDate = todaysDate;
                   //console.log($scope.todaysDate);
