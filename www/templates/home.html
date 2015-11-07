@@ -12,8 +12,29 @@
       .NewsInset div.list {margin-top: -0.25em;margin-bottom: 1.5em;}
     </style>
 
+<style>
+.sli der {
+  height: 200px !important;
+}
+</style>
+
+    <div ng-controller="HomeSlideLocationsCtrl">
+      <ion-slide-box
+        on-slide-changed="slideHasChanged()"
+        style="top:-3em;margin-bottom:-3em"
+        show-pager="false"
+        does-continue="true">
+
+          <ion-slide ng-repeat="location in locations">
+
+            <img ng-src="img/locations/{{location.attributes.CODE}}.png"/ >
+          </ion-slide>
+
+      </ion-slide-box>
+    </div>
+
   <!-- Slidebox of images -->
-  <ion-slide-box
+  <!-- ion-slide-box
     style="top:-3em;margin-bottom:-3em"
     show-pager="false"
     does-continue="true"
@@ -21,7 +42,21 @@
   		<ion-slide ng-repeat="image in images">
   			<img ng-src="img/locations/{{ image }}.png" style="width:100%;margin:auto;display:block" />
   		</ion-slide>
-  </ion-slide-box>
+  </ion-slide-box -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!-- News -->
 <h4 class="icon ion-ios-paperplane padding-left padding-top dark"> LIBRARY NEWS</h4>

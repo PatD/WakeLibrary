@@ -42,6 +42,57 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 });
 
 
+// Controller that shows slider on home screen. Same as locations:
+
+// Controller that lists all the Library location
+  WakeLibraryApp.controller('HomeSlideLocationsCtrl', function($scope, $http, LibraryLocations, $ionicSlideBoxDelegate) {
+
+    $scope.location = {
+      name: ''
+    }
+
+
+      LibraryLocations.list($scope.location.name, function(locations) {
+        $scope.locations = locations;
+      });
+
+
+      $scope.slideHasChanged = function() {
+        console.log("changed");
+      //  $scope.items.push({name:'John', age:25, gender:'boy'});
+
+$scope.locations.push({ /* name:'John', age:25, gender:'boy' */});
+        $ionicSlideBoxDelegate.update();
+      };
+
+
+
+
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // FourSquare Controller to list phone number
 
