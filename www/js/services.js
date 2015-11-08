@@ -83,6 +83,15 @@ WakeLibraryApp.factory('AskServiceFactory', function($http) {
 
 
 
+
+
+
+
+
+
+
+
+
 // Locations
 WakeLibraryApp.factory('LibraryLocations', function($http) {
   var _LocationcachedData;
@@ -111,8 +120,6 @@ WakeLibraryApp.factory('LibraryLocations', function($http) {
 
 
 
-
-
   }
 
   return {
@@ -127,6 +134,44 @@ WakeLibraryApp.factory('LibraryLocations', function($http) {
   };
 
 });
+
+
+
+
+
+// Extra Locations
+WakeLibraryApp.factory('SpecialLibraryLocations', function($http) {
+  var _LocationcachedData;
+
+  function getData(locationname, callback) {
+
+   var LocationsUrl = 'http://maps.wakegov.com/arcgis/rest/services/WCPL/Libraries/MapServer/1/query?where=&text=&objectIds=&time=&geometry=%7B%22xmin%22%3A-8942643.460257765%2C%22ymin%22%3A4224027.176468994%2C%22xmax%22%3A-8554954.852795538%2C%22ymax%22%3A4315751.610411161%2C%22spatialReference%22%3A%7B%22wkid%22%3A102100%7D%7D&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&relationParam=&outFields=*&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&outSR=&returnIdsOnly=false&returnCountOnly=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&returnZ=false&returnM=false&gdbVersion=&returnDistinctValues=false&f=pjson';
+
+
+    $http.get(LocationsUrl).success(function(data) {
+
+      _LocationcachedData = data.features;
+      callback(data.features);
+
+    });
+
+  }
+
+  return {
+    list: getData,
+    find: function(name, callback) {
+      var location = _LocationcachedData.filter(function(entry) {
+        return entry.attributes.OBJECTID == name;
+      })[0];
+      callback(location);
+    }
+  };
+
+});
+
+
+
+
 
 
 
@@ -206,7 +251,7 @@ select * from rss where url='http://www.wakegov.com/news/_layouts/listfeed.aspx?
     });
 
 
-// Events tomorrow
+// Events for tomorrow
   WakeLibraryApp.factory('EventsFactoryTomorrow',function($http){
 
 // Usual Factory stuff starts here

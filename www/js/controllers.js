@@ -45,7 +45,7 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 // Controller that shows slider on home screen. Same as locations:
 
 
-// Controller that lists all the Library location.  This powers the slider
+// Homescreen: Controller that lists all the Library locations.  This powers the slider
   WakeLibraryApp.controller('HomeSlideImagesCtrl', function($scope) {
 
     $scope.library3letterlocs = [
@@ -53,14 +53,14 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
       { loc: 'erl' },
       { loc: 'cry' },
       { loc: 'dur' },
-      { loc: 'elf' },
+      { loc: 'elf', name: 'Express Library, Raleigh' },
       { loc: 'cam' },
       { loc: 'eva' },
       { loc: 'fuq' },
       { loc: 'gre' },
       { loc: 'hsp' },
       { loc: 'lee' },
-      { loc: 'orl' },
+      { loc: 'orl', name:'Olivia Raney Local History Library'},
       { loc: 'rbh' },
       { loc: 'ser' },
       { loc: 'sga' },
@@ -69,16 +69,13 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
       { loc: 'wrl' },
       { loc: 'zeb'}
     ];
-
   });
 
 
 
 
-// Controller that lists all the Library location
+// Homescreen: Controller that lists all the Library location
   WakeLibraryApp.controller('HomeSlideLocationsCtrl', function($scope, $http, LibraryLocations) {
-
-$scope.library3letterlocs = location.attributes;
 
     $scope.location = {
       name: ''
@@ -89,25 +86,7 @@ $scope.library3letterlocs = location.attributes;
 
       });
 
-
   });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

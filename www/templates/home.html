@@ -10,38 +10,8 @@
     <style>
       .homescreen-list div.list {margin-bottom: 0.6em}
       .NewsInset div.list {margin-top: -0.25em;margin-bottom: 1.5em;}
+      .sliderTitle {display:block;position:absolute;bottom:0.5em;text-shadow:1px 1px 1px #444}  /* In slider box, moves text up over image */
     </style>
-
-<!-- style>
-.slider {
-  height: 200px !important;
-}
-</style>
-
-    <div ng-controller="HomeSlideLocationsCtrl">
-      <ion-slide-box
-        on-slide-changed="slideHasChanged()"
-        style="top:-3em;margin-bottom:-3em"
-        show-pager="false"
-        does-continue="true">
-
-        <ion-slide ng-repeat="location in locations">
-          <img ng-src="img/locations/WRL.png" / >
-        </ion-slide>
-
-          <ion-slide ng-repeat="location in locations">
-            <img ng-src="img/locations/{{location.attributes.CODE}}.png" / >
-          </ion-slide>
-
-      </ion-slide-box>
-    </div -->
-
-
-
-
-
-
-
 
 
   <!-- Slidebox of images -->
@@ -59,25 +29,36 @@
 
 
 
-<div ng-controller="HomeSlideImagesCtrl">
+<span ng-controller="HomeSlideImagesCtrl"> <!-- Images, local links -->
+  <span ng-controller="HomeSlideLocationsCtrl"> <!-- Titles from maps.wakegov -->
     <ion-slide-box
-      style="top:-3em;margin-bottom:-3em"
+      style="top:-3em;margin-bottom:-2.8em"
       show-pager="false"
       does-continue="true">
+
 
       <ion-slide ng-repeat="loc in library3letterlocs">
           <img ng-src="img/locations/{{loc.loc}}.png" style="width:100%;margin:auto;display:block" />
 
-          <span ng-controller="HomeSlideLocationsCtrl">
-            <span ng-repeat="location in locations | filter: loc.loc">
+          <span class="sliderTitle icon-left ion-ios-bookmarks-outline light padding-left">
+
+            <span ng-repeat="loc in library3letterlocs | filter: loc.loc | limitTo:1">
+              {{loc.name}}
+            </span>
+
+            <span ng-repeat="location in locations | filter: loc.loc | limitTo:1">
               {{location.attributes.NAME}}
             </span>
+
           </span>
 
 
+          </span>
       </ion-slide>
+
   </ion-slide-box>
-</div>
+  </span>
+</span>
 
 
 
