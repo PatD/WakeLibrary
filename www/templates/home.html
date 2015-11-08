@@ -12,8 +12,8 @@
       .NewsInset div.list {margin-top: -0.25em;margin-bottom: 1.5em;}
     </style>
 
-<style>
-.sli der {
+<!-- style>
+.slider {
   height: 200px !important;
 }
 </style>
@@ -25,15 +25,27 @@
         show-pager="false"
         does-continue="true">
 
-          <ion-slide ng-repeat="location in locations">
+        <ion-slide ng-repeat="location in locations">
+          <img ng-src="img/locations/WRL.png" / >
+        </ion-slide>
 
-            <img ng-src="img/locations/{{location.attributes.CODE}}.png"/ >
+          <ion-slide ng-repeat="location in locations">
+            <img ng-src="img/locations/{{location.attributes.CODE}}.png" / >
           </ion-slide>
 
       </ion-slide-box>
-    </div>
+    </div -->
+
+
+
+
+
+
+
+
 
   <!-- Slidebox of images -->
+  <!-- Local copy -->
   <!-- ion-slide-box
     style="top:-3em;margin-bottom:-3em"
     show-pager="false"
@@ -47,6 +59,25 @@
 
 
 
+<div ng-controller="HomeSlideImagesCtrl">
+    <ion-slide-box
+      style="top:-3em;margin-bottom:-3em"
+      show-pager="false"
+      does-continue="true">
+
+      <ion-slide ng-repeat="loc in library3letterlocs">
+          <img ng-src="img/locations/{{loc.loc}}.png" style="width:100%;margin:auto;display:block" />
+
+          <span ng-controller="HomeSlideLocationsCtrl">
+            <span ng-repeat="location in locations | filter: loc.loc">
+              {{location.attributes.NAME}}
+            </span>
+          </span>
+
+
+      </ion-slide>
+  </ion-slide-box>
+</div>
 
 
 

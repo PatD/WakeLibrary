@@ -44,28 +44,50 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
 // Controller that shows slider on home screen. Same as locations:
 
+
+// Controller that lists all the Library location.  This powers the slider
+  WakeLibraryApp.controller('HomeSlideImagesCtrl', function($scope) {
+
+    $scope.library3letterlocs = [
+      { loc: 'nor' },
+      { loc: 'erl' },
+      { loc: 'cry' },
+      { loc: 'dur' },
+      { loc: 'elf' },
+      { loc: 'cam' },
+      { loc: 'eva' },
+      { loc: 'fuq' },
+      { loc: 'gre' },
+      { loc: 'hsp' },
+      { loc: 'lee' },
+      { loc: 'orl' },
+      { loc: 'rbh' },
+      { loc: 'ser' },
+      { loc: 'sga' },
+      { loc: 'wak' },
+      { loc: 'wen' },
+      { loc: 'wrl' },
+      { loc: 'zeb'}
+    ];
+
+  });
+
+
+
+
 // Controller that lists all the Library location
-  WakeLibraryApp.controller('HomeSlideLocationsCtrl', function($scope, $http, LibraryLocations, $ionicSlideBoxDelegate) {
+  WakeLibraryApp.controller('HomeSlideLocationsCtrl', function($scope, $http, LibraryLocations) {
+
+$scope.library3letterlocs = location.attributes;
 
     $scope.location = {
       name: ''
     }
 
-
       LibraryLocations.list($scope.location.name, function(locations) {
         $scope.locations = locations;
+
       });
-
-
-      $scope.slideHasChanged = function() {
-        console.log("changed");
-      //  $scope.items.push({name:'John', age:25, gender:'boy'});
-
-$scope.locations.push({ /* name:'John', age:25, gender:'boy' */});
-        $ionicSlideBoxDelegate.update();
-      };
-
-
 
 
   });
