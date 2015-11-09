@@ -8,7 +8,46 @@
 
 
   <ion-content>
-    <ion-list>
+
+<div ng-controller="BookSearchCatalogCtrl">
+<!--
+  Get value from input fields
+  Fire modal
+  Load results in modal
+  Clear results on close
+
+-->
+
+
+<div class="list list-inset">
+  <label class="item item-input">
+    <i class="icon ion-search placeholder-icon"></i>
+    <input type="text" placeholder="Book title, author, or subject...">
+  </label>
+
+  <div class="padding">
+        <button class="button button-block button-positive activated">Submit</button>
+  </div>
+
+
+</div>
+
+<div scroll="true" overflow-scroll="true" style="width:100%;">
+  <iframe data-tap-disabled="true" style="width:100%;" src="https://catalog.wakegov.com/Union/Search?lookfor=The%20Walking%20Dead&view=covers#searchForm"></iframe>
+</div>
+
+
+
+</div><!-- BookSearchCatalogCtrl -->
+
+
+
+
+
+
+
+
+    <!-- ion-list ng-controller="BookSearchCtrl">
       <ion-item class="item item-text-wrap">
         Search Wake County libraries for books, ebooks, audiobooks, and much more.
       </ion-item>
@@ -18,12 +57,12 @@
       <ion-item class="item item-text-wrap">
         <div data-tap-disabled="true" class="padding">
           <gcse:searchresults data-linkTarget="_system" data-enableHistory="false"></gcse:searchresults>
-          <!-- div class="gcse-search" data-linkTarget="_system" data-enableHistory="false"></div -->
+
         </div>
 
 
       </ion-item>
-    </ion-list>
+    </ion-list -->
 
 
 

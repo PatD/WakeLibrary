@@ -40,7 +40,7 @@
       <ion-slide ng-repeat="loc in library3letterlocs">
           <img ng-src="img/locations/{{loc.loc}}.png" style="width:100%;margin:auto;display:block" />
 
-          <span class="sliderTitle icon-left ion-ios-bookmarks-outline light padding-left">
+          <span class="sliderTitle light padding-left">
 
             <span ng-repeat="loc in library3letterlocs | filter: loc.loc | limitTo:1">
               {{loc.name}}

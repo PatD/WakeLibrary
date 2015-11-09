@@ -53,7 +53,7 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
       { loc: 'erl' },
       { loc: 'cry' },
       { loc: 'dur' },
-      { loc: 'elf', name: 'Express Library, Raleigh' },
+      { loc: 'elf', name: 'Express Library Raleigh' },
       { loc: 'cam' },
       { loc: 'eva' },
       { loc: 'fuq' },
@@ -87,8 +87,6 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
       });
 
   });
-
-
 
 
 
@@ -135,7 +133,7 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
 
 
-  // Detail View for AskWCPL
+// Detail View for AskWCPL
   WakeLibraryApp.controller("AskwcplDetailsCtrl", function($scope, $http, $stateParams, AskServiceFactory){
 
     function clickSetter(){
@@ -148,9 +146,9 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
              window.open(element.href, "_blank", "location=no");
              return false; // prevent default action and stop event propagation
 
-         }
-     };
-};
+             }
+         };
+    };
 
       AskServiceFactory.find($stateParams.answerid, function(answer) {
         $scope.answer = answer;
@@ -158,6 +156,15 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
       });
   });
 
+
+// Non-Google Book search
+
+WakeLibraryApp.controller('BookSearchCatalogCtrl', function($scope) {
+
+
+
+
+});
 
 
 // Google book search

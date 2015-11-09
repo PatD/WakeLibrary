@@ -210,8 +210,8 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
       url: '/search',
       views: {
         'menuContent': {
-          templateUrl: 'templates/booksearch/search.html',
-          controller: 'BookSearchCtrl'
+          templateUrl: 'templates/booksearch/search.html' // ,
+      //    controller: 'BookSearchCtrl'
         }
       }
     })
