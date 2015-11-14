@@ -69,6 +69,8 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
       { loc: 'wrl' },
       { loc: 'zeb'}
     ];
+
+
   });
 
 
@@ -159,9 +161,15 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
 // Non-Google Book search
 
-WakeLibraryApp.controller('BookSearchCatalogCtrl', function($scope) {
-
-
+WakeLibraryApp.controller('BookSearchCatalogCtrl', function($scope, $ionicModal) {
+  $ionicModal.fromTemplateUrl('modal.html', function($ionicModal) {
+          $scope.modal = $ionicModal;
+      }, {
+          // Use our scope for the scope of the modal to keep it simple
+          scope: $scope,
+          // The animation we want to use for the modal entrance
+          animation: 'slide-in-up'
+      });
 
 
 });
