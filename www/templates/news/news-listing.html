@@ -1,6 +1,5 @@
 <ion-view view-title="Wake County Library News">
-  <ion-content overflow-scroll="true">
-
+  <ion-content overflow-scroll="true" ng-controller="NewsCtrl">
 
     <ion-refresher
        pulling-text="The freshest..."
@@ -8,7 +7,6 @@
        on-refresh="doRefresh()">
      </ion-refresher>
 
-    <!-- Lists news items -->
     <ion-list>
 
     		<ion-item class="item item-icon-left item-text-wrap" ng-repeat="newsitem in news | filter:{category:'Libraries'} | orderBy:'-pubDate'" href="#/app/news/{{newsitem.title}}">

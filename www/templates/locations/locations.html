@@ -1,19 +1,18 @@
 <ion-view view-title="Wake County Library Locations">
-  <ion-content overflow-scroll="true">
+  <ion-content overflow-scroll="true" ng-controller="LocationsCtrl">
 
     <ion-refresher
-       pulling-text="The freshest..."
-       pulling-icon="ion-ios-bookmarks-outline"
-       on-refresh="doRefresh()">
-     </ion-refresher>
+     pulling-text="The freshest..."
+     pulling-icon="ion-ios-bookmarks-outline"
+     on-refresh="doRefresh()">
+    </ion-refresher>
 
-<!-- span ng-controller="LocationsCtrl">
+
     <ion-list>
-
         <label class="item item-input item-select">
             <i class="icon ion-ios-color-filter-outline placeholder-icon"></i>
           <div class="input-label">
-            Filter by city
+            Pick a city
           </div>
           <select ng-model="query">
             <option value="">All cities</option>
@@ -25,31 +24,25 @@
           </select>
         </label>
     </ion-list>
-</span -->
+
 
 <!-- special locations -->
     <ion-list>
       <span ng-controller="SpecialLocationsCtrl">
-            <ion-item ng-repeat="location in locations | filter:query | orderBy: 'attributes.NAME' " href="#/app/special/{{location.attributes.OBJECTID}}" class="item item-avatar">
+            <ion-item ng-repeat="location in locations | filter:query | orderBy: 'attributes.NAME' " href="#/app/locations/special/{{location.attributes.OBJECTID}}" class="item item-avatar">
               <img ng-src="http://maps.googleapis.com/maps/api/staticmap?center={{location.attributes.FAC_ADDRESS}},+{{location.attributes.CITY}},+NC&zoom=13&scale=2&size=160x160&maptype=terrain&key=AIzaSyC4lGFKI7caErQ3MacquCOUjU4fJJjpzHM&format=png&visual_refresh=true">
               <h2>{{location.attributes.NAME}}</h2>
               <p>{{location.attributes.CITY}} <strong class="assertive">{{location.attributes.STATUS}}</strong></p>
             </ion-item>
       </span>
+
 <!-- Regular locations -->
-<span ng-controller="LocationsCtrl">
       <ion-item ng-repeat="location in locations | filter:query | orderBy: 'attributes.NAME' " href="#/app/locations/{{location.attributes.OBJECTID}}" class="item item-avatar">
         <img ng-src="http://maps.googleapis.com/maps/api/staticmap?center={{location.attributes.FAC_ADDRESS}},+{{location.attributes.CITY}},+NC&zoom=13&scale=2&size=160x160&maptype=terrain&key=AIzaSyC4lGFKI7caErQ3MacquCOUjU4fJJjpzHM&format=png&visual_refresh=true">
         <h2>{{location.attributes.NAME}}</h2>
         <p>{{location.attributes.CITY}} <strong class="assertive">{{location.attributes.STATUS}}</strong></p>
       </ion-item>
-</span>
     </ion-list>
-
-
-
-
-
 
     <ion-list class="list">
       <ion-item class="item" ui-sref="app.locations-all">

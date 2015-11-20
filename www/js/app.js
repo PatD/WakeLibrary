@@ -1,9 +1,5 @@
-// Ionic Starter App
+// Wake County Libraries.
 
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-// 'starter.controllers' is found in controllers.js
 
 
 // Our app is called WakeLibraryApp
@@ -62,19 +58,19 @@ WakeLibraryApp.run(function($ionicPlatform) {
 
 // Tomorrow's date.  It's like today, but more futuristic
 
-var currentDate = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
-var _tomorrowDay = currentDate.getDate();
-var _tomorrowMonth = currentDate.getMonth() + 1;
-var _tomorrowYear = currentDate.getFullYear();
+  var currentDate = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+  var _tomorrowDay = currentDate.getDate();
+  var _tomorrowMonth = currentDate.getMonth() + 1;
+  var _tomorrowYear = currentDate.getFullYear();
 
-if(_tomorrowDay<10){
-    _tomorrowDay='0'+_tomorrowDay
-}
-if(_tomorrowMonth<10){
-    _tomorrowMonth='0'+_tomorrowMonth
-}
-var tomorrowsDate = _tomorrowYear+''+_tomorrowMonth+''+_tomorrowDay;
-var tomorrowsDateShort = _tomorrowMonth+'/'+_tomorrowDay;
+  if(_tomorrowDay<10){
+      _tomorrowDay='0'+_tomorrowDay
+  }
+  if(_tomorrowMonth<10){
+      _tomorrowMonth='0'+_tomorrowMonth
+  }
+  var tomorrowsDate = _tomorrowYear+''+_tomorrowMonth+''+_tomorrowDay;
+  var tomorrowsDateShort = _tomorrowMonth+'/'+_tomorrowDay;
 
 
 //console.log(tomorrowsDate);
@@ -225,13 +221,14 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
       }
     })
 
+
+
 // Locations landing page
     .state('app.locations', {
       url: '/locations',
       views: {
         'menuContent': {
-          templateUrl: 'templates/locations/locations.html',
-          controller: 'LocationsCtrl'
+          templateUrl: 'templates/locations/locations.html'
         }
       }
     })
@@ -248,15 +245,15 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
     })
 
 // Individual SPECIAL location
-        .state('app.locationSpecial', {
-          url: '/special/:locationId',
-          views: {
-            'menuContent': {
-              templateUrl: 'templates/locations/location.html',
-              controller: 'SpecialLocationCtrl'
-            }
-          }
-        })
+    .state('app.locationSpecial', {
+      url: '/locations/special/:locationId',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/locations/location.html',
+          controller: 'SpecialLocationCtrl'
+        }
+      }
+    })
 
 
 // Google maps location
@@ -269,7 +266,7 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
       }
     })
 
-// Twitter!
+/*  Twitter!
     .state('app.twitter', {
       url: '/twitter',
       views: {
@@ -278,9 +275,9 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
           controller: 'TwitterCtrl'
         }
       }
-    })
+    }) */
 
-// Facebook
+/* Facebook
     .state('app.facebook', {
       url: '/facebook',
       views: {
@@ -289,7 +286,7 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
           controller: 'FacebookCtrl'
         }
       }
-    })
+    }) */
 
 // Text to the Library
     .state('app.text', {
@@ -312,8 +309,6 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
       }
     })
 
-    // Views are recycled for each age group.
-
     // Events for adults
       .state('app.eventsAdult', {
         url: '/events/eventsAdult',
@@ -335,7 +330,6 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
             }
           }
         })
-
 
       // Events for kids
         .state('app.eventsKids', {
@@ -362,7 +356,7 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
 
 
 
-          // Events ALL
+          /* Events ALL
             .state('app.eventsFilter', {
               url: '/events/eventsFilter',
               views: {
@@ -371,7 +365,7 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
                   controller: 'EventsFilterCtrl'
                 }
               }
-            })
+            }) */
 
 
 
@@ -380,27 +374,25 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
 
 
 
-          // News listing
-            .state('app.news', {
-              url: '/news',
-              views: {
-                'menuContent': {
-                  templateUrl: 'templates/news/news-listing.html',
-                  controller: 'NewsCtrl'
-                }
-              }
-            })
+    // News listing
+      .state('app.news', {
+        url: '/news',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/news/news-listing.html'
+          }
+        }
+      })
 
-            // NewsDetails
-              .state('app.newsDetail', {
-                url: '/news/:title',
-                views: {
-                  'menuContent': {
-                    templateUrl: 'templates/news/news-details.html',
-                    controller: 'NewsDetailCtrl'
-                  }
-                }
-              })
+      // NewsDetails
+        .state('app.newsDetail', {
+          url: '/news/:title',
+          views: {
+            'menuContent': {
+              templateUrl: 'templates/news/news-details.html'
+            }
+          }
+        })
 
 
 // Loitering semicolon
