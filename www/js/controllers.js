@@ -162,6 +162,9 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 // Non-Google Book search
 
 WakeLibraryApp.controller('BookSearchCatalogCtrl', function($scope, $ionicModal) {
+
+$scope.bookSearchInput = {};
+
   $ionicModal.fromTemplateUrl('modal.html', function($ionicModal) {
           $scope.modal = $ionicModal;
       }, {
@@ -171,8 +174,22 @@ WakeLibraryApp.controller('BookSearchCatalogCtrl', function($scope, $ionicModal)
           animation: 'slide-in-up'
       });
 
+/*
+$scope.bookSearchInput = {};
+
+  $scope.login = function() {
+      console.log($scope.bookSearchInput.searchfield);
+
+  };
+*/
+
+
 
 });
+
+
+
+
 
 
 // Google book search
@@ -217,7 +234,27 @@ WakeLibraryApp.controller('BookSearchCatalogCtrl', function($scope, $ionicModal)
 
 
 
-// Controller that lists all the Library location
+
+
+// Controller that lists all the SPECIAL Library location
+  WakeLibraryApp.controller('SpecialLocationsCtrl', function($scope, $http, SpecialLibraryLocations) {
+
+      $scope.location = {
+        name: ''
+      }
+
+      SpecialLibraryLocations.list($scope.location.name, function(locations) {
+        $scope.locations = locations;
+      });
+
+  });
+
+
+
+
+
+
+// Controller that lists all the REGULAR Library location
   WakeLibraryApp.controller('LocationsCtrl', function($scope, $http, LibraryLocations) {
 
     $scope.location = {
@@ -241,8 +278,14 @@ WakeLibraryApp.controller('BookSearchCatalogCtrl', function($scope, $ionicModal)
 
 
 
-// Controller that for a single Library location
-  WakeLibraryApp.controller('LocationCtrl', function($scope, $http, $stateParams, LibraryLocations) {
+
+
+
+
+
+
+// Controller that for a single SPECIAL Library location
+  WakeLibraryApp.controller('SpecialLocationCtrl', function($scope, $http, $stateParams, SpecialLibraryLocations) {
 
     // This function inappbrowswer's the map clicks
     document.onclick = function (e) {
@@ -257,23 +300,65 @@ WakeLibraryApp.controller('BookSearchCatalogCtrl', function($scope, $ionicModal)
      };
 
     // Routing stuff
-    LibraryLocations.find($stateParams.locationId, function(location) {
+    SpecialLibraryLocations.find($stateParams.locationId, function(location) {
       $scope.location = location;
-/*
-      // Here we load Google Maps
-      uiGmapGoogleMapApi.then(function(maps) {
-
-        console.log(location.geometry.x);
-          console.log(location.geometry.y);
-
-        $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
-
-
-      }); // end of Google Maps
-*/
 
     });
+
+
   });
+
+
+
+
+  // Controller that for a single Regular Library location
+    WakeLibraryApp.controller('LocationCtrl', function($scope, $http, $stateParams, LibraryLocations) {
+
+      // This function inappbrowswer's the map clicks
+      document.onclick = function (e) {
+           e = e ||  window.event;
+           var element = e.target || e.srcElement;
+
+           if (element.className == 'google-map button icon-left ion-android-map button-positive') {
+      //     if (element.tagName == 'A') {
+               window.open(element.href, "_blank", "location=no");
+               return false; // prevent default action and stop event propagation
+           }
+       };
+
+      // Routing stuff
+      LibraryLocations.find($stateParams.locationId, function(location) {
+        $scope.location = location;
+  /*
+        // Here we load Google Maps
+        uiGmapGoogleMapApi.then(function(maps) {
+
+          console.log(location.geometry.x);
+            console.log(location.geometry.y);
+
+          $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
+
+
+        }); // end of Google Maps
+  */
+
+      });
+
+
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

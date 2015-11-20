@@ -197,8 +197,15 @@ select * from rss where url='http://www.wakegov.com/news/_layouts/listfeed.aspx?
 
 
 */
-
+/* Good, working
     var url = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D'http%3A%2F%2Fwww.wakegov.com%2Fnews%2F_layouts%2Flistfeed.aspx%3FList%3D%257B9478165C-B0D4-48D4-B6D9-B3EBA1007F6E%257D'&format=json&callback=";
+*/
+
+
+// Experimental. Just libraries. has sort-date
+    var url = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D'http%3A%2F%2Fwww.wakegov.com%2Fnews%2F_layouts%2Flistfeed.aspx%3FList%3D%257B9478165C-B0D4-48D4-B6D9-B3EBA1007F6E%257D'%20AND%20category%20like%20'%25Libraries%25'%20%7C%20sort(field%3D%22pubDate%22%2Cdescending%3D%22true%22)&format=json&callback=";
+
+
   //  var url = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D'http%3A%2F%2Fwww.wakegov.com%2Fnews%2F_layouts%2Flistfeed.aspx%3FList%3D%257B9478165C-B0D4-48D4-B6D9-B3EBA1007F6E%257D'%20AND%20category%20like%20'%25Libraries%25'%20%0A&format=json&callback=";
     $http.get(url).success(function(data) {
 

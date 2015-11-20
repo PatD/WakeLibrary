@@ -14,17 +14,9 @@
 		  </ion-item>
 
 			<ion-item class="item item-text-wrap">
-				<span>By {{newsitem.author}}</span>
-				<span ng-bind-html="newsitem.description"></span><br />
+				<span>By {{newsitem.author}}</span><br /><br />
+				<span class="padding" ng-bind-html="newsitem.description"></span><br /><br />
 			</ion-item>
-
-			<!-- ion-item class="item padding">
-				<a class="button button-block button-balanced" onclick="window.open('" + {{newsitem.link}} + "', '_blank', 'location=bi');">
-					<i class="icon iion-ios-browsers-outline"></i>
-					View on WakeGov.com
-				</a>
-		  </ion-item -->
-
 
 		  <ion-item class="item item-divider">
 				Updated: {{newsitem.pubDate}}

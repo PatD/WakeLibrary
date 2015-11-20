@@ -19,18 +19,17 @@
 -->
 
 
-<div class="list list-inset">
-  <label class="item item-input">
-    <i class="icon ion-search placeholder-icon"></i>
-    <input type="text" placeholder="Book title, author, or subject...">
-  </label>
+  <div class="list list-inset">
+    <label class="item item-input">
+      <i class="icon ion-search placeholder-icon"></i>
+      <input type="text" placeholder="Book title, author, or subject..." ng-model="searchfield">
+    </label>
 
-  <div class="padding">
-        <button class="button button-block button-positive activated" ng-click="modal.show()">Search</button>
+    <div class="padding">
+      <button class="button button-block button-positive activated" ng-click="modal.show()" ng-chicken="login()">Search</button>
+    </div>
+
   </div>
-
-
-</div>
 
 
 
@@ -70,17 +69,20 @@
 
 
   <script id="modal.html" type="text/ng-template">
-    <div class='modal'>
-      <header class="bar bar-header bar-dark">
+    <ion-modal-view>
+
+      <ion-header-bar class="bar-dark">
         <h2 class="title">WakeGov Search Results</h2>
         <div class="button button-clear" ng-click="modal.hide()"><span class="icon ion-ios-close-empty"></span></div>
-      </header>
-    <br /><br />
-      <div scroll="true" overflow-scroll="true" class="padding">
-        <iframe data-tap-disabled="true" style="width:100%;height: 100vh;overflow:hidden;display:block;" height="100%" width="100%" src="https://catalog.wakegov.com/Union/Search?basicType=&genealogyType=&view=covers&lookfor=STephen+king&searchSource=local#searchForm"></iframe>
-      </div>
-      </content>
-    </div>
+      </ion-header-bar>
+      <ion-content>
+        <div scroll="true" overflow-scroll="true" class="padding">
+          <p>{{searchfield}}</p>
+        <myYoutube code="code"></myYoutube>
+        <iframe data-tap-disabled="true" style="width:100%;height: 100vh;overflow:hidden;display:block;" height="100%" width="100%" src="https://catalog.wakegov.com/Union/Search?basicType=&genealogyType=&view=covers&lookfor=bacon&searchSource=local#searchForm"></iframe>
+        </div>
+      </ion-content>
+    </ion-modal-view>
   </script>
 
 </ion-view>

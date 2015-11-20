@@ -108,6 +108,7 @@ var tomorrowsDateShort = _tomorrowMonth+'/'+_tomorrowDay;
 
 
 
+
 /* Native scroll
   WakeLibraryApp.config(function ($ionicConfigProvider) {
 
@@ -130,6 +131,14 @@ var tomorrowsDateShort = _tomorrowMonth+'/'+_tomorrowDay;
       $ionicLoading.hide()
     })
   });
+
+
+
+
+
+
+
+
 
 
 
@@ -237,6 +246,19 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     })
+
+// Individual SPECIAL location
+        .state('app.locationSpecial', {
+          url: '/special/:locationId',
+          views: {
+            'menuContent': {
+              templateUrl: 'templates/locations/location.html',
+              controller: 'SpecialLocationCtrl'
+            }
+          }
+        })
+
+
 // Google maps location
     .state('app.locations-all', {
       url: '/locations/all',
