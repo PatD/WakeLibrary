@@ -49,6 +49,7 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
   WakeLibraryApp.controller('HomeSlideImagesCtrl', function($scope) {
 
     $scope.library3letterlocs = [
+      { loc: 'orl', name:'Olivia Raney Local History Library'},
       { loc: 'nor' },
       { loc: 'erl' },
       { loc: 'cry' },
@@ -60,7 +61,6 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
       { loc: 'gre' },
       { loc: 'hsp' },
       { loc: 'lee' },
-      { loc: 'orl', name:'Olivia Raney Local History Library'},
       { loc: 'rbh' },
       { loc: 'ser' },
       { loc: 'sga' },

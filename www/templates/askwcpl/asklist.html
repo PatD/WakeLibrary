@@ -1,7 +1,7 @@
 <ion-view view-title="Ask WCPL">
   <ion-content overflow-scroll="true">
       <style>
-      h2 .u {display:none;}
+      .u {display:none;}
       </style>
 
 <ion-list type="list-inset">
@@ -10,18 +10,16 @@
       <i class="icon ion-search placeholder-icon"></i>
       <input type="search" placeholder="Search Questions" ng-model="query" autocorrect="off">
     </label>
-  
+
 
 </ion-list>
 <br />
 
     <ion-list type="list">
-
-      <ion-item ng-repeat="answer in answers | filter:query" class="item item-text-wrap item-icon-left" href="#/app/askwcpl/{{answer.id}}">
+      <ion-item ng-repeat="answer in answers | filter:query | limitTo:50" class="item item-text-wrap item-icon-left" href="#/app/askwcpl/{{answer.id}}">
          <i class="icon ion-ios-help-outline"></i>
          <p ng-bind-html="answer.question"></p>
       </ion-item>
-
     </ion-list>
 
   </ion-content>

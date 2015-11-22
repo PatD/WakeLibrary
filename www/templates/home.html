@@ -1,33 +1,20 @@
 <ion-view class="home" view-title="Wake County Libraries">
+  <style>
+    .homescreen-list div.list {margin-bottom: 0.6em}
+    .NewsInset div.list {margin-top: -0.25em;margin-bottom: 1.5em;}
+    .sliderTitle {display:block;position:absolute;bottom:0.5em;text-shadow:1px 1px 1px #444}  /* In slider box, moves text up over image */
+  </style>
 
   <!-- add hide-nav-bar="true" to ion-view to hide -->
-    <ion-content>
-      <!-- style>
-        .home .has-header{top:0px;}
-       .nav-bar-block{max-width:3em;}
-     </style -->
+  <!-- style>
+    .home .has-header{top:0px;}
+   .nav-bar-block{max-width:3em;}
+  </style -->
 
-    <style>
-      .homescreen-list div.list {margin-bottom: 0.6em}
-      .NewsInset div.list {margin-top: -0.25em;margin-bottom: 1.5em;}
-      .sliderTitle {display:block;position:absolute;bottom:0.5em;text-shadow:1px 1px 1px #444}  /* In slider box, moves text up over image */
-    </style>
+  <ion-content>
 
 
   <!-- Slidebox of images -->
-  <!-- Local copy -->
-  <!-- ion-slide-box
-    style="top:-3em;margin-bottom:-3em"
-    show-pager="false"
-    does-continue="true"
-    ng-init="images=['nor','erl','cry','dur','elf','cam','eva','fuq','gre','hsp','lee','orl','rbh','ser','sga','wak','wen','wrl','zeb']">
-  		<ion-slide ng-repeat="image in images">
-  			<img ng-src="img/locations/{{ image }}.png" style="width:100%;margin:auto;display:block" />
-  		</ion-slide>
-  </ion-slide-box -->
-
-
-
 
 <span ng-controller="HomeSlideImagesCtrl"> <!-- Images, local links -->
   <span ng-controller="HomeSlideLocationsCtrl"> <!-- Titles from maps.wakegov -->
@@ -39,21 +26,20 @@
       <!-- shuffle controller w/https://github.com/nachinius/angular-shuffler ? -->
 
       <ion-slide ng-repeat="loc in library3letterlocs">
-          <img ng-src="img/locations/{{loc.loc}}.png" style="width:100%;margin:auto;display:block" />
+          <img ng-src="img/locations/{{::loc.loc}}.png" style="width:100%;margin:auto;display:block" />
 
           <span class="sliderTitle light padding-left">
 
             <span ng-repeat="loc in library3letterlocs | filter: loc.loc | limitTo:1">
-              {{loc.name}}
+              {{::loc.name}}
             </span>
 
             <span ng-repeat="location in locations | filter: loc.loc | limitTo:1">
-              {{location.attributes.NAME}}
+              {{::location.attributes.NAME}}
             </span>
 
           </span>
 
-          </span>
       </ion-slide>
 
   </ion-slide-box>
@@ -79,8 +65,8 @@
       <!-- original ng-repeat newsitem in news | limitTo:1 | filter:{category:'Libraries'} | orderBy:'-pubDate' -->
       <!-- maybe good: ng-repeat="newsitem in news | filter:{category:'Libraries'} | filter:{category:'Libraries; WakeGOV Home Page'} | orderBy:'-pubDate' " -->
       <ion-item class="item item-text-wrap item-icon-right" ng-repeat="newsitem in news | filter:{category:'Libraries'} |  orderBy:'-pubDate' " href="#/app/news/{{newsitem.title}}">
-        <p>{{newsitem.pubDate | limitTo: 17 }}{{newsitem.pubDate.length > 17 ? ' ' : ''}}</p>
-        <h2>{{newsitem.title}}</h2>
+        <p>{{::newsitem.pubDate | limitTo: 17 }}{{::newsitem.pubDate.length > 17 ? ' ' : ''}}</p>
+        <h2>{{::newsitem.title}}</h2>
         <i class="icon ion-ios-paper-outline"></i>
       </ion-item>
 
@@ -116,14 +102,14 @@
   <ion-item class="item-icon-left item-text-wrap" ui-sref="app.askwcpl">
       <i class="icon ion-ios-help-outline"></i>
       <h2>Ask Wake County Libraries</h2>
-      <p>FAQs about membership, book borrowing, ebooks, and more.</p>
+      <p>FAQs about membership, book borrowing, ebooks, and more</p>
   </ion-item>
 </ion-list>
 <ion-list class="homescreen-list">
   <ion-item class="item-icon-left item-text-wrap" ui-sref="app.eventsLanding">
     <i class="icon ion-ios-calendar-outline"></i>
     <h2>Wake Library Events</h2>
-    <p>Find great things to do at your Wake County library. Events for kids, teens, and adults.</p>
+    <p>Find great things to do at your Wake County library. Events for kids, teens, and adults</p>
   </ion-item>
 </ion-list>
 
@@ -131,20 +117,19 @@
 
 
 <h4 class="icon ion-social-twitter padding-left dark"> WCPL ON TWITTER</h4>
+  <ion-list type="list-inset" ng-controller="TwitterCtrl" class=NewsInset >
+    <ion-item>
+      <a class="twitter-timeline"
+      href="https://twitter.com/wcplonline"
+      data-widget-id="628377179139801089"
+      data-chrome="noheader transparent nofooter noscrollbar"
+      data-tweet-limit="1">
+      Tweets by @wcplonline</a>
+  <br />
+        <button class="button button-small button-calm" onclick="window.open('https://www.twitter.com/wcplonline', '_system'); return false;">Follow @wcplonline</button>  <button class="button button-small button-balanced" onclick="window.open('https://twitter.com/search?q=%23wcplreads%20from%3Awcplonline', '_system'); return false;">#wcplreads</button>
+    </ion-item>
 
-<ion-list type="list-inset" ng-controller="TwitterCtrl" class=NewsInset>
-  <ion-item>
-    <a class="twitter-timeline"
-    href="https://twitter.com/wcplonline"
-    data-widget-id="628377179139801089"
-    data-chrome="noheader transparent nofooter noscrollbar"
-    data-tweet-limit="1">
-    Tweets by @wcplonline</a>
-<br />
-      <button class="button button-small button-calm" onclick="window.open('https://www.twitter.com/wcplonline', '_system'); return false;">Follow @wcplonline</button>  <button class="button button-small button-balanced" onclick="window.open('https://twitter.com/search?q=%23wcplreads%20from%3Awcplonline', '_system'); return false;">#wcplreads</button>
-  </ion-item>
-
-</ion-list>
+  </ion-list>
 
 
 <br />

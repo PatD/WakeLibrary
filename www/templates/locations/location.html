@@ -11,6 +11,17 @@
 
       <!-- Address and Map link Row -->
       <div class="item" style="padding:16px 5px 16px 5px;">
+
+        <div class="row" ng-controller="FourSquareLocationContactsCtrl">
+          <ion-item collection-repeat="answer in answers | filterBy: ['contact.facebookUsername']: 'wcplonline' |  orderBy : 'name' | limitTo:1 " class="item item-icon-left">
+            <i class="icon ion-ios-telephone"></i>
+            {{answer.name}}
+            <h4>{{answer.location.city}}: {{answer.contact.formattedPhone}}</h4>
+          </ion-item>
+        </div>
+
+
+
         <div class="row">
           <!-- Add data-tap-disabled to stop the JS click-wars -->
           <div class="col col-30" data-tap-disabled="true">
