@@ -65,7 +65,7 @@
       <!-- original ng-repeat newsitem in news | limitTo:1 | filter:{category:'Libraries'} | orderBy:'-pubDate' -->
       <!-- maybe good: ng-repeat="newsitem in news | filter:{category:'Libraries'} | filter:{category:'Libraries; WakeGOV Home Page'} | orderBy:'-pubDate' " -->
       <ion-item class="item item-text-wrap item-icon-right" ng-repeat="newsitem in news | filter:{category:'Libraries'} |  orderBy:'-pubDate' " href="#/app/news/{{newsitem.title}}">
-        <p>{{::newsitem.pubDate | limitTo: 17 }}{{::newsitem.pubDate.length > 17 ? ' ' : ''}}</p>
+        <!-- p>{{::newsitem.pubDate | limitTo: 17 }}{{::newsitem.pubDate.length > 17 ? ' ' : ''}}</p -->
         <h2>{{::newsitem.title}}</h2>
         <i class="icon ion-ios-paper-outline"></i>
       </ion-item>

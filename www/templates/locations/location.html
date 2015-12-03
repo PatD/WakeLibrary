@@ -5,23 +5,24 @@
 
       <!-- Holds image of library -->
       <div class="item item-image">
-        <img ng-src="http://www.wakegov.com/libraries/locations/PublishingImages/{{location.attributes.CODE}}.png" />
+        <img ng-src="http://www.wakegov.com/libraries/locations/PublishingImages/{{::location.attributes.CODE}}.png" />
         <!-- img ng-src="img/locations/{{location.attributes.CODE}}.png" / -->
       </div>
 
       <!-- Address and Map link Row -->
       <div class="item" style="padding:15px;">
 
-            <strong class="assertive">{{location.attributes.STATUS}}</strong>
-            <p style="margin-bottom:10px;"><strong>{{location.attributes.NAME}}</strong>
-              <br/>{{location.attributes.FAC_ADDRESS}}
-              <br/>{{location.attributes.CITY}}, NC</p>
+            <strong class="assertive">{{::location.attributes.STATUS}}</strong>
+            <p style="margin-bottom:10px;"><strong>{{::location.attributes.NAME}}</strong>
+              <br/>{{::location.attributes.FAC_ADDRESS}}
+              <br/>{{::location.attributes.CITY}}, NC</p>
             <!-- Loads phone number from FourSquare -->
             <span ng-controller="FourSquareLocationContactsCtrl">
-              <a class="button button-small padding-horizontal icon-left ion-android-call button-calm" ng-repeat="answer in answers | filter: location.attributes.NAME | limitTo:1 " ng-href="tel:{{answer.contact.phone}}"> {{::answer.contact.formattedPhone}}</a>
+              <a class="button button-small padding-horizontal icon-left ion-android-call button-calm" ng-repeat="answer in answers | filter: location.attributes.NAME | limitTo:1 " ng-href="tel:{{::answer.contact.phone}}"> {{::answer.contact.formattedPhone}}</a>
             </span><!-- /end foursquarecontroller -->
-            <a data-tap-disabled="true" href="https://www.google.com/maps/place/{{location.attributes.NAME}}+{{location.attributes.FAC_ADDRESS}}/{{location.geometry.x}},{{location.geometry.y}},17z/" class="google-map button padding-horizontal button-small icon-left ion-pinpoint button-positive" style="float:Right;">Show on Map</a>
-
+            <div data-tap-disabled="true" style="float:Right;">
+                <a href="https://www.google.com/maps/place/{{location.attributes.NAME}}+{{location.attributes.FAC_ADDRESS}}/{{location.geometry.x}},{{location.geometry.y}},17z/" class="google-map button padding-horizontal button-small icon-left ion-pinpoint button-positive" >Show on Map</a>
+            </div>
       </div>
     </div> <!-- ends card -->
 
@@ -30,17 +31,41 @@
 <!-- Today's events -->
   <ion-list type="list-inset" ng-controller="EventsTodayCtrl">
     <ion-item class="item item-divider">
-     Today at {{location.attributes.NAME}}
+     Today at {{::location.attributes.NAME}}
     </ion-item>
 
     <!-- location is passed as a filter into events -->
       <!-- the : true in filter keeps East Regional and SouthEast Regional seperate -->
     		<ion-item class="item" ng-repeat="event in events | filter: location.attributes.NAME : true" class="item item-text-wrap" ng-click="showDetails = ! showDetails">
-          <h2>{{event.title}}</h2>
-          <h4>{{event.location.__text}}, </h4>
-          <h4>{{event.formatteddatetime.__text}}</h4>
+          <h2>{{::event.title}}</h2>
+          <h4>{{::event.location.__text}}, </h4>
+          <h4>{{::event.formatteddatetime.__text}}</h4>
           <div class="card padding answerdetails " ng-show="showDetails">
-            <p>File under: <strong>{{event.customfield[2].__text}}</strong></p>
+            <p>File under: <strong>{{::event.customfield[2].__text}}</strong></p>
+            <span class="item-text-wrap" ng-bind-html="event.description_asArray"></span>
+          </div>
+        </ion-item>
+
+  </ion-list>
+<br />
+
+<!-- end Today's events -->
+
+
+<!-- Tomorrow'ss events -->
+  <ion-list type="list-inset" ng-controller="EventsTomorrowCtrl">
+    <ion-item class="item item-divider">
+     Tomorrow at {{::location.attributes.NAME}}
+    </ion-item>
+
+    <!-- location is passed as a filter into events -->
+      <!-- the : true in filter keeps East Regional and SouthEast Regional seperate -->
+    		<ion-item class="item" ng-repeat="event in events | filter: location.attributes.NAME : true" class="item item-text-wrap" ng-click="showDetails = ! showDetails">
+          <h2>{{::event.title}}</h2>
+          <h4>{{::event.location.__text}}, </h4>
+          <h4>{{::event.formatteddatetime.__text}}</h4>
+          <div class="card padding answerdetails " ng-show="showDetails">
+            <p>File under: <strong>{{::event.customfield[2].__text}}</strong></p>
             <span class="item-text-wrap" ng-bind-html="event.description_asArray"></span>
           </div>
         </ion-item>
@@ -48,28 +73,16 @@
   </ion-list>
 <br /> <br />
 
-<!-- end events -->
 
 
+<ion-list>
+  <ion-item class="item item-divider">
 
-
-      <!-- div class="padding">
-        <a class="button icon-left ion-chevron-left button-clear button-dark" href="#/app/locations"> Back to All Locations</a>
-      </div -->
-
-      <!-- ion-list>
-
-            <div class="item item-image">
-              <a href="https://www.google.com/maps/place/{{location.attributes.NAME}}+{{location.attributes.FAC_ADDRESS}}/{{location.geometry.x}},{{location.geometry.y}},17z/">
-                <img ng-src="http://maps.googleapis.com/maps/api/staticmap?center={{location.attributes.FAC_ADDRESS}}+{{location.attributes.CITY}}+NC&zoom=15&scale=1&size=440x300&maptype=roadmap&key=AIzaSyC4lGFKI7caErQ3MacquCOUjU4fJJjpzHM&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xff0000%7Clabel:L%7C{{location.attributes.FAC_ADDRESS}}+{{location.attributes.CITY}}+NC">
-              </a>
-            </div>
-      </ion-list -->
-      <!-- style>
-      .angular-google-map-container { height: 400px; }
-    </style -->
-
-<!-- ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map -->
+  <a onclick="window.open('https://foursquare.com/explore?mode=url&near=Wake%20County%20NC&q=Library', '_system'); return false;" class="item icon-left ion-social-foursquare">
+    Phone number data from Foursquare
+  </a>
+     </ion-item>
+</ion-list>
 
   </ion-content>
 </ion-view>

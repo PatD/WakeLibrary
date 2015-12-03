@@ -372,6 +372,7 @@ $scope.bookSearchInput = {};
 
 
 // Facebook Controller
+/*
   WakeLibraryApp.controller('FacebookCtrl', function($scope) {
     // Facebook widget JS
     (function(d, s, id) {
@@ -383,7 +384,7 @@ $scope.bookSearchInput = {};
     }(document, 'script', 'facebook-jssdk'));
   });
 
-
+*/
 
 
 
@@ -601,7 +602,7 @@ WakeLibraryApp.controller('EventsAdultCtrl',function($scope, EventsFactoryAdults
 
         NewsFactory.list($scope.newsitem.name, function(news) {
           $scope.news = news;
-          // console.log(news);
+           console.log(news);
         });
 
   //      $scope.$broadcast('scroll.refreshComplete');
