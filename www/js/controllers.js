@@ -49,6 +49,7 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
   WakeLibraryApp.controller('HomeSlideImagesCtrl', function($scope) {
 
     $scope.library3letterlocs = [
+      { loc: 'wrl' },
       { loc: 'orl', name:'Olivia Raney Local History Library'},
       { loc: 'nor' },
       { loc: 'erl' },
@@ -66,7 +67,6 @@ WakeLibraryApp.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
       { loc: 'sga' },
       { loc: 'wak' },
       { loc: 'wen' },
-      { loc: 'wrl' },
       { loc: 'zeb'}
     ];
 
@@ -237,6 +237,7 @@ $scope.bookSearchInput = {};
 
 
 // Controller that lists all the SPECIAL Library location
+/* Not needed.  Wakegov consolidated locations
   WakeLibraryApp.controller('SpecialLocationsCtrl', function($scope, $http, SpecialLibraryLocations) {
 
       $scope.location = {
@@ -248,7 +249,7 @@ $scope.bookSearchInput = {};
       });
 
   });
-
+*/
 
 
 
@@ -285,6 +286,7 @@ $scope.bookSearchInput = {};
 
 
 // Controller that for a single SPECIAL Library location
+/*
   WakeLibraryApp.controller('SpecialLocationCtrl', function($scope, $http, $stateParams, SpecialLibraryLocations) {
 
     // This function inappbrowswer's the map clicks
@@ -308,7 +310,7 @@ $scope.bookSearchInput = {};
 
   });
 
-
+*/
 
 
   // Controller that for a single Regular Library location

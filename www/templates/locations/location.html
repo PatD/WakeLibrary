@@ -21,7 +21,7 @@
               <a class="button button-small padding-horizontal icon-left ion-android-call button-calm" ng-repeat="answer in answers | filter: location.attributes.NAME | limitTo:1 " ng-href="tel:{{::answer.contact.phone}}"> {{::answer.contact.formattedPhone}}</a>
             </span><!-- /end foursquarecontroller -->
             <div data-tap-disabled="true" style="float:Right;">
-                <a href="https://www.google.com/maps/place/{{location.attributes.NAME}}+{{location.attributes.FAC_ADDRESS}}/{{location.geometry.x}},{{location.geometry.y}},17z/" class="google-map button padding-horizontal button-small icon-left ion-pinpoint button-positive" >Show on Map</a>
+                <a target="_blank" href="https://www.google.com/maps/place/{{location.attributes.NAME}}+{{location.attributes.FAC_ADDRESS}}/{{location.geometry.x}},{{location.geometry.y}},17z/" class="google-map button padding-horizontal button-small icon-left ion-pinpoint button-positive" >Show on Map</a>
             </div>
       </div>
     </div> <!-- ends card -->

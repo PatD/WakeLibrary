@@ -140,6 +140,7 @@ WakeLibraryApp.factory('LibraryLocations', function($http) {
 
 
 // Extra Locations
+/*   Removed - Wakegov consolidated back into 1
 WakeLibraryApp.factory('SpecialLibraryLocations', function($http) {
   var _LocationcachedData;
 
@@ -169,7 +170,7 @@ WakeLibraryApp.factory('SpecialLibraryLocations', function($http) {
 
 });
 
-
+*/
 
 
 

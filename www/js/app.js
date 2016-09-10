@@ -244,7 +244,7 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
       }
     })
 
-// Individual SPECIAL location
+/* Individual SPECIAL location
     .state('app.locationSpecial', {
       url: '/locations/special/:locationId',
       views: {
@@ -255,7 +255,7 @@ WakeLibraryApp.config(function($stateProvider, $urlRouterProvider) {
       }
     })
 
-
+*/
 // Google maps location
     .state('app.locations-all', {
       url: '/locations/all',
